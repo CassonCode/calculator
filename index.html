@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Calculator</title>
+        <meta name="description" content="This is a simple javascript calculator.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="container-page">
+            <header class="desktop-header">
+                <h1 class="desktop-title">Calculator</h1>
+                <div class="desktop-light-dark-mode"></div>
+            </header>
+            <main>
+                <div class="container-center-content">
+                    <div class="container-calculator">
+                        <div class="container-display">
+                            <div class="display-small"></div>
+                            <div class="display-big">0</div>
+                        </div>
+                        <div class="container-number-pad">
+                            <button class="number-pad-buttons button-all-clear">AC</button>
+                            <button class="number-pad-buttons button-clear-entry"></button>
+                            <button class="number-pad-buttons button-delete-last-number"></button>
+                            <button class="number-pad-buttons button-division"></button>
+                            <button class="number-pad-buttons button-number-seven"></button>
+                            <button class="number-pad-buttons button-number-eight"></button>
+                            <button class="number-pad-buttons button-number-nine"></button>
+                            <button class="number-pad-buttons button-multiplication"></button>
+                            <button class="number-pad-buttons button-number-four"></button>
+                            <button class="number-pad-buttons button-number-five"></button>
+                            <button class="number-pad-buttons button-number-six"></button>
+                            <button class="number-pad-buttons button-subtraction"></button>
+                            <button class="number-pad-buttons button-number-one"></button>
+                            <button class="number-pad-buttons button-number-two"></button>
+                            <button class="number-pad-buttons button-number-three"></button>
+                            <button class="number-pad-buttons button-addition"></button>
+                            <button class="number-pad-buttons button-positive-negative"></button>
+                            <button class="number-pad-buttons button-number-zero"></button>
+                            <button class="number-pad-buttons button-decimal"></button>
+                            <button class="number-pad-buttons button-equals"></button>
+                        </div>
+                    </div>
+                    <div class="container-history mobile-hide-history">
+                        <div class="desktop-container-history-header">
+                            <div class="desktop-exit-history"></div>
+                            <div class="desktop-history-title"></div>
+                        </div>
+                        <textarea name="history-textarea" id="history-textarea" cols="30" rows="10" readonly></textarea>
+                        <div class="container-delete-history">
+                            <div class="delete-history"></div>
+                        </div>
+                    </div>
+                    <div class="mobile-container-header">
+                        <a href="https://github.com/CassonCode/calculator" class="mobile-github-project-link"><img src="" alt="" class="mobile-github-logo"></a>
+                        <button class="mobile-history-button">History</button>
+                        <div class="mobile-container-light-dark-mode">
+                            <div class="mobile-light-dark-mode"></div>
+                        </div>
+                    </div>
+                    <button class="desktop-history-popup-button"></button>
+                </div>
+            </main>
+            <footer class="desktop-footer">
+                <div class="desktop-created-by">Created by <a href="https://github.com/CassonCode" class="desktop-github-account-link">Casson Code</a> <a href="https://github.com/CassonCode/calculator" class="desktop-github-project-link"><img src="" alt="" class="desktop-github-logo"></a></div>
+            </footer>
+        </div>
+        <script src="app.js" async defer></script>
+    </body>
+</html>
