@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: blue;
+}
+
+.container-page {
+    background-color: red;
+}
+
+.desktop-header {
+    display: none;
+}
+.desktop-container-history-header {
+    display: none;
+}
+.desktop-history-popup-button {
+    display: none;
+}
+.desktop-footer {
+    display: none;
+}
+
+.mobile-container-header {
+    background-color: green;
+    display: flex;
+    height: 50px;
+    position: sticky;
+    z-index: 10;
+}
+
+.container-calculator {
+    background-color: #EDEDED;
+    position: absolute;
+}
+
+.mobile-github-project-link {
+    background-color: #F4F4F4;
+    border-top: none;
+    border-left: none;
+    border-right: 2px solid #EDEDED;
+    border-bottom: none;
+    width: 25vw;
+}
+
+.mobile-history-button {
+    background-color: #F4F4F4;
+    border-top: none;
+    border-left: 2px solid #EDEDED;
+    border-right: 2px solid #EDEDED;
+    border-bottom: none;
+    border-radius: 0;
+    font-size: 25px;
+    width: 50vw;
+}
+
+.mobile-container-light-dark-mode {
+    background-color: #F4F4F4;
+    border-top: none;
+    border-right: none;
+    border-left: 2px solid #EDEDED;
+    border-bottom: none;
+    width: 25vw;
+}
+
+.container-history {
+    display: flex;
+    position: fixed;
+    transform: translateY(-100%);
+    transition: transform 0.5s;
+}
+
+.mobile-show-history {
+    transform: translateY(0);
+}
+
+.mobile-hide-history {
+    transform: translateY(-100%);
+    transition: transform 0.25s;
+}
+
+#history-textarea {
+    background-color: #EDEDED;
+    border: none;
+    position: absolute;
+    resize: none;
+}
+
+.container-delete-history {
+    background-color: orange;
+    bottom: 0;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
