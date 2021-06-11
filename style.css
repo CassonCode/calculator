@@ -70,6 +70,7 @@
 .button-all-clear {
     background-color: #FFDDDD;
     border-left: 2px solid #EDEDED;
+    -webkit-tap-highlight-color: #FF4444;
 }
 .button-clear-entry {
     background-color: #F4F4F4;
