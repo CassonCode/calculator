@@ -59,11 +59,85 @@
     height: 100vw;
 }
 
+.number-pad-buttons {
+    border-right: 2px solid #EDEDED;
+    border-bottom: 2px solid #EDEDED;
+    border-top: none;
+    border-left: none;
+    font-size: 25px;
+}
+
+.button-all-clear {
+    background-color: #FFDDDD;
+    border-left: 2px solid #EDEDED;
+}
+.button-clear-entry {
+    background-color: #F4F4F4;
+}
+.button-delete-last-number {
+    background-color: #F4F4F4;
+}
+.button-division {
+    background-color: #F4F4F4;
+}
+.button-number-seven {
+    background-color: white;
+    border-left: 2px solid #EDEDED;
+}
+.button-number-eight {
+    background-color: white;
+}
+.button-number-nine {
+    background-color: white;
+}
+.button-multiplication {
+    background-color: #F4F4F4;
+}
+.button-number-four {
+    background-color: white;
+    border-left: 2px solid #EDEDED;
+}
+.button-number-five {
+    background-color: white;
+}
+.button-number-six {
+    background-color: white;
+}
+.button-subtraction {
+    background-color: #F4F4F4;
+}
+.button-number-one {
+    background-color: white;
+    border-left: 2px solid #EDEDED;
+}
+.button-number-two {
+    background-color: white;
+}
+.button-number-three {
+    background-color: white;
+}
+.button-addition {
+    background-color: #F4F4F4;
+}
+.button-positive-negative {
+    background-color: #F4F4F4;
+    border-left: 2px solid #EDEDED;
+}
+.button-number-zero {
+    background-color: white;
+}
+.button-decimal {
+    background-color: #F4F4F4;
+}
+.button-equals {
+    background-color: #DCE8FF;
+}
+
 .mobile-github-project-link {
     background-color: #F4F4F4;
     border-top: none;
     border-left: none;
-    border-right: 2px solid #EDEDED;
+    border-right: 1px solid #EDEDED;
     border-bottom: none;
     width: 25vw;
 }
@@ -71,8 +145,8 @@
 .mobile-history-button {
     background-color: #F4F4F4;
     border-top: none;
-    border-left: 2px solid #EDEDED;
-    border-right: 2px solid #EDEDED;
+    border-left: 1px solid #EDEDED;
+    border-right: 1px solid #EDEDED;
     border-bottom: none;
     border-radius: 0;
     font-size: 25px;
@@ -83,7 +157,7 @@
     background-color: #F4F4F4;
     border-top: none;
     border-right: none;
-    border-left: 2px solid #EDEDED;
+    border-left: 1px solid #EDEDED;
     border-bottom: none;
     width: 25vw;
 }
