@@ -40,7 +40,23 @@ body {
 
 .container-calculator {
     background-color: #EDEDED;
+    display: flex;
+    flex-direction: column;
     position: absolute;
+}
+
+.container-display {
+    background-color: #EDEDED;
+    flex: 1;
+}
+
+.container-number-pad {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    width: 100vw;
+    height: 125vw;
 }
 
 .mobile-github-project-link {
