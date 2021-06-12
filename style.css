@@ -54,7 +54,31 @@
 
 .container-display {
     background-color: #EDEDED;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
     flex: 1;
+}
+
+.display-small {
+    background-color: #EDEDED;
+    position: relative;
+}
+
+.display-small-text {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.display-big {
+    background-color: #EDEDED;  
+    position: relative;  
+}
+
+.display-big-text {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .container-number-pad {
@@ -94,7 +118,7 @@ span {
 .button-delete-last-number {
     background-color: #F4F4F4;
     background-image: url("Images/DeleteArrowBlack.png");
-    background-size: 50px;
+    background-size: 40px;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -161,7 +185,7 @@ span {
 .button-positive-negative {
     background-color: #F4F4F4;
     background-image: url("Images/PlusMinusBlack.png");
-    background-size: 50px;
+    background-size: 40px;
     background-repeat: no-repeat;
     background-position: center;
     border-left: 2px solid #EDEDED;
@@ -232,10 +256,22 @@ span {
 }
 
 .container-delete-history {
-    background-color: orange;
+    background-color: #EDEDED;
+    /* border-top: 1px solid black; */
     bottom: 0;
+    display: flex;
+    justify-content: flex-end;
     height: 50px;
     left: 0;
     position: absolute;
     right: 0;
+}
+
+.delete-history {
+    background-image: url("Images/TrashCanBlack.png");
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
 }
