@@ -65,16 +65,16 @@
     border-top: none;
     border-left: none;
     font-size: 30px;
-    -webkit-touch-callout:none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust:none;             /* prevent webkit from resizing text to fit */
-    -webkit-tap-highlight-color:rgba(0,0,0,0); /* prevent tap highlight color / shadow */
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* prevent tap highlight color / shadow */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    user-select: auto;
 }
 
 .button-all-clear {
     background-color: #FFDDDD;
     border-left: 2px solid #EDEDED;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .button-clear-entry {
     background-color: #F4F4F4;
@@ -88,12 +88,15 @@
 .button-number-seven {
     background-color: white;
     border-left: 2px solid #EDEDED;
+    font-size: 40px;
 }
 .button-number-eight {
     background-color: white;
+    font-size: 40px;
 }
 .button-number-nine {
     background-color: white;
+    font-size: 40px;
 }
 .button-multiplication {
     background-color: #F4F4F4;
