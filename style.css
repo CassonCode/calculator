@@ -160,6 +160,10 @@ span {
 }
 .button-positive-negative {
     background-color: #F4F4F4;
+    background-image: url("Images/PlusMinusBlack.png");
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
     border-left: 2px solid #EDEDED;
 }
 .button-number-zero {
