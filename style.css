@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 
 *,
@@ -92,16 +92,19 @@
     border-left: 2px solid #EDEDED;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-number-eight {
     background-color: white;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-number-nine {
     background-color: white;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-multiplication {
     background-color: #F4F4F4;
@@ -111,16 +114,19 @@
     border-left: 2px solid #EDEDED;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-number-five {
     background-color: white;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-number-six {
     background-color: white;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-subtraction {
     background-color: #F4F4F4;
@@ -130,16 +136,19 @@
     border-left: 2px solid #EDEDED;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-number-two {
     background-color: white;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-number-three {
     background-color: white;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-addition {
     background-color: #F4F4F4;
@@ -152,6 +161,7 @@
     background-color: white;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .button-decimal {
     background-color: #F4F4F4;
