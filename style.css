@@ -13,7 +13,7 @@
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* prevent tap highlight color / shadow */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    user-select: auto;
+    user-select: none;
 }
 
 /* body {
@@ -65,6 +65,8 @@
 }
 
 .display-small-text {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -72,10 +74,13 @@
 
 .display-big {
     background-color: #EDEDED;  
+    font-size: 70px;
     position: relative;  
 }
 
 .display-big-text {
+    font-size: 70px;
+    font-family: 'Roboto', sans-serif;
     position: absolute;
     right: 0;
     bottom: 0;
