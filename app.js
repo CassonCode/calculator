@@ -61,109 +61,109 @@ buttonAllClear.addEventListener("touchend", () => {
     buttonAllClear.style.backgroundColor = "#FFDDDD";
 });
 buttonClearEntry.addEventListener("touchstart", () => {
-    buttonClearEntry.style.backgroundColor = "#FF4444";
+    buttonClearEntry.style.backgroundColor = "#FFB1B1";
 });
 buttonClearEntry.addEventListener("touchend", () => {
     buttonClearEntry.style.backgroundColor = "#F4F4F4";
 });
 buttonDeleteLastNumber.addEventListener("touchstart", () => {
-    buttonDeleteLastNumber.style.backgroundColor = "#FF4444";
+    buttonDeleteLastNumber.style.backgroundColor = "#FFB1B1";
 });
 buttonDeleteLastNumber.addEventListener("touchend", () => {
     buttonDeleteLastNumber.style.backgroundColor = "#F4F4F4";
 });
 buttonDivision.addEventListener("touchstart", () => {
-    buttonDivision.style.backgroundColor = "#6599FF";
+    buttonDivision.style.backgroundColor = "#BFD5FF";
 });
 buttonDivision.addEventListener("touchend", () => {
     buttonDivision.style.backgroundColor = "#F4F4F4";
 });
 buttonNumberSeven.addEventListener("touchstart", () => {
-    buttonNumberSeven.style.backgroundColor = "#AFAFAF";
+    buttonNumberSeven.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberSeven.addEventListener("touchend", () => {
     buttonNumberSeven.style.backgroundColor = "#fff";
 });
 buttonNumberEight.addEventListener("touchstart", () => {
-    buttonNumberEight.style.backgroundColor = "#AFAFAF";
+    buttonNumberEight.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberEight.addEventListener("touchend", () => {
     buttonNumberEight.style.backgroundColor = "#fff";
 });
 buttonNumberNine.addEventListener("touchstart", () => {
-    buttonNumberNine.style.backgroundColor = "#AFAFAF";
+    buttonNumberNine.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberNine.addEventListener("touchend", () => {
     buttonNumberNine.style.backgroundColor = "#fff";
 });
 buttonMultiplication.addEventListener("touchstart", () => {
-    buttonMultiplication.style.backgroundColor = "#6599FF";
+    buttonMultiplication.style.backgroundColor = "#BFD5FF";
 });
 buttonMultiplication.addEventListener("touchend", () => {
     buttonMultiplication.style.backgroundColor = "#F4F4F4";
 });
 buttonNumberFour.addEventListener("touchstart", () => {
-    buttonNumberFour.style.backgroundColor = "#AFAFAF";
+    buttonNumberFour.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberFour.addEventListener("touchend", () => {
     buttonNumberFour.style.backgroundColor = "#fff";
 });
 buttonNumberFive.addEventListener("touchstart", () => {
-    buttonNumberFive.style.backgroundColor = "#AFAFAF";
+    buttonNumberFive.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberFive.addEventListener("touchend", () => {
     buttonNumberFive.style.backgroundColor = "#fff";
 });
 buttonNumberSix.addEventListener("touchstart", () => {
-    buttonNumberSix.style.backgroundColor = "#AFAFAF";
+    buttonNumberSix.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberSix.addEventListener("touchend", () => {
     buttonNumberSix.style.backgroundColor = "#fff";
 });
 buttonSubtraction.addEventListener("touchstart", () => {
-    buttonSubtraction.style.backgroundColor = "#6599FF";
+    buttonSubtraction.style.backgroundColor = "#BFD5FF";
 });
 buttonSubtraction.addEventListener("touchend", () => {
     buttonSubtraction.style.backgroundColor = "#F4F4F4";
 });
 buttonNumberOne.addEventListener("touchstart", () => {
-    buttonNumberOne.style.backgroundColor = "#AFAFAF";
+    buttonNumberOne.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberOne.addEventListener("touchend", () => {
     buttonNumberOne.style.backgroundColor = "#fff";
 });
 buttonNumberTwo.addEventListener("touchstart", () => {
-    buttonNumberTwo.style.backgroundColor = "#AFAFAF";
+    buttonNumberTwo.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberTwo.addEventListener("touchend", () => {
     buttonNumberTwo.style.backgroundColor = "#fff";
 });
 buttonNumberThree.addEventListener("touchstart", () => {
-    buttonNumberThree.style.backgroundColor = "#AFAFAF";
+    buttonNumberThree.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberThree.addEventListener("touchend", () => {
     buttonNumberThree.style.backgroundColor = "#fff";
 });
 buttonAddition.addEventListener("touchstart", () => {
-    buttonAddition.style.backgroundColor = "#6599FF";
+    buttonAddition.style.backgroundColor = "#BFD5FF";
 });
 buttonAddition.addEventListener("touchend", () => {
     buttonAddition.style.backgroundColor = "#F4F4F4";
 });
 buttonPositiveNegative.addEventListener("touchstart", () => {
-    buttonPositiveNegative.style.backgroundColor = "#AFAFAF";
+    buttonPositiveNegative.style.backgroundColor = "#DCDCDC";
 });
 buttonPositiveNegative.addEventListener("touchend", () => {
     buttonPositiveNegative.style.backgroundColor = "#F4F4F4";
 });
 buttonNumberZero.addEventListener("touchstart", () => {
-    buttonNumberZero.style.backgroundColor = "#AFAFAF";
+    buttonNumberZero.style.backgroundColor = "#DCDCDC";
 });
 buttonNumberZero.addEventListener("touchend", () => {
     buttonNumberZero.style.backgroundColor = "#fff";
 });
 buttonDecimal.addEventListener("touchstart", () => {
-    buttonDecimal.style.backgroundColor = "#AFAFAF";
+    buttonDecimal.style.backgroundColor = "#DCDCDC";
 });
 buttonDecimal.addEventListener("touchend", () => {
     buttonDecimal.style.backgroundColor = "#F4F4F4";
