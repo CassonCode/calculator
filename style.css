@@ -261,7 +261,7 @@ span {
     bottom: 0;
     display: flex;
     justify-content: flex-end;
-    height: 50px;
+    height: 70px;
     left: 0;
     position: absolute;
     right: 0;
@@ -269,9 +269,10 @@ span {
 
 .delete-history {
     background-image: url("Images/TrashCanBlack.png");
-    background-size: 40px;
+    background-size: 45px;
     background-repeat: no-repeat;
     background-position: center;
+    margin-right: 15px;
     width: 50px;
     height: 50px;
 }
