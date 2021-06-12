@@ -79,6 +79,11 @@
     user-select: auto;
 }
 
+span {
+    font-size: 50px; 
+    font-family: 'Segoe UI';
+}
+
 .button-all-clear {
     background-color: #FFDDDD;
     border-left: 2px solid #EDEDED;
@@ -88,6 +93,10 @@
 }
 .button-delete-last-number {
     background-color: #F4F4F4;
+    background-image: url("Images/DeleteArrowBlack.png");
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .button-division {
     background-color: #F4F4F4;
@@ -160,6 +169,7 @@
 }
 .button-decimal {
     background-color: #F4F4F4;
+    font-size: 47px;
 }
 .button-equals {
     background-color: #DCE8FF;
