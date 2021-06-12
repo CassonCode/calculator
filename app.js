@@ -58,6 +58,9 @@ buttonAllClear.addEventListener("touchstart", () => {
     buttonAllClear.style.backgroundColor = "#FF4444";
 });
 buttonAllClear.addEventListener("touchend", () => {
+    // buttonAllClear.style.transitionDelay = "1s";
+    buttonAllClear.style.transitionProperty = "background-color";
+    buttonAllClear.style.transitionTimingFunction = "ease-out";
     buttonAllClear.style.backgroundColor = "#FFDDDD";
 });
 buttonClearEntry.addEventListener("touchstart", () => {
