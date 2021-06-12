@@ -54,12 +54,6 @@ mobileHistoryButton.addEventListener("click", () => {
 
 
 //
-mobileHistoryButton.addEventListener("touchstart", () => {
-    mobileHistoryButton.style.backgroundColor = "#AFAFAF";
-});
-mobileHistoryButton.addEventListener("touchend", () => {
-    mobileHistoryButton.style.backgroundColor = "#F4F4F4";
-});
 buttonAllClear.addEventListener("touchstart", () => {
     buttonAllClear.style.backgroundColor = "#FF4444";
 });
