@@ -28,18 +28,23 @@ const buttonEquals = document.querySelector(".button-equals");
 const touchNumbers = document.querySelectorAll(".touch-numbers");
 const touchDelete = document.querySelectorAll(".touch-delete");
 const touchOperator = document.querySelectorAll(".touch-operator");
+const displaySmallText = document.querySelector(".display-small-text");
+const displayBigText = document.querySelector(".display-big-text");
 
+let currentNumberValue = 0;
+let currentNumber = "0";
+let currentCalculation;
+
+let number1String = buttonNumberZero.value;
+let number1 = parseInt(number1String);
 
 //
 containerPage.style.height = window.innerHeight + "px";
 containerPage.style.width = window.innerWidth + "px";
-
 containerCalculator.style.height = window.innerHeight + "px";
 containerCalculator.style.width = window.innerWidth + "px";
-
 containerHistory.style.height = window.innerHeight + "px";
 containerHistory.style.width = window.innerWidth + "px";
-
 historyTextArea.style.height = (window.innerHeight - 50) + "px";
 historyTextArea.style.width = window.innerWidth + "px";
 
@@ -55,6 +60,36 @@ mobileHistoryButton.addEventListener("click", () => {
         containerHistory.classList.remove("mobile-show-history");
     }
 });
+
+
+//
+function add(num1, num2) {
+    return num1 + num2;
+}
+
+
+//
+function setCurrentNumber() {
+    if (displayBigText.innerText === "0") {
+        currentNumber = "";
+    }
+    currentNumberValue += parseInt(this.value);
+    currentNumber += this.value;
+    displayBigText.innerText = currentNumber;
+}
+
+//
+function setCurrentCalculation() {
+    displaySmallText.innerText = currentNumber + this.value;
+}
+
+//
+function allClear() {
+    currentNumber = "0";
+    currentNumberValue = 0;
+    displayBigText.innerText = currentNumber;
+    displaySmallText.innerText = "";
+}
 
 
 //
@@ -76,16 +111,19 @@ function changeColorTouchEnd() {
 }
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
+touchNumbers.forEach(number => number.addEventListener("touchstart", setCurrentNumber));
 touchDelete.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchOperator.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
 buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
+buttonAllClear.addEventListener("click", allClear);
 buttonEquals.addEventListener("touchstart", changeColorTouchStart);
 buttonEquals.addEventListener("touchend", changeColorTouchEnd);
 buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
 buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
 buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
+
 
