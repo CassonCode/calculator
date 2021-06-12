@@ -69,13 +69,32 @@ function add(num1, num2) {
 
 
 //
+let fontScale = 1;
 function setCurrentNumber() {
+    if (currentNumber.length < 9) {
+        displayBigText.style.fontSize = "100%";
+        fontScale = 1;
+    }
+    if (currentNumber.length === 9 && fontScale === 1) {
+        displayBigText.style.fontSize = "90%";
+        fontScale = 2;
+    }
+    else if (currentNumber.length === 10 && fontScale === 2) {
+        displayBigText.style.fontSize = "82%";
+        fontScale = 3;
+    }
+    else if (currentNumber.length === 11 && fontScale === 3) {
+        displayBigText.style.fontSize = "75%";
+        fontScale = 4;
+    }
     if (displayBigText.innerText === "0") {
         currentNumber = "";
     }
-    currentNumberValue += parseInt(this.value);
-    currentNumber += this.value;
-    displayBigText.innerText = currentNumber;
+    if (currentNumber.length < 12) {
+        currentNumberValue += parseInt(this.value);
+        currentNumber += this.value;
+        displayBigText.innerText = currentNumber;
+    }
 }
 
 //
@@ -111,7 +130,7 @@ function changeColorTouchEnd() {
 }
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-touchNumbers.forEach(number => number.addEventListener("touchstart", setCurrentNumber));
+touchNumbers.forEach(number => number.addEventListener("mousedown", setCurrentNumber));
 touchDelete.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
