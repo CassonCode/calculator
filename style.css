@@ -74,15 +74,15 @@
 
 .display-big {
     background-color: #EDEDED;  
-    font-size: 70px;
+    font-size: 18vw;
     position: relative;  
 }
 
 .display-big-text {
-    font-size: 70px;
+    font-size: 18vw;
     font-family: 'Roboto', sans-serif;
     position: absolute;
-    right: 0;
+    right: 15px;
     bottom: 0;
 }
 
@@ -264,8 +264,8 @@ span {
     background-color: #EDEDED;
     /* border-top: 1px solid black; */
     bottom: 0;
-    display: flex;
-    justify-content: flex-end;
+    /* display: flex;
+    justify-content: flex-end; */
     height: 70px;
     left: 0;
     position: absolute;
@@ -277,7 +277,7 @@ span {
     background-size: 45px;
     background-repeat: no-repeat;
     background-position: center;
-    margin-right: 15px;
+    margin-left: 15px;
     width: 50px;
     height: 50px;
 }

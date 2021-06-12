@@ -104,6 +104,7 @@ function setCurrentCalculation() {
 
 //
 function allClear() {
+    displayBigText.style.fontSize = "100%";
     currentNumber = "0";
     currentNumberValue = 0;
     displayBigText.innerText = currentNumber;
