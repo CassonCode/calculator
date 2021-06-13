@@ -82,7 +82,7 @@
     font-size: 18vw;
     font-family: 'Roboto', sans-serif;
     position: absolute;
-    right: 15px;
+    right: 4.5vw;
     bottom: 0;
 }
 
@@ -120,7 +120,7 @@ span {
 .button-clear-entry {
     background-color: #F4F4F4;
 }
-.button-delete-last-number {
+.button-delete-last-digit {
     background-color: #F4F4F4;
     background-image: url("Images/DeleteArrowBlack.png");
     background-size: 40px;

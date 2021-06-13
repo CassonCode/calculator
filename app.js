@@ -7,7 +7,7 @@ const containerCalculator = document.querySelector(".container-calculator");
 const containerNumberPad = document.querySelector(".container-number-pad");
 const buttonAllClear = document.querySelector(".button-all-clear");
 const buttonClearEntry = document.querySelector(".button-clear-entry");
-const buttonDeleteLastNumber = document.querySelector(".button-delete-last-number");
+const buttonDeleteLastDigit = document.querySelector(".button-delete-last-digit");
 const buttonDivision = document.querySelector(".button-division");
 const buttonNumberSeven = document.querySelector(".button-number-seven");
 const buttonNumberEight = document.querySelector(".button-number-eight");
@@ -107,8 +107,42 @@ function allClear() {
     displayBigText.style.fontSize = "100%";
     currentNumber = "0";
     currentNumberValue = 0;
-    displayBigText.innerText = currentNumber;
+    displayBigText.innerText = "0";
     displaySmallText.innerText = "";
+}
+
+function clearEntry() {
+    displayBigText.style.fontSize = "100%";
+    currentNumber = "0";
+    currentNumberValue = 0;
+    displayBigText.innerText = "0";
+}
+
+function deleteLastDigit() {
+    if (displayBigText.innerText !== "0") {
+        if (displayBigText.innerText.length === 1) {
+            displayBigText.innerText = "0";
+            currentNumber = displayBigText.innerText;
+            currentNumberValue = parseInt(currentNumber);
+        }
+        else {
+            if (displayBigText.innerText.length === 12) {
+                displayBigText.style.fontSize = "82%";
+                fontScale = 3;
+            }
+            else if (displayBigText.innerText.length === 11) {
+                displayBigText.style.fontSize = "90%";
+                fontScale = 2;
+            }
+            else if (displayBigText.innerText.length === 10) {
+                displayBigText.style.fontSize = "100%";
+                fontScale = 1;
+            }
+            displayBigText.innerText = displayBigText.innerText.slice(0, -1);
+            currentNumber = displayBigText.innerText;
+            currentNumberValue = parseInt(currentNumber);
+        }
+    }
 }
 
 
@@ -139,6 +173,8 @@ touchOperator.forEach(button => button.addEventListener("touchend", changeColorT
 buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
 buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
 buttonAllClear.addEventListener("click", allClear);
+buttonClearEntry.addEventListener("click", clearEntry);
+buttonDeleteLastDigit.addEventListener("mousedown", deleteLastDigit);
 buttonEquals.addEventListener("touchstart", changeColorTouchStart);
 buttonEquals.addEventListener("touchend", changeColorTouchEnd);
 buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
