@@ -241,7 +241,7 @@ function changeLightDarkMode() {
             button.style.backgroundColor = "#060606";
             button.style.color = "#fff";
         });
-        buttonAllClear.style.backgroundColor = "#210000";
+        buttonAllClear.style.backgroundColor = "#310E0E";
         buttonAllClear.style.color = "#fff";
         numberPadButtons.forEach(button => {
             button.style.borderRight = "4px solid #060606";
@@ -251,6 +251,10 @@ function changeLightDarkMode() {
         buttonDeleteLastDigit.style.backgroundImage = "url('Images/DeleteArrowWhite.png')";
         buttonDeleteLastDigit.style.backgroundColor = "#1e1e1e";
         buttonPositiveNegative.style.backgroundImage = "url('Images/PlusMinusWhite.png')";
+        buttonPositiveNegative.style.backgroundColor = "#1e1e1e";
+        buttonEquals.style.backgroundColor = "#0E1628";
+        buttonClearEntry.style.backgroundColor = "#1e1e1e";
+        buttonDecimal.style.backgroundColor = "#1e1e1e";
         lightMode = false;
     }
     else {

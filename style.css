@@ -93,11 +93,12 @@
     grid-template-rows: repeat(5, 1fr);
     width: 100vw;
     height: 100vw;
+    border-left: 8px solid #fff;
 }
 
 .number-pad-buttons {
-    border-right: 4px solid #fff;    /*  EDEDED  */
-    border-bottom: 4px solid #fff;
+    border-right: 8px solid #fff;    /*  EDEDED  */
+    border-bottom: 8px solid #fff;
     border-top: none;
     border-left: none;
     font-size: 30px;
@@ -115,7 +116,6 @@ span {
 
 .button-all-clear {
     background-color: #FFDDDD;
-    border-left: 4px solid #fff;
 }
 .button-clear-entry {
     background-color: #fff8f1;
@@ -132,21 +132,21 @@ span {
 }
 .button-number-seven {
     background-color: white;
-    border-right: 1px solid #fff8f1;
-    border-bottom: 1px solid #fff8f1;
+    /* border-right: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1; */
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-eight {
     background-color: white;
-    border-right: 1px solid #fff8f1;
-    border-bottom: 1px solid #fff8f1;
+    /* border-right: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1; */
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-nine {
     background-color: white;
-    border-bottom: 1px solid #fff8f1;
+    /* border-bottom: 1px solid #fff8f1; */
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
@@ -155,21 +155,21 @@ span {
 }
 .button-number-four {
     background-color: white;
-    border-right: 1px solid #fff8f1;
-    border-bottom: 1px solid #fff8f1;
+    /* border-right: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1; */
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-five {
     background-color: white;
-    border-right: 1px solid #fff8f1;
-    border-bottom: 1px solid #fff8f1;
+    /* border-right: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1; */
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-six {
     background-color: white;
-    border-bottom: 1px solid #fff8f1;
+    /* border-bottom: 1px solid #fff8f1; */
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
@@ -178,14 +178,14 @@ span {
 }
 .button-number-one {
     background-color: white;
-    border-right: 1px solid #fff8f1;
+    /* border-right: 1px solid #fff8f1; */
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-two {
     background-color: white;
-    border-right: 1px solid #fff8f1;
-    border-bottom: 1px solid #fff8f1;
+    /* border-right: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1; */
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
@@ -203,21 +203,23 @@ span {
     background-size: 40px;
     background-repeat: no-repeat;
     background-position: center;
-    border-left: 4px solid #fff;
 }
 .button-number-zero {
     background-color: white;
-    border: none;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-decimal {
     background-color: #fff8f1;
-    border-left: 2px solid #fff;
+    /* border-left: 2px solid #fff; */
     font-size: 47px;
 }
 .button-equals {
     background-color: #DCE8FF;
+}
+
+.touch-numbers {
+    /* background-color: #fffdfa; */
 }
 
 .mobile-github-project-link {
@@ -225,7 +227,7 @@ span {
     border-top: none;
     border-left: none;
     border-bottom: none;
-    width: 25vw;
+    width: 30vw;
 }
 
 .mobile-history-button {
@@ -236,7 +238,7 @@ span {
     border-bottom: none;
     border-radius: 0;
     font-size: 25px;
-    width: 50vw;
+    width: 40vw;
 }
 
 .mobile-container-light-dark-mode {
@@ -245,7 +247,7 @@ span {
     border-bottom: none;
     display: flex;
     justify-content: center;
-    width: 25vw;
+    width: 30vw;
 }
 
 .mobile-light-dark-mode {
