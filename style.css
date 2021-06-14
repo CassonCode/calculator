@@ -65,7 +65,7 @@
 }
 
 .display-small-text {
-    font-size: 20px;
+    font-size: 7vw;
     font-family: 'Roboto', sans-serif;
     position: absolute;
     right: 0;
@@ -96,8 +96,8 @@
 }
 
 .number-pad-buttons {
-    border-right: 2px solid #fff;    /*  EDEDED  */
-    border-bottom: 2px solid #fff;
+    border-right: 4px solid #fff;    /*  EDEDED  */
+    border-bottom: 4px solid #fff;
     border-top: none;
     border-left: none;
     font-size: 30px;
@@ -115,7 +115,7 @@ span {
 
 .button-all-clear {
     background-color: #FFDDDD;
-    border-left: 2px solid #fff;
+    border-left: 4px solid #fff;
 }
 .button-clear-entry {
     background-color: #fff8f1;
@@ -203,7 +203,7 @@ span {
     background-size: 40px;
     background-repeat: no-repeat;
     background-position: center;
-    border-left: 2px solid #fff;
+    border-left: 4px solid #fff;
 }
 .button-number-zero {
     background-color: white;

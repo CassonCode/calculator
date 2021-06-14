@@ -33,7 +33,14 @@ const displayBigText = document.querySelector(".display-big-text");
 
 let currentNumberValue = 0;
 let currentNumber = "0";
-let currentCalculation;
+let currentCalculationValue = 0;
+let currentCalculation = "";
+
+let isActiveDivision = false;
+let isActiveMultiplication = false;
+let isActiveSubtraction = false;
+let isActiveAddition = false;
+
 
 let number1String = buttonNumberZero.value;
 let number1 = parseInt(number1String);
@@ -63,14 +70,46 @@ mobileHistoryButton.addEventListener("click", () => {
 
 
 //
-function add(num1, num2) {
-    return num1 + num2;
+function setOperatorColor() {
+    touchOperator.forEach(button => button.style.backgroundColor = "#fff8f1");
+    isActiveAddition ? buttonAddition.style.backgroundColor = "#fde6ce"
+    : isActiveDivision ? buttonDivision.style.backgroundColor = "#fde6ce"
+    : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#fde6ce"
+    : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#fde6ce"
+    : touchOperator.forEach(button => button.style.backgroundColor = "#fff8f1");;
+}
+
+
+//
+function setActiveAdd() {
+    isActiveAddition = true;
+    isActiveDivision = false;
+    isActiveMultiplication = false;
+    isActiveSubtraction = false;
+    setOperatorColor();
+}
+
+
+//
+function add() {
+    setActiveAdd();
+    if (currentCalculation === "") {
+        displaySmallText.innerText = currentNumberValue + " " + buttonAddition.value;
+        currentCalculationValue = currentNumberValue;
+    }
+    else {
+        currentCalculationValue
+        displaySmallText.innerText = currentCalculationValue + " " + buttonAddition.value;
+    }
+    currentNumberValue = num1 + num2;
+    currentNumber = currentNumberValue + "";
+    displayBigText.innerText = currentNumber;
 }
 
 
 //
 let fontScale = 1;
-function setCurrentNumber() {
+function setCurrentNumberFontSize() {
     if (currentNumber.length < 9) {
         displayBigText.style.fontSize = "100%";
         fontScale = 1;
@@ -87,6 +126,11 @@ function setCurrentNumber() {
         displayBigText.style.fontSize = "75%";
         fontScale = 4;
     }
+}
+
+
+function setCurrentNumber() {
+    setCurrentNumberFontSize();
     if (displayBigText.innerText === "0") {
         currentNumber = "";
     }
@@ -98,9 +142,9 @@ function setCurrentNumber() {
 }
 
 //
-function setCurrentCalculation() {
-    displaySmallText.innerText = currentNumber + this.value;
-}
+// function setCurrentCalculation() {
+//     displaySmallText.innerText = currentNumber + this.value;
+// }
 
 //
 function allClear() {
@@ -109,6 +153,11 @@ function allClear() {
     currentNumberValue = 0;
     displayBigText.innerText = "0";
     displaySmallText.innerText = "";
+    isActiveAddition = false;
+    isActiveDivision = false;
+    isActiveMultiplication = false;
+    isActiveSubtraction = false;
+    setOperatorColor();
 }
 
 function clearEntry() {
@@ -151,7 +200,7 @@ function changeColorTouchStart() {
     return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#F4F4F4"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FF4444"
     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#FFB1B1"
-    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#BFD5FF"
+    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fde6ce"
     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#6599FF"
     : this.style.backgroundColor = "#F4F4F4";
 }
