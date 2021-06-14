@@ -104,7 +104,7 @@ function add() {
     else if (currentEntryCount > 1) {
         // currentNumberValue = parseInt(displayBigText.innerText);
         currentCalculationValue += currentNumberValue;
-        displaySmallText.innerText = `${currentCalculationValue} + " " + ${buttonAddition.value}`;
+        displaySmallText.innerText = currentCalculationValue + " " + buttonAddition.value;
         currentNumberValue = currentCalculationValue;
         displayBigText.innerText = currentNumberValue + "";
     }
@@ -144,10 +144,15 @@ function setCurrentNumber() {
         displayBigText.innerText = currentNumber;
         holdDigit = false;
     }
-    else if (currentNumber.length < 12) {
+    else if (currentNumber.length < 12 && !(isActiveSubtraction === true || isActiveAddition === true || isActiveMultiplication === true || isActiveDivision === true)) {
         currentNumber += this.value;
         displayBigText.innerText = currentNumber;
-        currentNumberValue = parseInt(currentNumber);
+        currentNumberValue += parseInt(this.value);
+    }
+    else {
+        currentNumber = this.value;
+        displayBigText.innerText = currentNumber;
+        currentNumberValue += parseInt(this.value);
     }
 }
 
@@ -170,7 +175,7 @@ function allClear() {
     setOperatorColor();
     holdDigit = true;
     currentEntryCount = 0;
-    currentCalculation === "";
+    currentCalculation = "";
 }
 
 function clearEntry() {
