@@ -60,7 +60,7 @@
 }
 
 .display-small {
-    background-color: #f3f3f3;  /*  FFF0E0  FEF1E0  EDEDED  F4F4F4  */
+    background-color: #fff;  /*  f3f3f3  FEF1E0  EDEDED  F4F4F4  */
     position: relative;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .display-big {
-    background-color: #f3f3f3;  
+    background-color: #fff;  /*  f3f3f3  */
     font-size: 18vw;
     position: relative;  
 }
@@ -96,8 +96,8 @@
 }
 
 .number-pad-buttons {
-    border-right: 2px solid #EDEDED;
-    border-bottom: 2px solid #EDEDED;
+    border-right: 2px solid #fff;    /*  EDEDED  */
+    border-bottom: 2px solid #fff;
     border-top: none;
     border-left: none;
     font-size: 30px;
@@ -132,17 +132,23 @@ span {
 }
 .button-number-seven {
     background-color: white;
-    border-left: 2px solid #EDEDED;
+    border-right: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-eight {
     background-color: white;
+    border-right: 1px solid #fff8f1;
+    border-left: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-nine {
     background-color: white;
+    border-left: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
@@ -151,17 +157,26 @@ span {
 }
 .button-number-four {
     background-color: white;
-    border-left: 2px solid #EDEDED;
+    border-top: 1px solid #fff8f1;
+    border-right: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-five {
     background-color: white;
+    border-top: 1px solid #fff8f1;
+    border-right: 1px solid #fff8f1;
+    border-left: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-six {
     background-color: white;
+    border-top: 1px solid #fff8f1;
+    border-left: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
@@ -170,17 +185,24 @@ span {
 }
 .button-number-one {
     background-color: white;
-    border-left: 2px solid #EDEDED;
+    border-right: 1px solid #fff8f1;
+    border-top: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-two {
     background-color: white;
+    border-top: 1px solid #fff8f1;
+    border-right: 1px solid #fff8f1;
+    border-left: 1px solid #fff8f1;
+    border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-three {
     background-color: white;
+    border-top: 1px solid #fff8f1;
+    border-left: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
@@ -197,6 +219,7 @@ span {
 }
 .button-number-zero {
     background-color: white;
+    border-top: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
@@ -209,19 +232,19 @@ span {
 }
 
 .mobile-github-project-link {
-    background-color: #fff8f1;
+    background-color: #fff;
     border-top: none;
     border-left: none;
-    border-right: 1px solid #EDEDED;
+    border-right: 1px solid #fff8f1;
     border-bottom: none;
     width: 25vw;
 }
 
 .mobile-history-button {
-    background-color: #fff8f1;
+    background-color: #fff;  /*  fff8f1  */
     border-top: none;
-    border-left: 1px solid #EDEDED;
-    border-right: 1px solid #EDEDED;
+    border-left: 1px solid #fff8f1;
+    border-right: 1px solid #fff8f1;
     border-bottom: none;
     border-radius: 0;
     font-size: 25px;
@@ -229,10 +252,10 @@ span {
 }
 
 .mobile-container-light-dark-mode {
-    background-color: #fff8f1;
+    background-color: #fff;
     border-top: none;
     border-right: none;
-    border-left: 1px solid #EDEDED;
+    border-left: 1px solid #fff8f1;
     border-bottom: none;
     width: 25vw;
 }
@@ -254,14 +277,14 @@ span {
 }
 
 #history-textarea {
-    background-color: #f3f3f3;
+    background-color: #fff;
     border: none;
     position: absolute;
     resize: none;
 }
 
 .container-delete-history {
-    background-color: #f3f3f3;
+    background-color: #fff;
     /* border-top: 1px solid black; */
     bottom: 0;
     /* display: flex;
