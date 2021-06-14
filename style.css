@@ -53,14 +53,14 @@
 }
 
 .container-display {
-    background-color: #EDEDED;
+    background-color: #EDEDED;  /*  FFF0E0  FEF1E0  EDEDED  */
     display: grid;
     grid-template-rows: 2fr 1fr;
     flex: 1;
 }
 
 .display-small {
-    background-color: #EDEDED;
+    background-color: #f3f3f3;  /*  FFF0E0  FEF1E0  EDEDED  F4F4F4  */
     position: relative;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .display-big {
-    background-color: #EDEDED;  
+    background-color: #f3f3f3;  
     font-size: 18vw;
     position: relative;  
 }
@@ -118,17 +118,17 @@ span {
     border-left: 2px solid #EDEDED;
 }
 .button-clear-entry {
-    background-color: #F4F4F4;
+    background-color: #fff8f1;
 }
 .button-delete-last-digit {
-    background-color: #F4F4F4;
+    background-color: #fff8f1;
     background-image: url("Images/DeleteArrowBlack.png");
     background-size: 40px;
     background-repeat: no-repeat;
     background-position: center;
 }
 .button-division {
-    background-color: #F4F4F4;
+    background-color: #fff8f1;
 }
 .button-number-seven {
     background-color: white;
@@ -147,7 +147,7 @@ span {
     font-family: 'Roboto', sans-serif;
 }
 .button-multiplication {
-    background-color: #F4F4F4;
+    background-color: #fff8f1;
 }
 .button-number-four {
     background-color: white;
@@ -166,7 +166,7 @@ span {
     font-family: 'Roboto', sans-serif;
 }
 .button-subtraction {
-    background-color: #F4F4F4;
+    background-color: #fff8f1;
 }
 .button-number-one {
     background-color: white;
@@ -185,10 +185,10 @@ span {
     font-family: 'Roboto', sans-serif;
 }
 .button-addition {
-    background-color: #F4F4F4;
+    background-color: #fff8f1;
 }
 .button-positive-negative {
-    background-color: #F4F4F4;
+    background-color: #fff8f1;
     background-image: url("Images/PlusMinusBlack.png");
     background-size: 40px;
     background-repeat: no-repeat;
@@ -201,7 +201,7 @@ span {
     font-family: 'Roboto', sans-serif;
 }
 .button-decimal {
-    background-color: #F4F4F4;
+    background-color: #fff8f1;
     font-size: 47px;
 }
 .button-equals {
@@ -209,7 +209,7 @@ span {
 }
 
 .mobile-github-project-link {
-    background-color: white;
+    background-color: #fff8f1;
     border-top: none;
     border-left: none;
     border-right: 1px solid #EDEDED;
@@ -218,7 +218,7 @@ span {
 }
 
 .mobile-history-button {
-    background-color: white;
+    background-color: #fff8f1;
     border-top: none;
     border-left: 1px solid #EDEDED;
     border-right: 1px solid #EDEDED;
@@ -229,7 +229,7 @@ span {
 }
 
 .mobile-container-light-dark-mode {
-    background-color: white;
+    background-color: #fff8f1;
     border-top: none;
     border-right: none;
     border-left: 1px solid #EDEDED;
@@ -254,19 +254,19 @@ span {
 }
 
 #history-textarea {
-    background-color: #EDEDED;
+    background-color: #f3f3f3;
     border: none;
     position: absolute;
     resize: none;
 }
 
 .container-delete-history {
-    background-color: #EDEDED;
+    background-color: #f3f3f3;
     /* border-top: 1px solid black; */
     bottom: 0;
     /* display: flex;
     justify-content: flex-end; */
-    height: 70px;
+    height: 65px;
     left: 0;
     position: absolute;
     right: 0;
@@ -277,7 +277,7 @@ span {
     background-size: 45px;
     background-repeat: no-repeat;
     background-position: center;
-    margin-left: 15px;
+    margin-left: 12px;
     width: 50px;
     height: 50px;
 }
