@@ -148,20 +148,20 @@ function deleteLastDigit() {
 
 //
 function changeColorTouchStart() {
-    return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#DCDCDC"
+    return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#F4F4F4"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FF4444"
     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#FFB1B1"
     : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#BFD5FF"
     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#6599FF"
-    : this.style.backgroundColor = "#DCDCDC";
+    : this.style.backgroundColor = "#F4F4F4";
 }
 function changeColorTouchEnd() {
     return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#fff"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FFDDDD"
-    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#F4F4F4"
-    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#F4F4F4"
+    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#fff8f1"
+    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fff8f1"
     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#DCE8FF"
-    : this.style.backgroundColor = "#F4F4F4";
+    : this.style.backgroundColor = "#fff8f1";
 }
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));

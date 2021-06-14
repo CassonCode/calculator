@@ -115,7 +115,7 @@ span {
 
 .button-all-clear {
     background-color: #FFDDDD;
-    border-left: 2px solid #EDEDED;
+    border-left: 2px solid #fff;
 }
 .button-clear-entry {
     background-color: #fff8f1;
@@ -140,14 +140,12 @@ span {
 .button-number-eight {
     background-color: white;
     border-right: 1px solid #fff8f1;
-    border-left: 1px solid #fff8f1;
     border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-nine {
     background-color: white;
-    border-left: 1px solid #fff8f1;
     border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
@@ -157,7 +155,6 @@ span {
 }
 .button-number-four {
     background-color: white;
-    border-top: 1px solid #fff8f1;
     border-right: 1px solid #fff8f1;
     border-bottom: 1px solid #fff8f1;
     font-size: 45px;
@@ -165,17 +162,13 @@ span {
 }
 .button-number-five {
     background-color: white;
-    border-top: 1px solid #fff8f1;
     border-right: 1px solid #fff8f1;
-    border-left: 1px solid #fff8f1;
     border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-six {
     background-color: white;
-    border-top: 1px solid #fff8f1;
-    border-left: 1px solid #fff8f1;
     border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
@@ -186,23 +179,18 @@ span {
 .button-number-one {
     background-color: white;
     border-right: 1px solid #fff8f1;
-    border-top: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-two {
     background-color: white;
-    border-top: 1px solid #fff8f1;
     border-right: 1px solid #fff8f1;
-    border-left: 1px solid #fff8f1;
     border-bottom: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-number-three {
     background-color: white;
-    border-top: 1px solid #fff8f1;
-    border-left: 1px solid #fff8f1;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
@@ -215,16 +203,17 @@ span {
     background-size: 40px;
     background-repeat: no-repeat;
     background-position: center;
-    border-left: 2px solid #EDEDED;
+    border-left: 2px solid #fff;
 }
 .button-number-zero {
     background-color: white;
-    border-top: 1px solid #fff8f1;
+    border: none;
     font-size: 45px;
     font-family: 'Roboto', sans-serif;
 }
 .button-decimal {
     background-color: #fff8f1;
+    border-left: 2px solid #fff;
     font-size: 47px;
 }
 .button-equals {
