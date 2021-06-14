@@ -36,6 +36,8 @@ let currentNumber = "0";
 let currentCalculationValue = 0;
 let currentCalculation = "";
 
+let currentEntryCount = 0;
+
 let isActiveDivision = false;
 let isActiveMultiplication = false;
 let isActiveSubtraction = false;
@@ -96,14 +98,16 @@ function add() {
     if (currentCalculation === "") {
         displaySmallText.innerText = currentNumberValue + " " + buttonAddition.value;
         currentCalculationValue = currentNumberValue;
+        currentCalculation = displaySmallText.innerText;
+        currentEntryCount = 2;
     }
-    else {
-        currentCalculationValue
-        displaySmallText.innerText = currentCalculationValue + " " + buttonAddition.value;
+    else if (currentEntryCount > 1) {
+        // currentNumberValue = parseInt(displayBigText.innerText);
+        currentCalculationValue += currentNumberValue;
+        displaySmallText.innerText = `${currentCalculationValue} + " " + ${buttonAddition.value}`;
+        currentNumberValue = currentCalculationValue;
+        displayBigText.innerText = currentNumberValue + "";
     }
-    currentNumberValue = num1 + num2;
-    currentNumber = currentNumberValue + "";
-    displayBigText.innerText = currentNumber;
 }
 
 
@@ -128,16 +132,22 @@ function setCurrentNumberFontSize() {
     }
 }
 
-
+let holdDigit = true;
 function setCurrentNumber() {
     setCurrentNumberFontSize();
     if (displayBigText.innerText === "0") {
         currentNumber = "";
     }
-    if (currentNumber.length < 12) {
-        currentNumberValue += parseInt(this.value);
+    if (holdDigit && (isActiveSubtraction === true || isActiveAddition === true || isActiveMultiplication === true || isActiveDivision === true)) {
+        currentNumberValue = parseInt(this.value);
+        currentNumber = this.value;
+        displayBigText.innerText = currentNumber;
+        holdDigit = false;
+    }
+    else if (currentNumber.length < 12) {
         currentNumber += this.value;
         displayBigText.innerText = currentNumber;
+        currentNumberValue = parseInt(currentNumber);
     }
 }
 
@@ -158,6 +168,9 @@ function allClear() {
     isActiveMultiplication = false;
     isActiveSubtraction = false;
     setOperatorColor();
+    holdDigit = true;
+    currentEntryCount = 0;
+    currentCalculation === "";
 }
 
 function clearEntry() {
@@ -230,5 +243,6 @@ buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
 buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
 buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
+buttonAddition.addEventListener("mousedown", add);
 
 
