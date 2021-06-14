@@ -224,7 +224,6 @@ span {
     background-color: #fff;
     border-top: none;
     border-left: none;
-    border-right: 1px solid #fff8f1;
     border-bottom: none;
     width: 25vw;
 }
@@ -232,8 +231,8 @@ span {
 .mobile-history-button {
     background-color: #fff;  /*  fff8f1  */
     border-top: none;
-    border-left: 1px solid #fff8f1;
-    border-right: 1px solid #fff8f1;
+    border-left: 2px solid #fff8f1;
+    border-right: 2px solid #fff8f1;
     border-bottom: none;
     border-radius: 0;
     font-size: 25px;
@@ -243,8 +242,6 @@ span {
 .mobile-container-light-dark-mode {
     background-color: #fff;
     border-top: none;
-    border-right: none;
-    border-left: 1px solid #fff8f1;
     border-bottom: none;
     display: flex;
     justify-content: center;
