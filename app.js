@@ -30,6 +30,9 @@ const touchDelete = document.querySelectorAll(".touch-delete");
 const touchOperator = document.querySelectorAll(".touch-operator");
 const displaySmallText = document.querySelector(".display-small-text");
 const displayBigText = document.querySelector(".display-big-text");
+const mobileContainerLightDarkMode = document.querySelector(".mobile-container-light-dark-mode");
+const mobileLightDarkMode = document.querySelector(".mobile-light-dark-mode");
+const mobileGithubProjectLink = document.querySelector(".mobile-github-project-link");
 
 let currentNumberValue = 0;
 let currentNumber = "0";
@@ -214,6 +217,28 @@ function deleteLastDigit() {
 
 
 //
+let lightMode = true;
+function changeLightDarkMode() {
+    if (lightMode) {
+        mobileLightDarkMode.style.backgroundImage = "url('Images/MoonIcon.png')"
+        mobileLightDarkMode.style.backgroundSize = "35px";
+        mobileGithubProjectLink.style.backgroundColor = "#060606";
+        mobileHistoryButton.style.backgroundColor = "#060606";
+        mobileLightDarkMode.style.backgroundColor = "#060606";
+        lightMode = false;
+    }
+    else {
+        mobileLightDarkMode.style.backgroundImage = "url('Images/SunIcon.png')"
+        mobileLightDarkMode.style.backgroundSize = "40px";
+        mobileGithubProjectLink.style.backgroundColor = "#fff";
+        mobileHistoryButton.style.backgroundColor = "#fff";
+        mobileLightDarkMode.style.backgroundColor = "#fff";
+        lightMode = true;
+    }
+}
+
+
+//
 function changeColorTouchStart() {
     return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#F4F4F4"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FF4444"
@@ -249,5 +274,6 @@ buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
 buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
 buttonAddition.addEventListener("mousedown", add);
+mobileLightDarkMode.addEventListener("click", changeLightDarkMode);
 
 
