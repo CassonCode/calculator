@@ -79,12 +79,12 @@ mobileHistoryButton.addEventListener("click", () => {
 
 //
 function setOperatorColor() {
-    touchOperator.forEach(button => button.style.backgroundColor = "#fff8f1");
-    isActiveAddition ? buttonAddition.style.backgroundColor = "#fde6ce"
-    : isActiveDivision ? buttonDivision.style.backgroundColor = "#fde6ce"
-    : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#fde6ce"
-    : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#fde6ce"
-    : touchOperator.forEach(button => button.style.backgroundColor = "#fff8f1");;
+    touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
+    isActiveAddition ? buttonAddition.style.backgroundColor = "#FFD4AC"
+    : isActiveDivision ? buttonDivision.style.backgroundColor = "#FFD4AC"
+    : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#FFD4AC"
+    : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#FFD4AC"
+    : touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");;
 }
 
 
@@ -244,8 +244,7 @@ function changeLightDarkMode() {
         buttonAllClear.style.backgroundColor = "#310E0E";
         buttonAllClear.style.color = "#fff";
         numberPadButtons.forEach(button => {
-            button.style.borderRight = "4px solid #060606";
-            button.style.borderBottom = "4px solid #060606";
+            button.style.borderColor = "#060606";
             button.style.color = "#fff";
         });
         buttonDeleteLastDigit.style.backgroundImage = "url('Images/DeleteArrowWhite.png')";
@@ -255,6 +254,7 @@ function changeLightDarkMode() {
         buttonEquals.style.backgroundColor = "#0E1628";
         buttonClearEntry.style.backgroundColor = "#1e1e1e";
         buttonDecimal.style.backgroundColor = "#1e1e1e";
+        touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");
         lightMode = false;
     }
     else {
@@ -271,20 +271,20 @@ function changeLightDarkMode() {
 
 //
 function changeColorTouchStart() {
-    return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#F4F4F4"
+    return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#EAEAEA"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FF4444"
     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#FFB1B1"
-    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fde6ce"
+    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#FFD4AC"
     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#6599FF"
-    : this.style.backgroundColor = "#F4F4F4";
+    : this.style.backgroundColor = "#EAEAEA";
 }
 function changeColorTouchEnd() {
     return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#fff"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FFDDDD"
-    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#fff8f1"
-    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fff8f1"
+    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#fff0e2"
+    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fff0e2"
     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#DCE8FF"
-    : this.style.backgroundColor = "#fff8f1";
+    : this.style.backgroundColor = "#fff0e2";
 }
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
