@@ -281,6 +281,10 @@ span {
 
 .mobile-github-project-link {
     background-color: #fff;
+    background-image: url("Images/GithubLogoBlack.png");
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
     border-top: none;
     border-left: none;
     border-bottom: none;

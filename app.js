@@ -257,6 +257,7 @@ function changeLightDarkMode() {
         buttonClearEntry.style.backgroundColor = "#1e1e1e";
         buttonDecimal.style.backgroundColor = "#1e1e1e";
         touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");
+        mobileGithubProjectLink.style.backgroundImage = 'url("Images/GithubLogoWhite.png")';
         lightMode = false;
     }
     else {
@@ -288,6 +289,7 @@ function changeLightDarkMode() {
         buttonClearEntry.style.backgroundColor = "#fff0e2";
         buttonDecimal.style.backgroundColor = "#fff0e2";
         touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
+        mobileGithubProjectLink.style.backgroundImage = 'url("Images/GithubLogoBlack.png")';
         lightMode = true;
     }
 }
