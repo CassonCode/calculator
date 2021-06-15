@@ -3,6 +3,8 @@ const containerPage = document.querySelector(".container-page");
 const containerHistory = document.querySelector(".container-history");
 const historyTextArea = document.querySelector("#history-textarea");
 const mobileHistoryButton = document.querySelector(".mobile-history-button");
+const containerDeleteHistory = document.querySelector(".container-delete-history");
+const deleteHistory = document.querySelector(".delete-history");
 const containerCalculator = document.querySelector(".container-calculator");
 const containerNumberPad = document.querySelector(".container-number-pad");
 const buttonAllClear = document.querySelector(".button-all-clear");
@@ -258,6 +260,9 @@ function changeLightDarkMode() {
         buttonDecimal.style.backgroundColor = "#1e1e1e";
         touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");
         mobileGithubProjectLink.style.backgroundImage = 'url("Images/GithubLogoWhite.png")';
+        historyTextArea.style.backgroundColor = "#060606";
+        containerDeleteHistory.style.backgroundColor = "#060606";
+        deleteHistory.style.backgroundImage = 'url("Images/TrashCanWhite.png")';
         lightMode = false;
     }
     else {
@@ -290,6 +295,9 @@ function changeLightDarkMode() {
         buttonDecimal.style.backgroundColor = "#fff0e2";
         touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
         mobileGithubProjectLink.style.backgroundImage = 'url("Images/GithubLogoBlack.png")';
+        historyTextArea.style.backgroundColor = "#fff";
+        containerDeleteHistory.style.backgroundColor = "#fff";
+        deleteHistory.style.backgroundImage = 'url("Images/TrashCanBlack.png")';
         lightMode = true;
     }
 }
