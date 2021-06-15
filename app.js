@@ -39,22 +39,27 @@ const mobileLightDarkMode = document.querySelector(".mobile-light-dark-mode");
 const mobileGithubProjectLink = document.querySelector(".mobile-github-project-link");
 const numberPadButtons = document.querySelectorAll(".number-pad-buttons");
 
-let currentNumberValue = 0;
-let currentNumber = "0";
-let currentCalculationValue = 0;
-let currentCalculation = "";
+let mainDisplayValue = 0;
+let smallDisplayValue = 0;
+let operatorIsActive = false;
+// displaySmallText.innerText = "";
+// let num1 = 0;
+// let num2 = 0;
+// let currentNumber = "0";
+// let currentCalculationValue = 0;
+// let currentCalculation = "";
 
-let currentEntryCount = 0;
+// let currentEntryCount = 0;
 
-let isActiveDivision = false;
-let isActiveMultiplication = false;
-let isActiveSubtraction = false;
-let isActiveAddition = false;
+// let isActiveDivision = false;
+// let isActiveMultiplication = false;
+// let isActiveSubtraction = false;
+// let isActiveAddition = false;
 
 let lightMode = true;
 
-let number1String = buttonNumberZero.value;
-let number1 = parseInt(number1String);
+// let number1String = buttonNumberZero.value;
+// let number1 = parseInt(number1String);
 
 //
 containerPage.style.height = window.innerHeight + "px";
@@ -101,111 +106,160 @@ function setOperatorColor() {
 }
 
 
-//
-function setActiveAdd() {
-    isActiveAddition = true;
-    isActiveDivision = false;
-    isActiveMultiplication = false;
-    isActiveSubtraction = false;
-    setOperatorColor();
-}
+// //
+// function setActiveAdd() {
+//     isActiveAddition = true;
+//     isActiveDivision = false;
+//     isActiveMultiplication = false;
+//     isActiveSubtraction = false;
+//     setOperatorColor();
+// }
 
 
-//
-function add() {
-    setActiveAdd();
-    if (currentCalculation === "") {
-        displaySmallText.innerText = currentNumberValue + " " + buttonAddition.value;
-        currentCalculationValue = currentNumberValue;
-        currentCalculation = displaySmallText.innerText;
-        currentEntryCount = 2;
-    }
-    else if (currentEntryCount > 1) {
-        // currentNumberValue = parseInt(displayBigText.innerText);
-        currentCalculationValue += currentNumberValue;
-        displaySmallText.innerText = currentCalculationValue + " " + buttonAddition.value;
-        currentNumberValue = currentCalculationValue;
-        displayBigText.innerText = currentNumberValue + "";
-    }
-}
+// //
+// function add() {
+//     setActiveAdd();
+//     if (currentCalculation === "") {
+//         displaySmallText.innerText = currentNumberValue + " " + buttonAddition.value;
+//         currentCalculationValue = currentNumberValue;
+//         currentCalculation = displaySmallText.innerText;
+//         currentEntryCount = 2;
+//     }
+//     else if (currentEntryCount > 1) {
+//         // currentNumberValue = parseInt(displayBigText.innerText);
+//         currentCalculationValue += currentNumberValue;
+//         displaySmallText.innerText = currentCalculationValue + " " + buttonAddition.value;
+//         currentNumberValue = currentCalculationValue;
+//         displayBigText.innerText = currentNumberValue + "";
+//     }
+// }
 
 
 //
 let fontScale = 1;
 function setCurrentNumberFontSize() {
-    if (currentNumber.length < 9) {
+    if (displayBigText.innerText.length < 9) {
         displayBigText.style.fontSize = "100%";
         fontScale = 1;
     }
-    if (currentNumber.length === 9 && fontScale === 1) {
+    if (displayBigText.innerText.length === 9 && fontScale === 1) {
         displayBigText.style.fontSize = "90%";
         fontScale = 2;
     }
-    else if (currentNumber.length === 10 && fontScale === 2) {
+    else if (displayBigText.innerText.length === 10 && fontScale === 2) {
         displayBigText.style.fontSize = "82%";
         fontScale = 3;
     }
-    else if (currentNumber.length === 11 && fontScale === 3) {
+    else if (displayBigText.innerText.length === 11 && fontScale === 3) {
         displayBigText.style.fontSize = "75%";
         fontScale = 4;
     }
 }
 
-let holdDigit = true;
-function setCurrentNumber() {
-    setCurrentNumberFontSize();
-    if (displayBigText.innerText === "0") {
-        currentNumber = "";
-    }
-    if (holdDigit && (isActiveSubtraction === true || isActiveAddition === true || isActiveMultiplication === true || isActiveDivision === true)) {
-        currentNumberValue = parseInt(this.value);
-        currentNumber = this.value;
-        displayBigText.innerText = currentNumber;
-        holdDigit = false;
-    }
-    else if (currentNumber.length < 12 && !(isActiveSubtraction === true || isActiveAddition === true || isActiveMultiplication === true || isActiveDivision === true)) {
-        currentNumber += this.value;
-        displayBigText.innerText = currentNumber;
-        currentNumberValue += parseInt(this.value);
-    }
-    else if (currentNumber.length < 12) {
-        currentNumber = this.value;
-        displayBigText.innerText = currentNumber;
-        currentNumberValue += parseInt(this.value);
-    }
+
+
+function divide(num1, num2) {
+    smallDisplayValue = num1 / num2;
+}
+
+function multiply(num1, num2) {
+    smallDisplayValue = num1 * num2;
+}
+
+function subtract(num1, num2) {
+    smallDisplayValue = num1 - num2;
+}
+
+function add(num1, num2) {
+    smallDisplayValue = num1 + num2;
+}
+
+//
+function operate(operator, num1, num2) {
+    console.log(operator);
+    operator === "&#247" ? divide(num1, num2)
+    : operator === "&#215" ? multiply(num1, num2)
+    : operator === "&#8722" ? subtract(num1, num2)
+    : add(num1, num2);
+    operatorIsActive = true;
 }
 
 
 //
-function allClear() {
-    displayBigText.style.fontSize = "100%";
-    currentNumber = "0";
-    currentNumberValue = 0;
-    displayBigText.innerText = "0";
-    displaySmallText.innerText = "";
-    isActiveAddition = false;
-    isActiveDivision = false;
-    isActiveMultiplication = false;
-    isActiveSubtraction = false;
-    setOperatorColor();
-    holdDigit = true;
-    currentEntryCount = 0;
-    currentCalculation = "";
+function setMainDisplay() {
+    setCurrentNumberFontSize();
+    if (displayBigText.innerText === "0") {
+        displayBigText.innerText = this.value;
+    }
+    else if (displayBigText.innerText.length < 12) {
+        operatorIsActive ? displayBigText.innerText = this.value
+        : displayBigText.innerText += this.value;
+    }
+    mainDisplayValue = parseInt(displayBigText.innerText);
+    operatorIsActive = false;
+    console.log(mainDisplayValue);
 }
 
-function clearEntry() {
-    displayBigText.style.fontSize = "100%";
-    currentNumber = "0";
-    currentNumberValue = 0;
-    displayBigText.innerText = "0";
+function setSmallDisplay(operator, num1) {
+        displaySmallText.innerText = smallDisplayValue + " " + operator;
+        mainDisplayValue = num1;
+        displayBigText.innerText = mainDisplayValue + "";
 }
+
+// let holdDigit = true;
+// function setCurrentNumber() {
+//     setCurrentNumberFontSize();
+//     if (displayBigText.innerText === "0") {
+//         currentNumber = "";
+//     }
+//     if (holdDigit && (isActiveSubtraction === true || isActiveAddition === true || isActiveMultiplication === true || isActiveDivision === true)) {
+//         currentNumberValue = parseInt(this.value);
+//         currentNumber = this.value;
+//         displayBigText.innerText = currentNumber;
+//         holdDigit = false;
+//     }
+//     else if (currentNumber.length < 12 && !(isActiveSubtraction === true || isActiveAddition === true || isActiveMultiplication === true || isActiveDivision === true)) {
+//         currentNumber += this.value;
+//         displayBigText.innerText = currentNumber;
+//         currentNumberValue += parseInt(this.value);
+//     }
+//     else if (currentNumber.length < 12) {
+//         currentNumber = this.value;
+//         displayBigText.innerText = currentNumber;
+//         currentNumberValue += parseInt(this.value);
+//     }
+// }
+
+
+// //
+// function allClear() {
+//     displayBigText.style.fontSize = "100%";
+//     currentNumber = "0";
+//     currentNumberValue = 0;
+//     displayBigText.innerText = "0";
+//     displaySmallText.innerText = "";
+//     isActiveAddition = false;
+//     isActiveDivision = false;
+//     isActiveMultiplication = false;
+//     isActiveSubtraction = false;
+//     setOperatorColor();
+//     holdDigit = true;
+//     currentEntryCount = 0;
+//     currentCalculation = "";
+// }
+
+// function clearEntry() {
+//     displayBigText.style.fontSize = "100%";
+//     currentNumber = "0";
+//     currentNumberValue = 0;
+//     displayBigText.innerText = "0";
+// }
 
 function deleteLastDigit() {
     if (displayBigText.innerText !== "0") {
         if (displayBigText.innerText.length === 1) {
             displayBigText.innerText = "0";
-            currentNumber = displayBigText.innerText;
-            currentNumberValue = parseInt(currentNumber);
+            mainDisplayValue = parseInt(displayBigText.innerText);
         }
         else {
             if (displayBigText.innerText.length === 12) {
@@ -221,8 +275,7 @@ function deleteLastDigit() {
                 fontScale = 1;
             }
             displayBigText.innerText = displayBigText.innerText.slice(0, -1);
-            currentNumber = displayBigText.innerText;
-            currentNumberValue = parseInt(currentNumber);
+            mainDisplayValue = parseInt(displayBigText.innerText);
         }
     }
 }
@@ -342,15 +395,21 @@ function changeColorTouchEnd() {
 }
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-touchNumbers.forEach(number => number.addEventListener("mousedown", setCurrentNumber));
+// touchNumbers.forEach(number => number.addEventListener("mousedown", setCurrentNumber));
+touchNumbers.forEach(number => number.addEventListener("mousedown", setMainDisplay));
+touchOperator.forEach(operator => operator.addEventListener("click", () => {
+    operate(operator.value, smallDisplayValue, mainDisplayValue);
+    setSmallDisplay(operator.value, smallDisplayValue);
+}));
+
 touchDelete.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchOperator.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
 buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
-buttonAllClear.addEventListener("click", allClear);
-buttonClearEntry.addEventListener("click", clearEntry);
+// buttonAllClear.addEventListener("click", allClear);
+// buttonClearEntry.addEventListener("click", clearEntry);
 buttonDeleteLastDigit.addEventListener("mousedown", deleteLastDigit);
 buttonEquals.addEventListener("touchstart", changeColorTouchStart);
 buttonEquals.addEventListener("touchend", changeColorTouchEnd);
@@ -358,7 +417,8 @@ buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
 buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
 buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
-buttonAddition.addEventListener("mousedown", add);
+// buttonAddition.addEventListener("mousedown", add);
 mobileLightDarkMode.addEventListener("mousedown", changeLightDarkMode);
+
 
 
