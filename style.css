@@ -55,7 +55,7 @@
 .container-display {
     background-color: #EDEDED;  /*  FFF0E0  FEF1E0  EDEDED  */
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 3fr 2fr;
     flex: 1;
 }
 
@@ -68,7 +68,7 @@
     font-size: 7vw;
     font-family: 'Roboto', sans-serif;
     position: absolute;
-    right: 0;
+    right: 5.1vw;
     bottom: 0;
 }
 
