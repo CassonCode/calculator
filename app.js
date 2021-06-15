@@ -42,6 +42,7 @@ const numberPadButtons = document.querySelectorAll(".number-pad-buttons");
 let mainDisplayValue = 0;
 let smallDisplayValue = 0;
 let operatorIsActive = false;
+let operationsCount = 0;
 // displaySmallText.innerText = "";
 // let num1 = 0;
 // let num2 = 0;
@@ -177,11 +178,20 @@ function add(num1, num2) {
 //
 function operate(operator, num1, num2) {
     console.log(operator);
-    operator === "&#247" ? divide(num1, num2)
-    : operator === "&#215" ? multiply(num1, num2)
-    : operator === "&#8722" ? subtract(num1, num2)
+    operator === buttonDivision.value ? divide(num1, num2)
+    : operator === buttonMultiplication.value ? multiply(num1, num2)
+    : operator === buttonSubtraction.value ? subtract(num1, num2)
     : add(num1, num2);
     operatorIsActive = true;
+}
+
+function solveUsingOperatorButton(operator, num1, num2) {
+    if (operationsCount > 0) {
+        operate(operator, num1, num2);
+    }
+    else {
+        return;
+    }
 }
 
 
@@ -398,7 +408,7 @@ touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTo
 // touchNumbers.forEach(number => number.addEventListener("mousedown", setCurrentNumber));
 touchNumbers.forEach(number => number.addEventListener("mousedown", setMainDisplay));
 touchOperator.forEach(operator => operator.addEventListener("click", () => {
-    operate(operator.value, smallDisplayValue, mainDisplayValue);
+    solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
     setSmallDisplay(operator.value, smallDisplayValue);
 }));
 
