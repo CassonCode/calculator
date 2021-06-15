@@ -289,10 +289,9 @@ span {
 
 .mobile-history-button {
     background-color: #fff;  /*  fff8f1  */
-    border-top: none;
-    border-left: 3px solid #fff0e2;
-    border-right: 3px solid #fff0e2;
-    border-bottom: none;
+    border: none;
+    /* border-left: 3px solid #fff0e2;
+    border-right: 3px solid #fff0e2; */
     border-radius: 0;
     font-size: 25px;
     width: 40vw;

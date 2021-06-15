@@ -49,6 +49,7 @@ let isActiveMultiplication = false;
 let isActiveSubtraction = false;
 let isActiveAddition = false;
 
+let lightMode = true;
 
 let number1String = buttonNumberZero.value;
 let number1 = parseInt(number1String);
@@ -79,12 +80,22 @@ mobileHistoryButton.addEventListener("click", () => {
 
 //
 function setOperatorColor() {
-    touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
-    isActiveAddition ? buttonAddition.style.backgroundColor = "#FFD4AC"
-    : isActiveDivision ? buttonDivision.style.backgroundColor = "#FFD4AC"
-    : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#FFD4AC"
-    : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#FFD4AC"
-    : touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");;
+    if (lightMode) {
+        touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
+        isActiveAddition ? buttonAddition.style.backgroundColor = "#FFD4AC"
+        : isActiveDivision ? buttonDivision.style.backgroundColor = "#FFD4AC"
+        : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#FFD4AC"
+        : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#FFD4AC"
+        : touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");;
+    }
+    else {
+        touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");
+        isActiveAddition ? buttonAddition.style.backgroundColor = "#252C43"
+        : isActiveDivision ? buttonDivision.style.backgroundColor = "#252C43"
+        : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#252C43"
+        : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#252C43"
+        : touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");;
+    }
 }
 
 
@@ -155,17 +166,13 @@ function setCurrentNumber() {
         displayBigText.innerText = currentNumber;
         currentNumberValue += parseInt(this.value);
     }
-    else {
+    else if (currentNumber.length < 12) {
         currentNumber = this.value;
         displayBigText.innerText = currentNumber;
         currentNumberValue += parseInt(this.value);
     }
 }
 
-//
-// function setCurrentCalculation() {
-//     displaySmallText.innerText = currentNumber + this.value;
-// }
 
 //
 function allClear() {
@@ -220,18 +227,13 @@ function deleteLastDigit() {
 
 
 //
-let lightMode = true;
 function changeLightDarkMode() {
     if (lightMode) {
         mobileLightDarkMode.style.backgroundImage = "url('Images/MoonIcon.png')";
-        mobileLightDarkMode.style.backgroundSize = "35px";
+        mobileLightDarkMode.style.backgroundSize = "30px";
         mobileGithubProjectLink.style.backgroundColor = "#060606";
         mobileHistoryButton.style.backgroundColor = "#060606";
         mobileHistoryButton.style.color = "#fff";
-        mobileHistoryButton.style.borderLeft = "1px solid #161616";
-        mobileHistoryButton.style.borderRight = "1px solid #161616";
-        mobileLightDarkMode.style.borderLeft = "1px solid #161616";
-        mobileGithubProjectLink.style.borderRight = "1px solid #161616";
         mobileLightDarkMode.style.backgroundColor = "#060606";
         displayBig.style.backgroundColor = "#060606";
         displayBig.style.color = "#fff";
@@ -264,6 +266,28 @@ function changeLightDarkMode() {
         mobileHistoryButton.style.backgroundColor = "#fff";
         mobileHistoryButton.style.color = "#000";
         mobileLightDarkMode.style.backgroundColor = "#fff";
+        displayBig.style.backgroundColor = "#fff";
+        displayBig.style.color = "#000";
+        displaySmall.style.backgroundColor = "#fff";
+        displaySmall.style.color = "#000";
+        touchNumbers.forEach(button => {
+            button.style.backgroundColor = "#fff";
+            button.style.color = "#000";
+        });
+        buttonAllClear.style.backgroundColor = "#FFDDDD";
+        buttonAllClear.style.color = "#000";
+        numberPadButtons.forEach(button => {
+            button.style.borderColor = "#fff";
+            button.style.color = "#000";
+        });
+        buttonDeleteLastDigit.style.backgroundImage = "url('Images/DeleteArrowBlack.png')";
+        buttonDeleteLastDigit.style.backgroundColor = "#fff0e2";
+        buttonPositiveNegative.style.backgroundImage = "url('Images/PlusMinusBlack.png')";
+        buttonPositiveNegative.style.backgroundColor = "#fff0e2";
+        buttonEquals.style.backgroundColor = "#DCE8FF";
+        buttonClearEntry.style.backgroundColor = "#fff0e2";
+        buttonDecimal.style.backgroundColor = "#fff0e2";
+        touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
         lightMode = true;
     }
 }
@@ -271,20 +295,40 @@ function changeLightDarkMode() {
 
 //
 function changeColorTouchStart() {
-    return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#EAEAEA"
+    if (lightMode) {
+        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#EAEAEA"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FF4444"
     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#FFB1B1"
     : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#FFD4AC"
     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#6599FF"
     : this.style.backgroundColor = "#EAEAEA";
+    }
+    else {
+        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#3A3A3A"
+    : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#641111"
+    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#632929"
+    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#252C43"
+    : this.classList.contains("button-equals") ? this.style.backgroundColor = "#091B4A"
+    : this.style.backgroundColor = "#3A3A3A";
+    }
 }
 function changeColorTouchEnd() {
-    return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#fff"
+    if (lightMode) {
+        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#fff"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FFDDDD"
     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#fff0e2"
     : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fff0e2"
     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#DCE8FF"
     : this.style.backgroundColor = "#fff0e2";
+    }
+    else {
+        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#000"
+    : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#310E0E"
+    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#1e1e1e"
+    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#1e1e1e"
+    : this.classList.contains("button-equals") ? this.style.backgroundColor = "#0E1628"
+    : this.style.backgroundColor = "#1e1e1e";
+    }
 }
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
