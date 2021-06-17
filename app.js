@@ -83,7 +83,7 @@ function setOperatorColor() {
         : isActiveDivision ? buttonDivision.style.backgroundColor = "#FFD4AC"
         : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#FFD4AC"
         : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#FFD4AC"
-        : touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");;
+        : touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
     }
     else {
         touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");
@@ -91,11 +91,9 @@ function setOperatorColor() {
         : isActiveDivision ? buttonDivision.style.backgroundColor = "#252C43"
         : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#252C43"
         : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#252C43"
-        : touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");;
+        : touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");
     }
 }
-
-
 
 
 //
@@ -199,6 +197,7 @@ function solveUsingOperatorButton(operator, num1, num2) {
         isActiveSubtraction = false;
         isActiveAddition = true;
     }
+
     if (operationsCount > 0) {
         operate(operator, num1, num2);
         setSmallDisplay(operator, smallDisplayValue);
@@ -223,9 +222,21 @@ function solveUsingEqualsButton(operator, num1, num2) {
         operatorIsActive = false;
     }
     else {
-        smallDisplayValue = mainDisplayValue;
-        displaySmallText.innerText = smallDisplayValue;
+        if (displayBigText.innerText.includes(".")) {
+            mainDisplayValue = parseFloat(displayBigText.innerText);
+            smallDisplayValue = mainDisplayValue;
+            displaySmallText.innerText = smallDisplayValue;
+        }
+        else {
+            mainDisplayValue = parseInt(displayBigText.innerText);
+            smallDisplayValue = mainDisplayValue;
+            displaySmallText.innerText = smallDisplayValue;
+        }
     }
+    isActiveDivision = false;
+    isActiveMultiplication = false;
+    isActiveSubtraction = false;
+    isActiveAddition = false;
 }
 
 //
@@ -254,7 +265,11 @@ function setSmallDisplay(operator, num1) {
         displayBigText.innerText = mainDisplayValue + "";
 }
 
-
+function addDecimal() {
+    if (!displayBigText.innerText.includes(".")) {
+        displayBigText.innerText += ".";
+    }
+}
 
 // //
 // function allClear() {
@@ -405,7 +420,7 @@ function changeColorTouchEnd() {
         return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#fff"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FFDDDD"
     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#fff0e2"
-    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fff0e2"
+    // : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fff0e2"
     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#DCE8FF"
     : this.style.backgroundColor = "#fff0e2";
     }
@@ -455,6 +470,7 @@ touchDelete.forEach(button => button.addEventListener("touchstart", changeColorT
 touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchOperator.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
+touchOperator.forEach(button => button.addEventListener("mousedown", setOperatorColor));
 buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
 buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
 // buttonAllClear.addEventListener("click", allClear);
@@ -462,10 +478,13 @@ buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
 buttonDeleteLastDigit.addEventListener("mousedown", deleteLastDigit);
 buttonEquals.addEventListener("touchstart", changeColorTouchStart);
 buttonEquals.addEventListener("touchend", changeColorTouchEnd);
+buttonEquals.addEventListener("mousedown", setOperatorColor);
 buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
 buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
 buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
+buttonDecimal.addEventListener("mousedown", addDecimal);
+
 // buttonAddition.addEventListener("mousedown", add);
 mobileLightDarkMode.addEventListener("mousedown", changeLightDarkMode);
 
