@@ -49,6 +49,8 @@ let isActiveMultiplication = false;
 let isActiveSubtraction = false;
 let isActiveAddition = false;
 
+let fontScale = 1;
+
 let lightMode = true;
 
 //
@@ -86,18 +88,17 @@ function setOperatorColor() {
         : touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
     }
     else {
-        touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");
+        touchOperator.forEach(button => button.style.backgroundColor = "#262626");
         isActiveAddition ? buttonAddition.style.backgroundColor = "#252C43"
         : isActiveDivision ? buttonDivision.style.backgroundColor = "#252C43"
         : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#252C43"
         : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#252C43"
-        : touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");
+        : touchOperator.forEach(button => button.style.backgroundColor = "#262626");
     }
 }
 
 
 //
-let fontScale = 1;
 function setCurrentNumberFontSize() {
     if (displayBigText.innerText.length < 9) {
         displayBigText.style.fontSize = "100%";
@@ -292,12 +293,11 @@ function allClear() {
     operatorIsActive = false;
 }
 
-// function clearEntry() {
-//     displayBigText.style.fontSize = "100%";
-//     currentNumber = "0";
-//     currentNumberValue = 0;
-//     displayBigText.innerText = "0";
-// }
+function clearEntry() {
+    displayBigText.style.fontSize = "100%";
+    mainDisplayValue = 0;
+    displayBigText.innerText = "0";
+}
 
 function deleteLastDigit() {
     if (displayBigText.innerText !== "0") {
@@ -463,10 +463,21 @@ buttonEquals.addEventListener("mouseup", () => {
     // : isActiveSubtraction ? solveUsingEqualsButton(buttonSubtraction.value, smallDisplayValue, mainDisplayValue)
     // : isActiveAddition ? solveUsingEqualsButton(buttonAddition.value, smallDisplayValue, mainDisplayValue)
     // : console.log("Hello");
-
-    displaySmallText.innerText = smallDisplayValue;
-    mainDisplayValue = smallDisplayValue;
-    displayBigText.innerText = mainDisplayValue + "";
+    if (displaySmallText.innerText === "") {
+        if (displayBigText.innerText.includes(".")) {
+            mainDisplayValue = parseFloat(displayBigText.innerText);
+        } 
+        else {
+            mainDisplayValue = parseInt(displayBigText.innerText);
+        }
+        smallDisplayValue = mainDisplayValue;
+        displaySmallText.innerText = smallDisplayValue;
+    }
+    else if (!displaySmallText.innerText.includes(buttonEquals.value)) {
+        displaySmallText.innerText = displaySmallText.innerText + " " + displayBigText.innerText + " " + buttonEquals.value + " " + smallDisplayValue;
+        mainDisplayValue = smallDisplayValue;
+        displayBigText.innerText = mainDisplayValue + "";
+    }
     operationsCount = 0;
 });
 
@@ -478,7 +489,7 @@ touchOperator.forEach(button => button.addEventListener("mouseup", setOperatorCo
 buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
 buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
 buttonAllClear.addEventListener("mouseup", allClear);
-// buttonClearEntry.addEventListener("click", clearEntry);
+buttonClearEntry.addEventListener("mouseup", clearEntry);
 buttonDeleteLastDigit.addEventListener("mouseup", deleteLastDigit);
 buttonEquals.addEventListener("touchstart", changeColorTouchStart);
 buttonEquals.addEventListener("touchend", changeColorTouchEnd);

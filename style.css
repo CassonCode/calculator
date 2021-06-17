@@ -79,8 +79,10 @@
 }
 
 .display-big-text {
+    /* background-color: blue; */
     font-size: 18vw;
     font-family: 'Roboto', sans-serif;
+    line-height: .75em;
     position: absolute;
     right: 4.5vw;
     bottom: 0;
