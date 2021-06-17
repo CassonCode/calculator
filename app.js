@@ -277,21 +277,20 @@ function addDecimal() {
 }
 
 // //
-// function allClear() {
-//     displayBigText.style.fontSize = "100%";
-//     currentNumber = "0";
-//     currentNumberValue = 0;
-//     displayBigText.innerText = "0";
-//     displaySmallText.innerText = "";
-//     isActiveAddition = false;
-//     isActiveDivision = false;
-//     isActiveMultiplication = false;
-//     isActiveSubtraction = false;
-//     setOperatorColor();
-//     holdDigit = true;
-//     currentEntryCount = 0;
-//     currentCalculation = "";
-// }
+function allClear() {
+    displayBigText.style.fontSize = "100%";
+    displayBigText.innerText = "0";
+    displaySmallText.innerText = "";
+    mainDisplayValue = 0;
+    smallDisplayValue = 0;
+    isActiveAddition = false;
+    isActiveDivision = false;
+    isActiveMultiplication = false;
+    isActiveSubtraction = false;
+    setOperatorColor();
+    operationsCount = 0;
+    operatorIsActive = false;
+}
 
 // function clearEntry() {
 //     displayBigText.style.fontSize = "100%";
@@ -441,12 +440,12 @@ function changeColorTouchEnd() {
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 // touchNumbers.forEach(number => number.addEventListener("mousedown", setCurrentNumber));
-touchNumbers.forEach(number => number.addEventListener("mousedown", setMainDisplay));
-touchOperator.forEach(operator => operator.addEventListener("mousedown", () => {
+touchNumbers.forEach(number => number.addEventListener("mouseup", setMainDisplay));
+touchOperator.forEach(operator => operator.addEventListener("mouseup", () => {
     solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
     // setSmallDisplay(operator.value, smallDisplayValue);
 }));
-buttonEquals.addEventListener("mousedown", () => {
+buttonEquals.addEventListener("mouseup", () => {
     if (isActiveDivision) {
         solveUsingEqualsButton(buttonDivision.value, smallDisplayValue, mainDisplayValue);
     }
@@ -475,23 +474,23 @@ touchDelete.forEach(button => button.addEventListener("touchstart", changeColorT
 touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchOperator.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-touchOperator.forEach(button => button.addEventListener("mousedown", setOperatorColor));
+touchOperator.forEach(button => button.addEventListener("mouseup", setOperatorColor));
 buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
 buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
-// buttonAllClear.addEventListener("click", allClear);
+buttonAllClear.addEventListener("mouseup", allClear);
 // buttonClearEntry.addEventListener("click", clearEntry);
-buttonDeleteLastDigit.addEventListener("mousedown", deleteLastDigit);
+buttonDeleteLastDigit.addEventListener("mouseup", deleteLastDigit);
 buttonEquals.addEventListener("touchstart", changeColorTouchStart);
 buttonEquals.addEventListener("touchend", changeColorTouchEnd);
-buttonEquals.addEventListener("mousedown", setOperatorColor);
+buttonEquals.addEventListener("mouseup", setOperatorColor);
 buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
 buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
 buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
-buttonDecimal.addEventListener("mousedown", addDecimal);
+buttonDecimal.addEventListener("mouseup", addDecimal);
 
 // buttonAddition.addEventListener("mousedown", add);
-mobileLightDarkMode.addEventListener("mousedown", changeLightDarkMode);
+mobileLightDarkMode.addEventListener("mouseup", changeLightDarkMode);
 
 
 
