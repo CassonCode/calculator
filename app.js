@@ -43,24 +43,13 @@ let mainDisplayValue = 0;
 let smallDisplayValue = 0;
 let operatorIsActive = false;
 let operationsCount = 0;
-// displaySmallText.innerText = "";
-// let num1 = 0;
-// let num2 = 0;
-// let currentNumber = "0";
-// let currentCalculationValue = 0;
-// let currentCalculation = "";
 
-// let currentEntryCount = 0;
-
-// let isActiveDivision = false;
-// let isActiveMultiplication = false;
-// let isActiveSubtraction = false;
-// let isActiveAddition = false;
+let isActiveDivision = false;
+let isActiveMultiplication = false;
+let isActiveSubtraction = false;
+let isActiveAddition = false;
 
 let lightMode = true;
-
-// let number1String = buttonNumberZero.value;
-// let number1 = parseInt(number1String);
 
 //
 containerPage.style.height = window.innerHeight + "px";
@@ -107,33 +96,6 @@ function setOperatorColor() {
 }
 
 
-// //
-// function setActiveAdd() {
-//     isActiveAddition = true;
-//     isActiveDivision = false;
-//     isActiveMultiplication = false;
-//     isActiveSubtraction = false;
-//     setOperatorColor();
-// }
-
-
-// //
-// function add() {
-//     setActiveAdd();
-//     if (currentCalculation === "") {
-//         displaySmallText.innerText = currentNumberValue + " " + buttonAddition.value;
-//         currentCalculationValue = currentNumberValue;
-//         currentCalculation = displaySmallText.innerText;
-//         currentEntryCount = 2;
-//     }
-//     else if (currentEntryCount > 1) {
-//         // currentNumberValue = parseInt(displayBigText.innerText);
-//         currentCalculationValue += currentNumberValue;
-//         displaySmallText.innerText = currentCalculationValue + " " + buttonAddition.value;
-//         currentNumberValue = currentCalculationValue;
-//         displayBigText.innerText = currentNumberValue + "";
-//     }
-// }
 
 
 //
@@ -161,18 +123,34 @@ function setCurrentNumberFontSize() {
 
 function divide(num1, num2) {
     smallDisplayValue = num1 / num2;
+    isActiveDivision = true;
+    isActiveMultiplication = false;
+    isActiveSubtraction = false;
+    isActiveAddition = false;
 }
 
 function multiply(num1, num2) {
     smallDisplayValue = num1 * num2;
+    isActiveDivision = false;
+    isActiveMultiplication = true;
+    isActiveSubtraction = false;
+    isActiveAddition = false;
 }
 
 function subtract(num1, num2) {
     smallDisplayValue = num1 - num2;
+    isActiveDivision = false;
+    isActiveMultiplication = false;
+    isActiveSubtraction = true;
+    isActiveAddition = false;
 }
 
 function add(num1, num2) {
     smallDisplayValue = num1 + num2;
+    isActiveDivision = false;
+    isActiveMultiplication = false;
+    isActiveSubtraction = false;
+    isActiveAddition = true;
 }
 
 //
@@ -188,12 +166,22 @@ function operate(operator, num1, num2) {
 function solveUsingOperatorButton(operator, num1, num2) {
     if (operationsCount > 0) {
         operate(operator, num1, num2);
+        setSmallDisplay(operator, smallDisplayValue);
     }
     else {
-        return;
+        displaySmallText.innerText = parseInt(displayBigText.innerText) + " " + operator;
+        operate(operator, num1, num2);
     }
+    operatorIsActive = true;
+    operationsCount++;
 }
 
+function solveUsingEqualsButton(operator, num1, num2) {
+    if (operatorIsActive) {
+        operate(operator, num1, num2);
+        operatorIsActive = false;
+    }
+}
 
 //
 function setMainDisplay() {
@@ -206,7 +194,7 @@ function setMainDisplay() {
         : displayBigText.innerText += this.value;
     }
     mainDisplayValue = parseInt(displayBigText.innerText);
-    operatorIsActive = false;
+    // operatorIsActive = false;
     console.log(mainDisplayValue);
 }
 
@@ -216,29 +204,6 @@ function setSmallDisplay(operator, num1) {
         displayBigText.innerText = mainDisplayValue + "";
 }
 
-// let holdDigit = true;
-// function setCurrentNumber() {
-//     setCurrentNumberFontSize();
-//     if (displayBigText.innerText === "0") {
-//         currentNumber = "";
-//     }
-//     if (holdDigit && (isActiveSubtraction === true || isActiveAddition === true || isActiveMultiplication === true || isActiveDivision === true)) {
-//         currentNumberValue = parseInt(this.value);
-//         currentNumber = this.value;
-//         displayBigText.innerText = currentNumber;
-//         holdDigit = false;
-//     }
-//     else if (currentNumber.length < 12 && !(isActiveSubtraction === true || isActiveAddition === true || isActiveMultiplication === true || isActiveDivision === true)) {
-//         currentNumber += this.value;
-//         displayBigText.innerText = currentNumber;
-//         currentNumberValue += parseInt(this.value);
-//     }
-//     else if (currentNumber.length < 12) {
-//         currentNumber = this.value;
-//         displayBigText.innerText = currentNumber;
-//         currentNumberValue += parseInt(this.value);
-//     }
-// }
 
 
 // //
@@ -296,35 +261,35 @@ function changeLightDarkMode() {
     if (lightMode) {
         mobileLightDarkMode.style.backgroundImage = "url('Images/MoonIcon.png')";
         mobileLightDarkMode.style.backgroundSize = "30px";
-        mobileGithubProjectLink.style.backgroundColor = "#060606";
-        mobileHistoryButton.style.backgroundColor = "#060606";
+        mobileGithubProjectLink.style.backgroundColor = "#121212";
+        mobileHistoryButton.style.backgroundColor = "#121212";
         mobileHistoryButton.style.color = "#fff";
-        mobileLightDarkMode.style.backgroundColor = "#060606";
-        displayBig.style.backgroundColor = "#060606";
+        mobileLightDarkMode.style.backgroundColor = "#121212";
+        displayBig.style.backgroundColor = "#121212";
         displayBig.style.color = "#fff";
-        displaySmall.style.backgroundColor = "#060606";
+        displaySmall.style.backgroundColor = "#121212";
         displaySmall.style.color = "#fff";
         touchNumbers.forEach(button => {
-            button.style.backgroundColor = "#060606";
+            button.style.backgroundColor = "#121212";
             button.style.color = "#fff";
         });
         buttonAllClear.style.backgroundColor = "#310E0E";
         buttonAllClear.style.color = "#fff";
         numberPadButtons.forEach(button => {
-            button.style.borderColor = "#060606";
+            button.style.borderColor = "#121212";
             button.style.color = "#fff";
         });
         buttonDeleteLastDigit.style.backgroundImage = "url('Images/DeleteArrowWhite.png')";
-        buttonDeleteLastDigit.style.backgroundColor = "#1e1e1e";
+        buttonDeleteLastDigit.style.backgroundColor = "#262626";
         buttonPositiveNegative.style.backgroundImage = "url('Images/PlusMinusWhite.png')";
-        buttonPositiveNegative.style.backgroundColor = "#1e1e1e";
+        buttonPositiveNegative.style.backgroundColor = "#262626";
         buttonEquals.style.backgroundColor = "#0E1628";
-        buttonClearEntry.style.backgroundColor = "#1e1e1e";
-        buttonDecimal.style.backgroundColor = "#1e1e1e";
-        touchOperator.forEach(button => button.style.backgroundColor = "#1e1e1e");
+        buttonClearEntry.style.backgroundColor = "#262626";
+        buttonDecimal.style.backgroundColor = "#262626";
+        touchOperator.forEach(button => button.style.backgroundColor = "#262626");
         mobileGithubProjectLink.style.backgroundImage = 'url("Images/GithubLogoWhite.png")';
-        historyTextArea.style.backgroundColor = "#060606";
-        containerDeleteHistory.style.backgroundColor = "#060606";
+        historyTextArea.style.backgroundColor = "#121212";
+        containerDeleteHistory.style.backgroundColor = "#121212";
         deleteHistory.style.backgroundImage = 'url("Images/TrashCanWhite.png")';
         lightMode = false;
     }
@@ -395,12 +360,12 @@ function changeColorTouchEnd() {
     : this.style.backgroundColor = "#fff0e2";
     }
     else {
-        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#000"
+        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#121212"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#310E0E"
-    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#1e1e1e"
-    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#1e1e1e"
+    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#262626"
+    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#262626"
     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#0E1628"
-    : this.style.backgroundColor = "#1e1e1e";
+    : this.style.backgroundColor = "#262626";
     }
 }
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
@@ -409,8 +374,19 @@ touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTo
 touchNumbers.forEach(number => number.addEventListener("mousedown", setMainDisplay));
 touchOperator.forEach(operator => operator.addEventListener("click", () => {
     solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
-    setSmallDisplay(operator.value, smallDisplayValue);
+    // setSmallDisplay(operator.value, smallDisplayValue);
 }));
+buttonEquals.addEventListener("mousedown", () => {
+    isActiveDivision ? solveUsingEqualsButton(buttonDivision.value, smallDisplayValue, mainDisplayValue)
+    : isActiveMultiplication ? solveUsingEqualsButton(buttonMultiplication.value, smallDisplayValue, mainDisplayValue)
+    : isActiveSubtraction ? solveUsingEqualsButton(buttonSubtraction.value, smallDisplayValue, mainDisplayValue)
+    : solveUsingEqualsButton(buttonAddition.value, smallDisplayValue, mainDisplayValue);
+
+    displaySmallText.innerText = smallDisplayValue;
+    mainDisplayValue = smallDisplayValue;
+    displayBigText.innerText = mainDisplayValue + "";
+    operationsCount = 0;
+});
 
 touchDelete.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
