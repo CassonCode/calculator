@@ -11,20 +11,20 @@ const buttonAllClear = document.querySelector(".button-all-clear");
 const buttonClearEntry = document.querySelector(".button-clear-entry");
 const buttonDeleteLastDigit = document.querySelector(".button-delete-last-digit");
 const buttonDivision = document.querySelector(".button-division");
-const buttonNumberSeven = document.querySelector(".button-number-seven");
-const buttonNumberEight = document.querySelector(".button-number-eight");
-const buttonNumberNine = document.querySelector(".button-number-nine");
+// const buttonNumberSeven = document.querySelector(".button-number-seven");
+// const buttonNumberEight = document.querySelector(".button-number-eight");
+// const buttonNumberNine = document.querySelector(".button-number-nine");
 const buttonMultiplication = document.querySelector(".button-multiplication");
-const buttonNumberFour = document.querySelector(".button-number-four");
-const buttonNumberFive = document.querySelector(".button-number-five");
-const buttonNumberSix = document.querySelector(".button-number-six");
+// const buttonNumberFour = document.querySelector(".button-number-four");
+// const buttonNumberFive = document.querySelector(".button-number-five");
+// const buttonNumberSix = document.querySelector(".button-number-six");
 const buttonSubtraction = document.querySelector(".button-subtraction");
-const buttonNumberOne = document.querySelector(".button-number-one");
-const buttonNumberTwo = document.querySelector(".button-number-two");
-const buttonNumberThree = document.querySelector(".button-number-three");
+// const buttonNumberOne = document.querySelector(".button-number-one");
+// const buttonNumberTwo = document.querySelector(".button-number-two");
+// const buttonNumberThree = document.querySelector(".button-number-three");
 const buttonAddition = document.querySelector(".button-addition");
 const buttonPositiveNegative = document.querySelector(".button-positive-negative");
-const buttonNumberZero = document.querySelector(".button-number-zero");
+// const buttonNumberZero = document.querySelector(".button-number-zero");
 const buttonDecimal = document.querySelector(".button-decimal");
 const buttonEquals = document.querySelector(".button-equals");
 const touchNumbers = document.querySelectorAll(".touch-numbers");
@@ -120,7 +120,6 @@ function setCurrentNumberFontSize() {
 }
 
 
-
 function divide(num1, num2) {
     smallDisplayValue = num1 / num2;
     isActiveDivision = true;
@@ -156,6 +155,18 @@ function add(num1, num2) {
 //
 function operate(operator, num1, num2) {
     console.log(operator);
+    // if (operator === buttonDivision.value) {
+    //     divide(num1, num2);
+    // }
+    // else if (operator === buttonMultiplication.value) {
+    //     multiply(num1, num2);
+    // }
+    // else if (operator === buttonSubtraction.value) {
+    //     subtract(num1, num2);
+    // }
+    // else if (operator === buttonAddition.value) {
+    //     add(num1, num2);
+    // }
     operator === buttonDivision.value ? divide(num1, num2)
     : operator === buttonMultiplication.value ? multiply(num1, num2)
     : operator === buttonSubtraction.value ? subtract(num1, num2)
@@ -164,13 +175,43 @@ function operate(operator, num1, num2) {
 }
 
 function solveUsingOperatorButton(operator, num1, num2) {
+    if (operator === buttonDivision.value) {
+        isActiveDivision = true;
+        isActiveMultiplication = false;
+        isActiveSubtraction = false;
+        isActiveAddition = false;
+    }
+    else if (operator === buttonMultiplication.value) {
+        isActiveDivision = false;
+        isActiveMultiplication = true;
+        isActiveSubtraction = false;
+        isActiveAddition = false;
+    }
+    else if (operator === buttonSubtraction.value) {
+        isActiveDivision = false;
+        isActiveMultiplication = false;
+        isActiveSubtraction = true;
+        isActiveAddition = false;
+    }
+    else if (operator === buttonAddition.value) {
+        isActiveDivision = false;
+        isActiveMultiplication = false;
+        isActiveSubtraction = false;
+        isActiveAddition = true;
+    }
     if (operationsCount > 0) {
         operate(operator, num1, num2);
         setSmallDisplay(operator, smallDisplayValue);
     }
     else {
-        displaySmallText.innerText = parseInt(displayBigText.innerText) + " " + operator;
-        operate(operator, num1, num2);
+        if (displayBigText.innerText.includes(".")) {
+            displaySmallText.innerText = parseFloat(displayBigText.innerText) + " " + operator;
+        smallDisplayValue = parseFloat(displayBigText.innerText);
+        }
+        else {
+            displaySmallText.innerText = parseInt(displayBigText.innerText) + " " + operator;
+            smallDisplayValue = parseInt(displayBigText.innerText);
+        }
     }
     operatorIsActive = true;
     operationsCount++;
@@ -180,6 +221,10 @@ function solveUsingEqualsButton(operator, num1, num2) {
     if (operatorIsActive) {
         operate(operator, num1, num2);
         operatorIsActive = false;
+    }
+    else {
+        smallDisplayValue = mainDisplayValue;
+        displaySmallText.innerText = smallDisplayValue;
     }
 }
 
@@ -193,7 +238,12 @@ function setMainDisplay() {
         operatorIsActive ? displayBigText.innerText = this.value
         : displayBigText.innerText += this.value;
     }
-    mainDisplayValue = parseInt(displayBigText.innerText);
+    if (displayBigText.innerText.includes(".")) {
+        mainDisplayValue = parseFloat(displayBigText.innerText);
+    }
+    else {
+        mainDisplayValue = parseInt(displayBigText.innerText);
+    }
     // operatorIsActive = false;
     console.log(mainDisplayValue);
 }
@@ -270,7 +320,7 @@ function changeLightDarkMode() {
         displaySmall.style.backgroundColor = "#121212";
         displaySmall.style.color = "#fff";
         touchNumbers.forEach(button => {
-            button.style.backgroundColor = "#121212";
+            button.style.backgroundColor = "#060606";
             button.style.color = "#fff";
         });
         buttonAllClear.style.backgroundColor = "#310E0E";
@@ -360,7 +410,7 @@ function changeColorTouchEnd() {
     : this.style.backgroundColor = "#fff0e2";
     }
     else {
-        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#121212"
+        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#060606"
     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#310E0E"
     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#262626"
     : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#262626"
@@ -372,15 +422,28 @@ touchNumbers.forEach(button => button.addEventListener("touchstart", changeColor
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 // touchNumbers.forEach(number => number.addEventListener("mousedown", setCurrentNumber));
 touchNumbers.forEach(number => number.addEventListener("mousedown", setMainDisplay));
-touchOperator.forEach(operator => operator.addEventListener("click", () => {
+touchOperator.forEach(operator => operator.addEventListener("mousedown", () => {
     solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
     // setSmallDisplay(operator.value, smallDisplayValue);
 }));
 buttonEquals.addEventListener("mousedown", () => {
-    isActiveDivision ? solveUsingEqualsButton(buttonDivision.value, smallDisplayValue, mainDisplayValue)
-    : isActiveMultiplication ? solveUsingEqualsButton(buttonMultiplication.value, smallDisplayValue, mainDisplayValue)
-    : isActiveSubtraction ? solveUsingEqualsButton(buttonSubtraction.value, smallDisplayValue, mainDisplayValue)
-    : solveUsingEqualsButton(buttonAddition.value, smallDisplayValue, mainDisplayValue);
+    if (isActiveDivision) {
+        solveUsingEqualsButton(buttonDivision.value, smallDisplayValue, mainDisplayValue);
+    }
+    else if (isActiveMultiplication) {
+        solveUsingEqualsButton(buttonMultiplication.value, smallDisplayValue, mainDisplayValue);
+    }
+    else if (isActiveSubtraction) {
+        solveUsingEqualsButton(buttonSubtraction.value, smallDisplayValue, mainDisplayValue);
+    }
+    else if (isActiveAddition) {
+        solveUsingEqualsButton(buttonAddition.value, smallDisplayValue, mainDisplayValue);
+    }
+    // isActiveDivision ? solveUsingEqualsButton(buttonDivision.value, smallDisplayValue, mainDisplayValue)
+    // : isActiveMultiplication ? solveUsingEqualsButton(buttonMultiplication.value, smallDisplayValue, mainDisplayValue)
+    // : isActiveSubtraction ? solveUsingEqualsButton(buttonSubtraction.value, smallDisplayValue, mainDisplayValue)
+    // : isActiveAddition ? solveUsingEqualsButton(buttonAddition.value, smallDisplayValue, mainDisplayValue)
+    // : console.log("Hello");
 
     displaySmallText.innerText = smallDisplayValue;
     mainDisplayValue = smallDisplayValue;
