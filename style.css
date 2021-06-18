@@ -402,31 +402,6 @@ span {
         flex-direction: column;
     }
 
-    .desktop-header {
-        display: block;
-        height: 50px;
-        width: 100%;
-        position: fixed;
-    }
-
-    .desktop-title {
-        font-size: 50px;
-        margin-left: calc(50vw - 115px);
-        margin-top: 20px;
-    }
-
-    .desktop-light-dark-mode {
-        background-image: url("Images/SunIcon.png");
-        background-size: 40px;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        margin-left: 79.75vw;
-        margin-top: -60px;
-    }
-
     main {
         width: 100%;
         height: 100vh;
@@ -447,14 +422,6 @@ span {
     .desktop-history-popup-button {
         background-color: blueviolet;
         display: block;
-    }
-    .desktop-footer {
-        background-color: #fdf3ea;
-        display: block;
-        height: 50px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
     }
 
     .container-calculator {
@@ -527,6 +494,81 @@ span {
 
     #history-textarea {
         flex-grow: 1;
+    }
+
+    .desktop-header {
+        display: block;
+        height: 50px;
+        width: 100%;
+        position: fixed;
+        z-index: 999999;
+    }
+
+    .desktop-title {
+        color: #241100;
+        font-size: 50px;
+        margin-left: calc(50vw - 115px);
+        margin-top: 20px;
+    }
+
+    .desktop-light-dark-mode {
+        border-radius: 50%;
+        background-image: url("Images/SunIcon.png");
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        margin-left: 79.75vw;
+        margin-top: -55px;
+    }
+
+    .desktop-light-dark-mode:hover {
+        background-color: #fdf3ea; /*  rgba(0, 0, 0, 0.034)  */
+        cursor: pointer;
+    }
+
+    .desktop-footer {
+        background-color: #fdf3ea;
+        display: block;
+        height: 50px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .desktop-created-by {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .desktop-github-account-link {
+        color: black;
+        margin-left: 5px;
+        margin-right: 15px;
+        text-decoration: none;
+    }
+
+    .desktop-github-account-link:hover {
+        text-decoration: underline black;
+    }
+
+    .desktop-github-project-link {
+        background-image: url("Images/GithubLogoBlack.png");
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .desktop-github-project-link:hover {
+        background-color: white;
     }
 }
 
