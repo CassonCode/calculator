@@ -416,26 +416,21 @@ span {
         width: 1000px;
         height: 500px;
         margin-left: calc(50vw - 500px);
-        margin-top: calc(50vh - 250px);
-    }
-
-    .desktop-history-popup-button {
-        background-color: blueviolet;
-        display: block;
+        margin-top: calc(50vh - 240px);
     }
 
     .container-calculator {
         box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.199);
         width: 400px;
-        height: 500px;
+        height: 550px;
         max-width: 400px;
-        max-height: 500px;
+        max-height: 550px;
         z-index: 1000;
         margin-left: 300px;
     }
 
     .container-display {
-        height: 100px;
+        height: 150px;
         width: 400px;
     }
 
@@ -445,27 +440,28 @@ span {
     }
     
     .display-small-text {
-        font-size: 15px;
+        color: #292828ee;
+        font-size: 22px;
         font-family: 'Roboto', sans-serif;
         position: absolute;
-        right: 10px;
-        bottom: 10px;
+        right: 29px;
+        bottom: 30px;
     }
     
     .display-big {
         background-color: #fff;  /*  f3f3f3  */
-        font-size: 40px;
+        font-size: 70px;
         position: relative;  
     }
     
     .display-big-text {
         /* background-color: blue; */
-        font-size: 40px;
+        font-size: 70px;
         font-family: 'Roboto', sans-serif;
         line-height: .75em;
         position: absolute;
-        right: 20px;
-        bottom: 0;
+        right: 25px;
+        bottom: 18px;
     }
 
     .container-number-pad {
@@ -497,18 +493,38 @@ span {
     }
 
     .desktop-header {
-        display: block;
+        display: flex;
         height: 50px;
         width: 100%;
         position: fixed;
         z-index: 999999;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .desktop-history-popup-button {
+        background-color: white;
+        display: block;
+        border-radius: 30px;
+        border: none;
+        margin-left: -400px;
+        margin-top: 50px;
+        font-size: 20px;
+        letter-spacing: 1px;
+        width: 160px;
+        height: 35px;
+    }
+
+    .desktop-history-popup-button:hover {
+        background-color: #fdf3ea;
+        cursor: pointer;
     }
 
     .desktop-title {
         color: #241100;
         font-size: 50px;
-        margin-left: calc(50vw - 115px);
-        margin-top: 20px;
+        margin-left: 240px;
+        margin-top: 40px;
     }
 
     .desktop-light-dark-mode {
@@ -520,8 +536,8 @@ span {
         width: 50px;
         height: 50px;
         position: absolute;
-        margin-left: 79.75vw;
-        margin-top: -55px;
+        margin-left: 850px;
+        margin-top: 50px;
     }
 
     .desktop-light-dark-mode:hover {
@@ -558,17 +574,21 @@ span {
     }
 
     .desktop-github-project-link {
+        background-color: white;
         background-image: url("Images/GithubLogoBlack.png");
         background-size: 40px;
         background-repeat: no-repeat;
         background-position: center;
         border-radius: 50%;
-        width: 30px;
-        height: 30px;
+        border: 2px solid rgb(0, 0, 0);
+        width: 32px;
+        height: 32px;
     }
 
     .desktop-github-project-link:hover {
-        background-color: white;
+        background-color: black;
+        background-image: url("Images/GithubLogoWhite.png");
+        border: 2px solid black;
     }
 }
 
