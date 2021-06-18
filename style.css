@@ -365,3 +365,100 @@ span {
     width: 50px;
     height: 50px;
 }
+
+
+
+
+
+
+/*
+    Media Query-------------------------------------------------------------------------------
+*/
+
+@media (min-width: 961px) {
+    .mobile-container-header {
+        display: none;
+    }
+
+    .container-page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        background-color: cornflowerblue;
+        display: flex;
+        /* width: 100vw; */
+        
+        flex: 1;
+    }
+
+    .desktop-header {
+        background-color: blue;
+        display: block;
+        width: 100vw;
+        height: 50px;
+    }
+
+    .desktop-container-history-header {
+        display: block;
+    }
+
+    .container-center-content {
+        background-color: chartreuse;
+        /* position: relative;
+        align-self: stretch; */
+    }
+
+    .container-calculator {
+        max-width: 300px;
+        max-height: 400px;
+        /* margin-top: 4vh;
+        margin-left: 35%; */
+        z-index: 2;
+    }
+
+    .container-display {
+        position: absolute;
+        width: 300px;
+        height: 100px;
+    }
+
+    .display-big {
+        font-size: 30px;
+    }
+
+    .display-big-text {
+        font-size: 30px;
+    }
+
+    .container-number-pad {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        bottom: 0;
+    }
+
+    .container-history {
+        max-width: 300px;
+        max-height: 400px;
+        transform: translateY(0);
+        z-index: 1;
+    }
+
+    #history-textarea {
+        position: absolute;
+        max-height: 335px;
+        max-width: 300px;
+    }
+
+    .desktop-footer {
+        background-color: purple;
+        position: absolute;
+        display: block;
+        width: 100vw;
+        height: 70px;
+        bottom: 0;
+        z-index: 1000;
+    }
+}
