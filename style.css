@@ -413,6 +413,7 @@ span {
     }
 
     .container-calculator {
+        background-color: crimson;
         box-shadow: 0px 0px 20px 10px black;
         max-width: 300px;
         max-height: 400px;
@@ -424,7 +425,7 @@ span {
     }
 
     .container-display {
-        position: absolute;
+        /* position: absolute; */
         width: 300px;
         height: 100px;
         grid-template-rows: 2fr 2fr;
@@ -438,6 +439,7 @@ span {
         font-size: 20px;
         line-height: 2.5em;
         right: 26px;
+        
     }
 
     .display-big {
@@ -451,9 +453,9 @@ span {
     }
 
     .container-number-pad {
-        position: absolute;
+        /* position: absolute; */
         width: 300px;
-        max-height: 300px;
+        /* max-height: 300px; */
         bottom: 0;
     }
 
