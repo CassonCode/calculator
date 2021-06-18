@@ -54,15 +54,17 @@ let fontScale = 1;
 let lightMode = true;
 
 //
-containerPage.style.height = window.innerHeight + "px";
-containerPage.style.width = window.innerWidth + "px";
-containerCalculator.style.height = window.innerHeight + "px";
-containerCalculator.style.width = window.innerWidth + "px";
-containerHistory.style.height = window.innerHeight + "px";
-containerHistory.style.width = window.innerWidth + "px";
-historyTextArea.style.height = (window.innerHeight - 50) + "px";
-historyTextArea.style.width = window.innerWidth + "px";
-
+if (window.innerWidth < 961) {
+    containerPage.style.height = window.innerHeight + "px";
+    containerPage.style.width = window.innerWidth + "px";
+    containerCalculator.style.height = window.innerHeight + "px";
+    containerCalculator.style.width = window.innerWidth + "px";
+    containerHistory.style.height = window.innerHeight + "px";
+    containerHistory.style.width = window.innerWidth + "px";
+    historyTextArea.style.height = (window.innerHeight - 50) + "px";
+    historyTextArea.style.width = window.innerWidth + "px";
+}
+console.log(window.innerWidth);
 
 //
 mobileHistoryButton.addEventListener("click", () => {
