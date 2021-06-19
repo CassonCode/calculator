@@ -565,8 +565,8 @@ span {
         margin-top: 50px;
         font-size: 20px;
         letter-spacing: 1px;
-        width: 8em;
-        height: 2em;
+        width: 160px;
+        height: 40px;
     }
 
     .desktop-history-popup-button:hover {
@@ -577,6 +577,7 @@ span {
         background-color: #fdf3ea;
         cursor: pointer;
         box-shadow: inset 1px 2px 4px 2px rgba(0, 0, 0, 0.253);
+        font-size: 19px;
     }
 
     .desktop-title {
