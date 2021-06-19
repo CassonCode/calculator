@@ -508,6 +508,16 @@ span {
         background-color: #FFD4AC;
     }
 
+    .button-positive-negative:hover,
+    .button-decimal:hover {
+        background-color: #f0f0f0;
+    }
+
+    .button-positive-negative:active,
+    .button-decimal:active {
+        background-color: #f0f0f0e7;
+    }
+
     .container-history {
         position: relative;
         width: 400px;
