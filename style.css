@@ -345,7 +345,7 @@ span {
 #history-textarea {
     background-color: #fff;
     border: none;
-    /* position: absolute; */
+    position: absolute;
     resize: none;
 }
 
@@ -357,7 +357,7 @@ span {
     justify-content: flex-end; */
     height: 65px;
     left: 0;
-    /* position: absolute; */
+    position: absolute;
     right: 0;
 }
 
@@ -511,7 +511,7 @@ span {
     .container-history {
         position: relative;
         width: 400px;
-        height: 500px;
+        height: 550px;
         transform: translateY(0);
         flex-direction: column;
         /* z-index: 10001; */
@@ -527,6 +527,22 @@ span {
 
     #history-textarea {
         flex-grow: 1;
+        position: relative;
+    }
+
+    .container-delete-history {
+        position: relative;
+    }
+
+    .delete-history {
+        background-size: 35px;
+        margin-top: 7.5px;
+        margin-left: 5px;
+        position: absolute;
+    }
+
+    .delete-history:hover {
+        cursor: pointer;
     }
 
     .desktop-header {
