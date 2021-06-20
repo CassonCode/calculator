@@ -412,30 +412,33 @@ span {
 
     .container-center-content {
         /* position: absolute; */
+        box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.199);
         margin: auto;
-        width: 800px;
+        width: 400px;
         height: 550px;
-        /* margin-left: calc(50vw - 500px);
-        margin-top: calc(50vh - 260px); */
+        transition: width 0.65s ease;
+    }
+
+    .container-center-content-expand {
+        width: 800px;
     }
 
     .container-calculator {
         /* box-shadow: 9px -10px 10px rgba(0, 0, 0, 0.199), 
           9px 0px 10px rgba(180, 180, 180, 0.199), 9px 10px 10px rgba(0, 0, 0, 0.199); */
-          box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.199);
+          /* box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.199); */
         width: 400px;
         height: 550px;
         max-width: 400px;
         max-height: 550px;
         z-index: 1000;
-        margin-left: 200px;
         transform: translateX(0);
         transition: transform 0.65s;
         transition-timing-function: ease;
     }
 
     .desktop-calculator-slide-right {
-        transform: translateX(50%);
+        transform: translateX(100%);
     }
 
     .desktop-calculator-slide-left {
@@ -541,25 +544,21 @@ span {
         transform: translateY(0);
         flex-direction: column;
         /* z-index: 10001; */
-        margin-left: 200px;
-        transform: translateX(0);
-        transition: transform 0.65s;
-        transition-timing-function: ease;
-    }
-
-    .desktop-history-slide-right {
-        transform: translateX(0);
-    }
-
-    .desktop-history-slide-left {
-        transform: translateX(-50%);
     }
 
     .desktop-container-history-header {
-        background-color: blueviolet;
+        /* background-color: blueviolet; */
         width: 400px;
-        height: 40px;
-        display: block;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .desktop-history-title {
+        /* background-color: chartreuse; */
+        font-size: 25px;
+        border-bottom: 3px solid #ff9b9b;
     }
 
     #history-textarea {
@@ -576,6 +575,7 @@ span {
         margin-top: 7.5px;
         margin-left: 5px;
         position: absolute;
+        display: none;
     }
 
     .delete-history:hover {
@@ -609,7 +609,7 @@ span {
 
     .desktop-history-popup-button-selected {
         background-color: rgb(252, 252, 252);
-        box-shadow: inset 1px 2px 4px 2px rgba(0, 0, 0, 0.178);
+        box-shadow: inset 1px 2px 4px 2px rgba(0, 0, 0, 0.137);
         font-size: 19px;
     }
 
@@ -621,7 +621,7 @@ span {
         background-color: rgb(250, 250, 250);
         cursor: pointer;
         /* box-shadow: inset 1px 2px 4px 2px rgba(0, 0, 0, 0.253); */
-        box-shadow: inset 1px 2px 5px 3px rgba(0, 0, 0, 0.295);
+        box-shadow: inset 1px 2px 4px 2px rgba(0, 0, 0, 0.295);
         font-size: 18px;
     }
 
@@ -720,10 +720,14 @@ and (max-height: 700px) {
     }
 
     .container-center-content {
-        width: 580px;
+        width: 290px;
         height: 400px;
         /* margin-left: calc(50vw - 400px);
         margin-top: calc(50vh - 200px); */
+    }
+
+    .container-center-content-expand {
+        width: 580px;
     }
 
     .container-calculator {
@@ -731,7 +735,6 @@ and (max-height: 700px) {
         height: 400px;
         max-width: 290px;
         max-height: 400px;
-        margin-left: 145px;
     }
 
     .container-display {
@@ -789,22 +792,26 @@ and (max-height: 700px) {
         transform: translateY(0);
         flex-direction: column;
         /* z-index: 10001; */
-        margin-left: 145px;
     }
-
+/* 
     .desktop-history-slide-right {
         transform: translateX(0);
     }
 
     .desktop-history-slide-left {
         transform: translateX(-50%);
-    }
+    } */
 
     .desktop-container-history-header {
-        background-color: blueviolet;
+        /* background-color: blueviolet; */
         width: 290px;
         height: 40px;
-        display: block;
+    }
+
+    .desktop-history-title {
+        /* background-color: chartreuse; */
+        font-size: 22px;
+        border-bottom: 2px solid #ff9b9b;
     }
 
     .container-delete-history {

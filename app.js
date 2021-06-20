@@ -5,6 +5,7 @@ const historyTextArea = document.querySelector("#history-textarea");
 const mobileHistoryButton = document.querySelector(".mobile-history-button");
 const containerDeleteHistory = document.querySelector(".container-delete-history");
 const deleteHistory = document.querySelector(".delete-history");
+const containerCenterContent = document.querySelector(".container-center-content");
 const containerCalculator = document.querySelector(".container-calculator");
 const containerNumberPad = document.querySelector(".container-number-pad");
 const buttonAllClear = document.querySelector(".button-all-clear");
@@ -465,6 +466,7 @@ function displayHistoryDesktop() {
         containerHistory.classList.add("desktop-history-slide-left");
         desktopHistoryPopupButton.textContent = "Hide  History";
         desktopHistoryPopupButton.classList.add("desktop-history-popup-button-selected");
+        containerCenterContent.classList.add("container-center-content-expand");
     }
     else {
         containerCalculator.classList.add("desktop-calculator-slide-left");
@@ -473,6 +475,7 @@ function displayHistoryDesktop() {
         containerHistory.classList.remove("desktop-history-slide-left");
         desktopHistoryPopupButton.textContent = "Show History";
         desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected");
+        containerCenterContent.classList.remove("container-center-content-expand");
     }
 }
 
