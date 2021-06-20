@@ -31,6 +31,7 @@ const numberPadButtons = document.querySelectorAll(".number-pad-buttons");
 const desktopLightDarkMode = document.querySelector(".desktop-light-dark-mode");
 const desktopTitle = document.querySelector(".desktop-title");
 const mainHtmlElement = document.querySelector("main");
+const desktopHistoryPopupButton = document.querySelector(".desktop-history-popup-button");
 
 let mainDisplayValue = 0;
 let smallDisplayValue = 0;
@@ -453,6 +454,27 @@ function changeColorTouchEnd() {
     : this.style.backgroundColor = "#262626";
     }
 }
+
+
+//
+function displayHistoryDesktop() {
+    if (containerCalculator.classList.contains("desktop-calculator-slide-left")) {
+        containerCalculator.classList.remove("desktop-calculator-slide-left");
+        containerCalculator.classList.add("desktop-calculator-slide-right");
+        containerHistory.classList.remove("desktop-history-slide-right");
+        containerHistory.classList.add("desktop-history-slide-left");
+        desktopHistoryPopupButton.textContent = "Hide History";
+    }
+    else {
+        containerCalculator.classList.add("desktop-calculator-slide-left");
+        containerCalculator.classList.remove("desktop-calculator-slide-right");
+        containerHistory.classList.add("desktop-history-slide-right");
+        containerHistory.classList.remove("desktop-history-slide-left");
+        desktopHistoryPopupButton.textContent = "Show History";
+    }
+}
+
+
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 // touchNumbers.forEach(number => number.addEventListener("mousedown", setCurrentNumber));
@@ -519,5 +541,6 @@ buttonDecimal.addEventListener("mouseup", addDecimal);
 // buttonAddition.addEventListener("mousedown", add);
 mobileLightDarkMode.addEventListener("touchend", changeLightDarkMode);
 desktopLightDarkMode.addEventListener("mouseup", changeLightDarkModeDesktop);
+desktopHistoryPopupButton.addEventListener("mouseup", displayHistoryDesktop);
 
 
