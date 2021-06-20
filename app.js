@@ -464,6 +464,7 @@ function displayHistoryDesktop() {
         containerHistory.classList.remove("desktop-history-slide-right");
         containerHistory.classList.add("desktop-history-slide-left");
         desktopHistoryPopupButton.textContent = "Hide History";
+        desktopHistoryPopupButton.classList.add("desktop-history-popup-button-selected");
     }
     else {
         containerCalculator.classList.add("desktop-calculator-slide-left");
@@ -471,6 +472,7 @@ function displayHistoryDesktop() {
         containerHistory.classList.add("desktop-history-slide-right");
         containerHistory.classList.remove("desktop-history-slide-left");
         desktopHistoryPopupButton.textContent = "Show History";
+        desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected");
     }
 }
 
