@@ -612,7 +612,7 @@ span {
     }
 
     .desktop-history-popup-button-selected {
-        background-color: rgb(252, 252, 252);
+        background-color: rgb(253, 253, 253);
         box-shadow: inset 1px 2px 4px 2px rgba(0, 0, 0, 0.137);
         font-size: 19px;
     }
@@ -694,15 +694,15 @@ span {
         background-repeat: no-repeat;
         background-position: center;
         border-radius: 50%;
-        border: 2px solid rgb(0, 0, 0);
+        /* border: 2px solid rgb(0, 0, 0); */
         width: 32px;
         height: 32px;
     }
 
     .desktop-github-project-link:hover {
-        background-color: #ffe1c7;
-        /* background-image: url("Images/GithubLogoWhite.png");
-        border: 2px solid white; */
+        /* background-color: #e7e7e7; */
+        /* background-image: url("Images/GithubLogoWhite.png"); */
+        border: 2px solid black;
     }
 }
 
