@@ -615,6 +615,10 @@ span {
         cursor: pointer;
     }
 
+    .desktop-light-dark-mode-DARK:hover {
+        background-color: #3f3f3f;
+    }
+
     .desktop-footer {
         background-color: #fdf3ea;
         display: block;

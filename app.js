@@ -11,20 +11,10 @@ const buttonAllClear = document.querySelector(".button-all-clear");
 const buttonClearEntry = document.querySelector(".button-clear-entry");
 const buttonDeleteLastDigit = document.querySelector(".button-delete-last-digit");
 const buttonDivision = document.querySelector(".button-division");
-// const buttonNumberSeven = document.querySelector(".button-number-seven");
-// const buttonNumberEight = document.querySelector(".button-number-eight");
-// const buttonNumberNine = document.querySelector(".button-number-nine");
 const buttonMultiplication = document.querySelector(".button-multiplication");
-// const buttonNumberFour = document.querySelector(".button-number-four");
-// const buttonNumberFive = document.querySelector(".button-number-five");
-// const buttonNumberSix = document.querySelector(".button-number-six");
 const buttonSubtraction = document.querySelector(".button-subtraction");
-// const buttonNumberOne = document.querySelector(".button-number-one");
-// const buttonNumberTwo = document.querySelector(".button-number-two");
-// const buttonNumberThree = document.querySelector(".button-number-three");
 const buttonAddition = document.querySelector(".button-addition");
 const buttonPositiveNegative = document.querySelector(".button-positive-negative");
-// const buttonNumberZero = document.querySelector(".button-number-zero");
 const buttonDecimal = document.querySelector(".button-decimal");
 const buttonEquals = document.querySelector(".button-equals");
 const touchNumbers = document.querySelectorAll(".touch-numbers");
@@ -38,6 +28,9 @@ const mobileContainerLightDarkMode = document.querySelector(".mobile-container-l
 const mobileLightDarkMode = document.querySelector(".mobile-light-dark-mode");
 const mobileGithubProjectLink = document.querySelector(".mobile-github-project-link");
 const numberPadButtons = document.querySelectorAll(".number-pad-buttons");
+const desktopLightDarkMode = document.querySelector(".desktop-light-dark-mode");
+const desktopTitle = document.querySelector(".desktop-title");
+const mainHtmlElement = document.querySelector("main");
 
 let mainDisplayValue = 0;
 let smallDisplayValue = 0;
@@ -401,6 +394,27 @@ function changeLightDarkMode() {
     }
 }
 
+//
+function changeLightDarkModeDesktop() {
+    changeLightDarkMode();
+
+    if (lightMode) {
+        desktopLightDarkMode.style.backgroundImage = "url('Images/SunIcon.png')";
+        desktopLightDarkMode.classList.remove("desktop-light-dark-mode-DARK");
+        desktopLightDarkMode.style.backgroundSize = "40px";
+        mainHtmlElement.style.backgroundColor = "#fff";
+        desktopTitle.style.color = "#241100";
+    }
+    else {
+        desktopLightDarkMode.style.backgroundImage = "url('Images/MoonIcon.png')";
+        desktopLightDarkMode.classList.add("desktop-light-dark-mode-DARK");
+        desktopLightDarkMode.style.backgroundSize = "32px";
+        mainHtmlElement.style.backgroundColor = "#1e1e1e";
+        desktopTitle.style.color = "#fff";
+    }
+}
+
+
 
 //
 function changeColorTouchStart() {
@@ -503,7 +517,7 @@ buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("mouseup", addDecimal);
 
 // buttonAddition.addEventListener("mousedown", add);
-mobileLightDarkMode.addEventListener("mouseup", changeLightDarkMode);
-
+mobileLightDarkMode.addEventListener("touchend", changeLightDarkMode);
+desktopLightDarkMode.addEventListener("mouseup", changeLightDarkModeDesktop);
 
 
