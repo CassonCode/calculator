@@ -463,7 +463,7 @@ function displayHistoryDesktop() {
         containerCalculator.classList.add("desktop-calculator-slide-right");
         containerHistory.classList.remove("desktop-history-slide-right");
         containerHistory.classList.add("desktop-history-slide-left");
-        desktopHistoryPopupButton.textContent = "Hide History";
+        desktopHistoryPopupButton.textContent = "Hide  History";
         desktopHistoryPopupButton.classList.add("desktop-history-popup-button-selected");
     }
     else {
