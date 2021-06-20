@@ -347,6 +347,7 @@ span {
     border: none;
     position: absolute;
     resize: none;
+    outline: none;
 }
 
 .container-delete-history {
@@ -424,9 +425,6 @@ span {
     }
 
     .container-calculator {
-        /* box-shadow: 9px -10px 10px rgba(0, 0, 0, 0.199), 
-          9px 0px 10px rgba(180, 180, 180, 0.199), 9px 10px 10px rgba(0, 0, 0, 0.199); */
-          /* box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.199); */
         width: 400px;
         height: 550px;
         max-width: 400px;
@@ -535,9 +533,6 @@ span {
     }
 
     .container-history {
-        /* box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.199); */
-        /* box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.199), 
-          0px 0px 20px rgba(0, 0, 0, 0.199), 0px 10px 10px rgba(0, 0, 0, 0.199); */
         position: relative;
         width: 400px;
         height: 550px;
@@ -564,6 +559,15 @@ span {
     #history-textarea {
         flex-grow: 1;
         position: relative;
+        padding-top: 45%;
+        padding-left: 39%;
+        font-size: 20px;
+        font-style: italic;
+        color: rgb(104, 104, 104);
+    }
+
+    #history-textarea:hover {
+        cursor: default;
     }
 
     .container-delete-history {
@@ -812,6 +816,17 @@ and (max-height: 700px) {
         /* background-color: chartreuse; */
         font-size: 22px;
         border-bottom: 2px solid #ff9b9b;
+        padding-top: 10px;
+    }
+
+    #history-textarea {
+        flex-grow: 1;
+        position: relative;
+        padding-top: 45%;
+        padding-left: 36.5%;
+        font-size: 16px;
+        font-style: italic;
+        color: rgb(65, 65, 65);
     }
 
     .container-delete-history {
