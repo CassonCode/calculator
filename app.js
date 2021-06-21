@@ -406,6 +406,8 @@ function changeLightDarkModeDesktop() {
         desktopLightDarkMode.style.backgroundSize = "40px";
         mainHtmlElement.style.backgroundColor = "#fff";
         desktopTitle.style.color = "#241100";
+
+        containerCenterContent.classList.remove("container-center-content-DARK");
     }
     else {
         desktopLightDarkMode.style.backgroundImage = "url('Images/MoonIcon.png')";
@@ -413,6 +415,8 @@ function changeLightDarkModeDesktop() {
         desktopLightDarkMode.style.backgroundSize = "32px";
         mainHtmlElement.style.backgroundColor = "#161616";
         desktopTitle.style.color = "#fff";
+
+        containerCenterContent.classList.add("container-center-content-DARK");
     }
 }
 

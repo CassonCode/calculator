@@ -839,6 +839,19 @@ and (max-height: 700px) {
 
 @media (min-width: 961px)
 and (min-height: 880px) {
+    .desktop-history-popup-button {
+        margin-top: 75px;
+    }
+
+    .desktop-title {
+        margin-top: 65px;
+        font-size: 60px;
+    }
+
+    .desktop-light-dark-mode {
+        margin-top: 75px;
+    }
+
     .desktop-footer {
         height: 75px;
     }
