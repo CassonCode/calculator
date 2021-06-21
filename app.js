@@ -331,18 +331,18 @@ function changeLightDarkMode() {
         mobileHistoryButton.style.backgroundColor = "#121212";
         mobileHistoryButton.style.color = "#fff";
         mobileLightDarkMode.style.backgroundColor = "#121212";
-        displayBig.style.backgroundColor = "#121212";
+        displayBig.style.backgroundColor = "#161616";   /*  121212  */
         displayBig.style.color = "#fff";
-        displaySmall.style.backgroundColor = "#121212";
+        displaySmall.style.backgroundColor = "#161616";
         displaySmall.style.color = "#fff";
         touchNumbers.forEach(button => {
-            button.style.backgroundColor = "#060606";
+            button.style.backgroundColor = "#161616";   /*  #060606 */
             button.style.color = "#fff";
         });
         buttonAllClear.style.backgroundColor = "#310E0E";
         buttonAllClear.style.color = "#fff";
         numberPadButtons.forEach(button => {
-            button.style.borderColor = "#121212";
+            button.style.borderColor = "#161616";
             button.style.color = "#fff";
         });
         buttonDeleteLastDigit.style.backgroundImage = "url('Images/DeleteArrowWhite.png')";
@@ -411,7 +411,7 @@ function changeLightDarkModeDesktop() {
         desktopLightDarkMode.style.backgroundImage = "url('Images/MoonIcon.png')";
         desktopLightDarkMode.classList.add("desktop-light-dark-mode-DARK");
         desktopLightDarkMode.style.backgroundSize = "32px";
-        mainHtmlElement.style.backgroundColor = "#1e1e1e";
+        mainHtmlElement.style.backgroundColor = "#161616";
         desktopTitle.style.color = "#fff";
     }
 }
@@ -482,7 +482,6 @@ function displayHistoryDesktop() {
 
 touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-// touchNumbers.forEach(number => number.addEventListener("mousedown", setCurrentNumber));
 touchNumbers.forEach(number => number.addEventListener("mouseup", setMainDisplay));
 touchOperator.forEach(operator => operator.addEventListener("mouseup", () => {
     solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
@@ -528,7 +527,7 @@ touchDelete.forEach(button => button.addEventListener("touchstart", changeColorT
 touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchOperator.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-touchOperator.forEach(button => button.addEventListener("mouseup", setOperatorColor));
+touchOperator.forEach(button => button.addEventListener("touchend", setOperatorColor));
 buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
 buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
 buttonAllClear.addEventListener("mouseup", allClear);
@@ -536,14 +535,12 @@ buttonClearEntry.addEventListener("mouseup", clearEntry);
 buttonDeleteLastDigit.addEventListener("mouseup", deleteLastDigit);
 buttonEquals.addEventListener("touchstart", changeColorTouchStart);
 buttonEquals.addEventListener("touchend", changeColorTouchEnd);
-buttonEquals.addEventListener("mouseup", setOperatorColor);
+buttonEquals.addEventListener("touchend", setOperatorColor);
 buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
 buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
 buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("mouseup", addDecimal);
-
-// buttonAddition.addEventListener("mousedown", add);
 mobileLightDarkMode.addEventListener("touchend", changeLightDarkMode);
 desktopLightDarkMode.addEventListener("mouseup", changeLightDarkModeDesktop);
 desktopHistoryPopupButton.addEventListener("mouseup", displayHistoryDesktop);

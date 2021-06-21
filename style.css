@@ -412,12 +412,15 @@ span {
     }
 
     .container-center-content {
-        /* position: absolute; */
         box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.199);
         margin: auto;
         width: 400px;
         height: 550px;
         transition: width 0.65s ease;
+    }
+
+    .container-center-content-DARK {
+        box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.692);
     }
 
     .container-center-content-expand {
