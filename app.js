@@ -256,8 +256,19 @@ function setMainDisplay() {
         displayBigText.innerText = this.value;
     }
     else if (displayBigText.innerText.length < 12) {
-        operatorIsActive ? displayBigText.innerText = this.value
-        : displayBigText.innerText += this.value;
+        if (operatorIsActive) {
+            if (mainDisplayValue === smallDisplayValue) {
+                displayBigText.innerText = this.value;
+            }
+            else {
+                displayBigText.innerText += this.value;
+            }
+        }
+        // operatorIsActive ? displayBigText.innerText = this.value
+        // : displayBigText.innerText += this.value;
+        else {
+            displayBigText.innerText += this.value;
+        }
     }
     if (displayBigText.innerText.includes(".")) {
         mainDisplayValue = parseFloat(displayBigText.innerText);
