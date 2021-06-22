@@ -1,7 +1,7 @@
 //
 const containerPage = document.querySelector(".container-page");
 const containerHistory = document.querySelector(".container-history");
-const historyTextArea = document.querySelector("#history-textarea");
+const historyTextArea = document.querySelector(".history-textarea");
 const mobileHistoryButton = document.querySelector(".mobile-history-button");
 const containerDeleteHistory = document.querySelector(".container-delete-history");
 const deleteHistory = document.querySelector(".delete-history");
@@ -33,6 +33,11 @@ const desktopLightDarkMode = document.querySelector(".desktop-light-dark-mode");
 const desktopTitle = document.querySelector(".desktop-title");
 const mainHtmlElement = document.querySelector("main");
 const desktopHistoryPopupButton = document.querySelector(".desktop-history-popup-button");
+const desktopHistoryTitle = document.querySelector(".desktop-history-title");
+const desktopFooter = document.querySelector(".desktop-footer");
+const desktopGithubAccountLink = document.querySelector(".desktop-github-account-link");
+const desktopGithubProjectLink = document.querySelector(".desktop-github-project-link");
+const desktopCreatedBy = document.querySelector(".desktop-created-by");
 
 let mainDisplayValue = 0;
 let smallDisplayValue = 0;
@@ -325,73 +330,45 @@ function deleteLastDigit() {
 //
 function changeLightDarkMode() {
     if (lightMode) {
-        mobileLightDarkMode.style.backgroundImage = "url('Images/MoonIcon.png')";
-        mobileLightDarkMode.style.backgroundSize = "30px";
-        mobileGithubProjectLink.style.backgroundColor = "#121212";
-        mobileHistoryButton.style.backgroundColor = "#121212";
-        mobileHistoryButton.style.color = "#fff";
-        mobileLightDarkMode.style.backgroundColor = "#121212";
-        displayBig.style.backgroundColor = "#161616";   /*  121212  */
-        displayBig.style.color = "#fff";
-        displaySmall.style.backgroundColor = "#161616";
-        displaySmall.style.color = "#fff";
-        touchNumbers.forEach(button => {
-            button.style.backgroundColor = "#161616";   /*  #060606 */
-            button.style.color = "#fff";
-        });
-        buttonAllClear.style.backgroundColor = "#310E0E";
-        buttonAllClear.style.color = "#fff";
-        numberPadButtons.forEach(button => {
-            button.style.borderColor = "#161616";
-            button.style.color = "#fff";
-        });
-        buttonDeleteLastDigit.style.backgroundImage = "url('Images/DeleteArrowWhite.png')";
-        buttonDeleteLastDigit.style.backgroundColor = "#262626";
-        buttonPositiveNegative.style.backgroundImage = "url('Images/PlusMinusWhite.png')";
-        buttonPositiveNegative.style.backgroundColor = "#262626";
-        buttonEquals.style.backgroundColor = "#0E1628";
-        buttonClearEntry.style.backgroundColor = "#262626";
-        buttonDecimal.style.backgroundColor = "#262626";
-        touchOperator.forEach(button => button.style.backgroundColor = "#262626");
-        mobileGithubProjectLink.style.backgroundImage = 'url("Images/GithubLogoWhite.png")';
-        historyTextArea.style.backgroundColor = "#121212";
-        containerDeleteHistory.style.backgroundColor = "#121212";
-        deleteHistory.style.backgroundImage = 'url("Images/TrashCanWhite.png")';
+        touchNumbers.forEach(button => button.classList.add("touch-numbers-DARK"));
+        numberPadButtons.forEach(button => button.classList.add("number-pad-buttons-DARK"));
+        touchOperator.forEach(button => button.classList.add("touch-operator-DARK"));        
+        mobileLightDarkMode.classList.add("mobile-light-dark-mode-DARK");
+        mobileGithubProjectLink.classList.add("mobile-github-project-link-DARK");
+        mobileHistoryButton.classList.add("mobile-history-button-DARK");
+        displayBig.classList.add("display-big-DARK");
+        displaySmall.classList.add("display-small-DARK");
+        buttonAllClear.classList.add("button-all-clear-DARK");
+        buttonDeleteLastDigit.classList.add("button-delete-last-digit-DARK");
+        buttonPositiveNegative.classList.add("button-positive-negative-DARK");
+        buttonEquals.classList.add("button-equals-DARK");
+        buttonClearEntry.classList.add("button-clear-entry-DARK");
+        buttonDecimal.classList.add("button-decimal-DARK");
+        historyTextArea.classList.add("history-textarea-DARK");
+        containerDeleteHistory.classList.add("container-delete-history-DARK");
+        deleteHistory.classList.add("delete-history-DARK");
+
         lightMode = false;
     }
     else {
-        mobileLightDarkMode.style.backgroundImage = "url('Images/SunIcon.png')"
-        mobileLightDarkMode.style.backgroundSize = "40px";
-        mobileGithubProjectLink.style.backgroundColor = "#fff";
-        mobileHistoryButton.style.backgroundColor = "#fff";
-        mobileHistoryButton.style.color = "#000";
-        mobileLightDarkMode.style.backgroundColor = "#fff";
-        displayBig.style.backgroundColor = "#fff";
-        displayBig.style.color = "#000";
-        displaySmall.style.backgroundColor = "#fff";
-        displaySmall.style.color = "#000";
-        touchNumbers.forEach(button => {
-            button.style.backgroundColor = "#fff";
-            button.style.color = "#000";
-        });
-        buttonAllClear.style.backgroundColor = "#FFDDDD";
-        buttonAllClear.style.color = "#000";
-        numberPadButtons.forEach(button => {
-            button.style.borderColor = "#fff";
-            button.style.color = "#000";
-        });
-        buttonDeleteLastDigit.style.backgroundImage = "url('Images/DeleteArrowBlack.png')";
-        buttonDeleteLastDigit.style.backgroundColor = "#fff0e2";
-        buttonPositiveNegative.style.backgroundImage = "url('Images/PlusMinusBlack.png')";
-        buttonPositiveNegative.style.backgroundColor = "#fff0e2";
-        buttonEquals.style.backgroundColor = "#DCE8FF";
-        buttonClearEntry.style.backgroundColor = "#fff0e2";
-        buttonDecimal.style.backgroundColor = "#fff0e2";
-        touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
-        mobileGithubProjectLink.style.backgroundImage = 'url("Images/GithubLogoBlack.png")';
-        historyTextArea.style.backgroundColor = "#fff";
-        containerDeleteHistory.style.backgroundColor = "#fff";
-        deleteHistory.style.backgroundImage = 'url("Images/TrashCanBlack.png")';
+        touchNumbers.forEach(button => button.classList.remove("touch-numbers-DARK"));
+        numberPadButtons.forEach(button => button.classList.remove("number-pad-buttons-DARK"));
+        touchOperator.forEach(button => button.classList.remove("touch-operator-DARK"));    
+        mobileLightDarkMode.classList.remove("mobile-light-dark-mode-DARK");
+        mobileGithubProjectLink.classList.remove("mobile-github-project-link-DARK");
+        mobileHistoryButton.classList.remove("mobile-history-button-DARK");
+        displayBig.classList.remove("display-big-DARK");
+        displaySmall.classList.remove("display-small-DARK");
+        buttonAllClear.classList.remove("button-all-clear-DARK");
+        buttonDeleteLastDigit.classList.remove("button-delete-last-digit-DARK");
+        buttonPositiveNegative.classList.remove("button-positive-negative-DARK");
+        buttonEquals.classList.remove("button-equals-DARK");
+        buttonClearEntry.classList.remove("button-clear-entry-DARK");
+        buttonDecimal.classList.remove("button-decimal-DARK");
+        historyTextArea.classList.remove("history-textarea-DARK");
+        containerDeleteHistory.classList.remove("container-delete-history-DARK");
+        deleteHistory.classList.remove("delete-history-DARK");
+
         lightMode = true;
     }
 }
@@ -401,22 +378,28 @@ function changeLightDarkModeDesktop() {
     changeLightDarkMode();
 
     if (lightMode) {
-        desktopLightDarkMode.style.backgroundImage = "url('Images/SunIcon.png')";
-        desktopLightDarkMode.classList.remove("desktop-light-dark-mode-DARK");
-        desktopLightDarkMode.style.backgroundSize = "40px";
         mainHtmlElement.style.backgroundColor = "#fff";
+        desktopLightDarkMode.classList.remove("desktop-light-dark-mode-DARK");
         desktopTitle.style.color = "#241100";
-
         containerCenterContent.classList.remove("container-center-content-DARK");
+        desktopHistoryTitle.classList.remove("desktop-history-title-DARK");
+        displaySmallText.classList.remove("display-small-text-DARK");
+        desktopFooter.classList.remove("desktop-footer-DARK");
+        desktopGithubAccountLink.classList.remove("desktop-github-account-link-DARK");
+        desktopCreatedBy.classList.remove("desktop-created-by-DARK");
+        desktopGithubProjectLink.classList.remove("desktop-github-project-link-DARK");
     }
     else {
-        desktopLightDarkMode.style.backgroundImage = "url('Images/MoonIcon.png')";
-        desktopLightDarkMode.classList.add("desktop-light-dark-mode-DARK");
-        desktopLightDarkMode.style.backgroundSize = "32px";
         mainHtmlElement.style.backgroundColor = "#161616";
+        desktopLightDarkMode.classList.add("desktop-light-dark-mode-DARK");
         desktopTitle.style.color = "#fff";
-
         containerCenterContent.classList.add("container-center-content-DARK");
+        desktopHistoryTitle.classList.add("desktop-history-title-DARK");
+        displaySmallText.classList.add("display-small-text-DARK");
+        desktopFooter.classList.add("desktop-footer-DARK");
+        desktopGithubAccountLink.classList.add("desktop-github-account-link-DARK");
+        desktopCreatedBy.classList.add("desktop-created-by-DARK");
+        desktopGithubProjectLink.classList.add("desktop-github-project-link-DARK");
     }
 }
 

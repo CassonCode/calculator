@@ -15,19 +15,7 @@
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     user-select: none;
 }
-/* 
-html {
-    line-height: 1.15; 
-    -webkit-text-size-adjust: 100%; 
-  } */
 
-/* body {
-    background-color: blue;
-} */
-
-/* .container-page {
-    background-color: red;
-} */
 
 .desktop-header {
     display: none;
@@ -43,7 +31,6 @@ html {
 }
 
 .mobile-container-header {
-    background-color: green;
     display: flex;
     height: 50px;
     position: sticky;
@@ -69,6 +56,11 @@ html {
     position: relative;
 }
 
+.display-small-DARK {
+    background-color: #161616;
+    color: #fff;
+}
+
 .display-small-text {
     font-size: 5.5vw;
     font-family: 'Roboto', sans-serif;
@@ -81,6 +73,11 @@ html {
     background-color: #fff;  /*  f3f3f3  */
     font-size: 18vw;
     position: relative;  
+}
+
+.display-big-DARK {
+    background-color: #161616;
+    color: #fff;
 }
 
 .display-big-text {
@@ -123,6 +120,10 @@ span {
     border-right: 3px solid white;
     border-bottom: 3px solid white;
 }
+.button-all-clear-DARK {
+    background-color: #310E0E;
+}
+
 .button-clear-entry {
     background-color: #fff0e2;
     border-top: 6px solid white;
@@ -130,6 +131,10 @@ span {
     border-right: 3px solid white;
     border-bottom: 3px solid white;
 }
+.button-clear-entry-DARK {
+    background-color: #262626;
+}
+
 .button-delete-last-digit {
     background-color: #fff0e2;
     background-image: url("Images/DeleteArrowBlack.png");
@@ -141,6 +146,11 @@ span {
     border-right: 3px solid white;
     border-bottom: 3px solid white;
 }
+.button-delete-last-digit-DARK {
+    background-image: url("Images/DeleteArrowWhite.png");
+    background-color: #262626;
+}
+
 .button-division {
     background-color: #fff0e2;
     border-top: 6px solid white;
@@ -261,6 +271,11 @@ span {
     border-right: 3px solid white;
     border-bottom: 6px solid white;
 }
+.button-positive-negative-DARK {
+    background-image: url("Images/PlusMinusWhite.png");
+    background-color: #262626;
+}
+
 .button-number-zero {
     background-color: white;
     font-size: 45px;
@@ -278,12 +293,33 @@ span {
     border-bottom: 6px solid white;
     font-size: 47px;
 }
+.button-decimal-DARK {
+    background-color: #262626;
+}
+
 .button-equals {
     background-color: #DCE8FF;
     border-top: 3px solid white;
     border-left: 3px solid white;
     border-right: 6px solid white;
     border-bottom: 6px solid white;
+}
+.button-equals-DARK {
+    background-color: #0E1628;
+}
+
+.number-pad-buttons-DARK {
+    border-color: #161616;
+    color: #fff;
+} 
+
+.touch-numbers-DARK {
+    background-color: #161616;
+    color: #fff;
+}
+
+.touch-operator-DARK {
+    background-color: #262626;
 }
 
 .mobile-github-project-link {
@@ -298,6 +334,11 @@ span {
     width: 30vw;
 }
 
+.mobile-github-project-link-DARK {
+    background-color: #161616;
+    background-image: url("Images/GithubLogoWhite.png");
+}
+
 .mobile-history-button {
     background-color: #fff;  /*  fff8f1  */
     border: none;
@@ -306,6 +347,11 @@ span {
     border-radius: 0;
     font-size: 25px;
     width: 40vw;
+}
+
+.mobile-history-button-DARK {
+    background-color: #161616;
+    color: #fff;
 }
 
 .mobile-container-light-dark-mode {
@@ -326,6 +372,12 @@ span {
     height: 50px;
 }
 
+.mobile-light-dark-mode-DARK {
+    background-image: url("Images/MoonIcon.png");
+    background-size: 30px;
+    background-color: #161616;
+}
+
 .container-history {
     display: flex;
     position: fixed;
@@ -342,24 +394,27 @@ span {
     transition: transform 0.25s;
 }
 
-#history-textarea {
+.history-textarea {
     background-color: #fff;
     border: none;
     position: absolute;
     resize: none;
     outline: none;
 }
+.history-textarea-DARK {
+    background-color: #161616;
+}
 
 .container-delete-history {
     background-color: #fff;
-    /* border-top: 1px solid black; */
     bottom: 0;
-    /* display: flex;
-    justify-content: flex-end; */
     height: 65px;
     left: 0;
     position: absolute;
     right: 0;
+}
+.container-delete-history-DARK {
+    background-color: #161616;
 }
 
 .delete-history {
@@ -370,6 +425,9 @@ span {
     margin-left: 12px;
     width: 50px;
     height: 50px;
+}
+.delete-history-DARK {
+    background-image: url("Images/TrashCanWhite.png");
 }
 
 
@@ -452,7 +510,6 @@ span {
     }
 
     .display-small {
-        background-color: #fff;  /*  f3f3f3  FEF1E0  EDEDED  F4F4F4  */
         position: relative;
     }
     
@@ -464,9 +521,12 @@ span {
         right: 29px;
         bottom: 30px;
     }
+
+    .display-small-text-DARK {
+        color: #fff;
+    }
     
     .display-big {
-        background-color: #fff;  /*  f3f3f3  */
         font-size: 70px;
         position: relative;  
     }
@@ -554,23 +614,37 @@ span {
     }
 
     .desktop-history-title {
-        /* background-color: chartreuse; */
         font-size: 25px;
         border-bottom: 3px solid #ff9b9b;
     }
 
-    #history-textarea {
+    .desktop-history-title-DARK {
+        border-bottom: 3px solid #641111;
+        color: #fff;
+    }
+
+    .history-textarea {
         flex-grow: 1;
         position: relative;
         padding-top: 45%;
         padding-left: 39%;
         font-size: 20px;
         font-style: italic;
-        color: rgb(104, 104, 104);
+        color: #595959;
     }
 
-    #history-textarea:hover {
+    .history-textarea:hover {
         cursor: default;
+    }
+
+    .history-textarea-DARK {
+        flex-grow: 1;
+        position: relative;
+        padding-top: 45%;
+        padding-left: 39%;
+        font-size: 20px;
+        font-style: italic;
+        color: #A1A1A1;
     }
 
     .container-delete-history {
@@ -657,6 +731,11 @@ span {
         background-color: #fdf3ea; /*  rgba(0, 0, 0, 0.034)  fff0e2  fdf3ea */
         cursor: pointer;
     }
+    
+    .desktop-light-dark-mode-DARK {
+        background-image: url("Images/MoonIcon.png");
+        background-size: 32px;
+    }
 
     .desktop-light-dark-mode-DARK:hover {
         background-color: #3f3f3f;
@@ -671,12 +750,20 @@ span {
         width: 100%;
     }
 
+    .desktop-footer-DARK {
+        background-color: #262626;
+    }
+
     .desktop-created-by {
         display: flex;
         width: 100%;
         height: 50px;
         align-items: center;
         justify-content: center;
+    }
+
+    .desktop-created-by-DARK {
+        color: #fff;
     }
 
     .desktop-github-account-link {
@@ -690,6 +777,15 @@ span {
         text-decoration: underline black;
     }
 
+    .desktop-github-account-link-DARK {
+        color: #fff;
+    }
+
+    .desktop-github-account-link-DARK:hover {
+        color: #fff;
+        text-decoration: underline white;
+    }
+
     .desktop-github-project-link {
         background-color: white;
         background-image: url("Images/GithubLogoBlack.png");
@@ -697,15 +793,21 @@ span {
         background-repeat: no-repeat;
         background-position: center;
         border-radius: 50%;
-        /* border: 2px solid rgb(0, 0, 0); */
         width: 32px;
         height: 32px;
     }
 
     .desktop-github-project-link:hover {
-        /* background-color: #e7e7e7; */
-        /* background-image: url("Images/GithubLogoWhite.png"); */
         border: 2px solid black;
+    }
+
+    .desktop-github-project-link-DARK {
+        background-image: url("Images/GithubLogoWhite.png");
+        background-color: black;
+    }
+
+    .desktop-github-project-link-DARK:hover {
+        border: 2px solid white;
     }
 }
 
@@ -822,7 +924,7 @@ and (max-height: 700px) {
         padding-top: 10px;
     }
 
-    #history-textarea {
+    .history-textarea {
         flex-grow: 1;
         position: relative;
         padding-top: 45%;
