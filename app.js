@@ -118,16 +118,6 @@ function setCurrentNumberFontSize(number) {
         displayBigText.style.fontSize = "75%";
         fontScale = 4;
     }
-    // else if (number.length > 11 && number.includes(".")) {
-    //     displayBigText.innerText = Number.parseFloat(number).toExponential(2);
-    //     displayBigText.style.fontSize = "100%";
-    //     fontScale = 1;
-    // }
-    // else if (number.length > 11 && !number.includes(".")) {
-    //     displayBigText.innerText = Number.parseInt(number).toExponential(2);
-    //     displayBigText.style.fontSize = "100%";
-    //     fontScale = 1;
-    // }
 }
 
 
@@ -280,20 +270,24 @@ function setMainDisplay() {
 }
 
 function setSmallDisplay(operator, num1) {
-        displaySmallText.innerText = smallDisplayValue + " " + operator;
+        // displaySmallText.innerText = smallDisplayValue + " " + operator;
         mainDisplayValue = num1;
+
         if (num1.length < 12) {
             displayBigText.innerText = mainDisplayValue + "";
+            displaySmallText.innerText = smallDisplayValue + " " + operator;
         }
         else {
             if (displaySmallText.innerText.includes(".")) {
                 displayBigText.innerText = Number.parseFloat(num1).toExponential(2) + "";
                 displayBigText.style.fontSize = "100%";
+                displaySmallText.innerText = Number.parseFloat(num1).toExponential(2) + " " + operator;
                 fontScale = 1;
             }
             else {
                 displayBigText.innerText = Number.parseInt(num1).toExponential(2) + "";
                 displayBigText.style.fontSize = "100%";
+                displaySmallText.innerText = Number.parseInt(num1).toExponential(2) + " " + operator;
                 fontScale = 1;
             }
         }
@@ -530,9 +524,56 @@ buttonEquals.addEventListener("mouseup", () => {
         displaySmallText.innerText = smallDisplayValue;
     }
     else if (!displaySmallText.innerText.includes(buttonEquals.value) && displaySmallText.innerText.includes(" ")) {
-        displaySmallText.innerText = displaySmallText.innerText + " " + displayBigText.innerText + " " + buttonEquals.value + " " + smallDisplayValue;
-        mainDisplayValue = smallDisplayValue;
-        displayBigText.innerText = mainDisplayValue + "";
+        if (smallDisplayValue.length < 12) {
+            displaySmallText.innerText = displaySmallText.innerText 
+                                        + " " + displayBigText.innerText 
+                                        + " " + buttonEquals.value 
+                                        + " " + smallDisplayValue;
+            mainDisplayValue = smallDisplayValue;
+            displayBigText.innerText = mainDisplayValue + "";
+        }
+        else {
+            mainDisplayValue = smallDisplayValue;
+            if (smallDisplayValue.toString().includes(".")) {
+                let checkedDigit = 0;
+                let decimalIndex = smallDisplayValue.toString().indexOf(".");
+                
+                checkedDigit = smallDisplayValue.toString().charAt(decimalIndex + 2)
+                if (checkedDigit === smallDisplayValue.toString().charAt(decimalIndex + 3)) {
+                    smallDisplayValue *= 10;
+                    smallDisplayValue = Math.round(smallDisplayValue);
+                    smallDisplayValue /= 10;
+                    smallDisplayValue = parseFloat(smallDisplayValue.toString().slice(0, decimalIndex + 2));
+                    displaySmallText.innerText = displaySmallText.innerText
+                                            + " " + displayBigText.innerText 
+                                            + " " + buttonEquals.value 
+                                            + " " + smallDisplayValue;
+                    displayBigText.innerText = smallDisplayValue + "";
+                    console.log(smallDisplayValue);
+                }
+                else {
+                    if (smallDisplayValue.length > 12) {
+                        displaySmallText.innerText = displaySmallText.innerText
+                                            + " " + displayBigText.innerText 
+                                            + " " + buttonEquals.value 
+                                            + " " + Number.parseFloat(smallDisplayValue).toExponential(2);
+                        displayBigText.innerText = Number.parseFloat(smallDisplayValue).toExponential(2) + "";
+                    }
+                    else {
+                        displaySmallText.innerText = displaySmallText.innerText
+                                            + " " + displayBigText.innerText 
+                                            + " " + buttonEquals.value 
+                                            + " " + smallDisplayValue;
+                        displayBigText.innerText = smallDisplayValue + "";
+                    }
+                }
+            }
+            else {
+                displaySmallText.innerText = displaySmallText.innerText + " " + displayBigText.innerText + " " + buttonEquals.value + " " + smallDisplayValue;
+                mainDisplayValue = smallDisplayValue;
+                displayBigText.innerText = mainDisplayValue + "";
+            }
+        }
     }
     operationsCount = 0;
 });
