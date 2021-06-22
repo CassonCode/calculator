@@ -553,7 +553,7 @@ span {
     }
 
     .touch-numbers:hover {
-        background-color: #f0f0f0;
+        background-color: #ebebeb;
         cursor: default;
     }
 
@@ -569,12 +569,36 @@ span {
         background-color: #FF4444;
     }
 
+    .button-all-clear-DARK:hover {
+        background-color: #4e1111;
+    }
+
+    .button-all-clear-DARK:active {
+        background-color: #7a1313;
+    }
+
     .touch-delete:hover {
-        background-color: #FFDDDD;
+        background-color: #ff9b9b;
     }
 
     .touch-delete:active {
         background-color: #FF4444;
+    }
+
+    .button-clear-entry-DARK:hover {
+        background-color: #4e1111;
+    }
+
+    .button-clear-entry-DARK:active {
+        background-color: #7a1313;
+    }
+
+    .button-delete-last-digit-DARK:hover {
+        background-color: #4e1111;
+    }
+
+    .button-delete-last-digit-DARK:active {
+        background-color: #7a1313;
     }
 
     .touch-operator:hover {
@@ -585,14 +609,50 @@ span {
         background-color: #FFD4AC;
     }
 
+    .touch-operator-DARK:hover {
+        background-color: #1d2335;
+    }
+
+    .touch-operator-DARK:active {
+        background-color: #252C43;
+    }
+
     .button-positive-negative:hover,
     .button-decimal:hover {
-        background-color: #f0f0f0;
+        background-color: #ebebeb;
+    }
+
+    .button-equals:hover {
+        background-color: #a7c6ff;
+    }
+
+    .button-equals:active {
+        background-color: #6599FF;
+    }
+
+    .button-equals-DARK:hover {
+        background-color: #0f1a35;
+    }
+
+    .button-equals-DARK:active {
+        background-color: #091B4A;
     }
 
     .button-positive-negative:active,
     .button-decimal:active {
         background-color: #f0f0f0e7;
+    }
+
+    .touch-numbers-DARK:hover,
+    .button-positive-negative-DARK:hover,
+    .button-decimal-DARK:hover {
+        background-color: #3d3d3d;
+    }
+
+    .touch-numbers-DARK:active,
+    .button-positive-negative-DARK:active,
+    .button-decimal-DARK:active {
+        background-color: #555555;
     }
 
     .container-history {
@@ -771,17 +831,14 @@ span {
         margin-left: 5px;
         margin-right: 15px;
         text-decoration: none;
-    }
-
-    .desktop-github-account-link:hover {
         text-decoration: underline black;
     }
 
-    .desktop-github-account-link-DARK {
-        color: #fff;
+    .desktop-github-account-link:hover {
+        text-decoration-thickness: 2px;
     }
 
-    .desktop-github-account-link-DARK:hover {
+    .desktop-github-account-link-DARK {
         color: #fff;
         text-decoration: underline white;
     }

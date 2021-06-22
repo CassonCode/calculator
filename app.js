@@ -80,44 +80,54 @@ mobileHistoryButton.addEventListener("click", () => {
 
 
 //
-function setOperatorColor() {
-    if (lightMode) {
-        touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
-        isActiveAddition ? buttonAddition.style.backgroundColor = "#FFD4AC"
-        : isActiveDivision ? buttonDivision.style.backgroundColor = "#FFD4AC"
-        : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#FFD4AC"
-        : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#FFD4AC"
-        : touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
-    }
-    else {
-        touchOperator.forEach(button => button.style.backgroundColor = "#262626");
-        isActiveAddition ? buttonAddition.style.backgroundColor = "#252C43"
-        : isActiveDivision ? buttonDivision.style.backgroundColor = "#252C43"
-        : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#252C43"
-        : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#252C43"
-        : touchOperator.forEach(button => button.style.backgroundColor = "#262626");
-    }
-}
+// function setOperatorColor() {
+//     if (lightMode) {
+//         touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
+//         isActiveAddition ? buttonAddition.style.backgroundColor = "#FFD4AC"
+//         : isActiveDivision ? buttonDivision.style.backgroundColor = "#FFD4AC"
+//         : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#FFD4AC"
+//         : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#FFD4AC"
+//         : touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
+//     }
+//     else {
+//         touchOperator.forEach(button => button.style.backgroundColor = "#262626");
+//         isActiveAddition ? buttonAddition.style.backgroundColor = "#252C43"
+//         : isActiveDivision ? buttonDivision.style.backgroundColor = "#252C43"
+//         : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#252C43"
+//         : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#252C43"
+//         : touchOperator.forEach(button => button.style.backgroundColor = "#262626");
+//     }
+// }
 
 
 //
-function setCurrentNumberFontSize() {
-    if (displayBigText.innerText.length < 9) {
+function setCurrentNumberFontSize(number) {
+    if (number.length < 9) {
         displayBigText.style.fontSize = "100%";
         fontScale = 1;
     }
-    if (displayBigText.innerText.length === 9 && fontScale === 1) {
+    if (number.length === 9 && fontScale === 1) {
         displayBigText.style.fontSize = "90%";
         fontScale = 2;
     }
-    else if (displayBigText.innerText.length === 10 && fontScale === 2) {
+    else if (number.length === 10 && fontScale === 2) {
         displayBigText.style.fontSize = "82%";
         fontScale = 3;
     }
-    else if (displayBigText.innerText.length === 11 && fontScale === 3) {
+    else if (number.length === 11 && fontScale === 3) {
         displayBigText.style.fontSize = "75%";
         fontScale = 4;
     }
+    // else if (number.length > 11 && number.includes(".")) {
+    //     displayBigText.innerText = Number.parseFloat(number).toExponential(2);
+    //     displayBigText.style.fontSize = "100%";
+    //     fontScale = 1;
+    // }
+    // else if (number.length > 11 && !number.includes(".")) {
+    //     displayBigText.innerText = Number.parseInt(number).toExponential(2);
+    //     displayBigText.style.fontSize = "100%";
+    //     fontScale = 1;
+    // }
 }
 
 
@@ -158,6 +168,7 @@ function add(num1, num2) {
     isActiveAddition = true;
 }
 
+
 //
 function operate(operator, num1, num2) {
     console.log(operator);
@@ -177,6 +188,7 @@ function operate(operator, num1, num2) {
     : operator === buttonMultiplication.value ? multiply(num1, num2)
     : operator === buttonSubtraction.value ? subtract(num1, num2)
     : add(num1, num2);
+    setCurrentNumberFontSize(smallDisplayValue);
     operatorIsActive = true;
 }
 
@@ -213,7 +225,7 @@ function solveUsingOperatorButton(operator, num1, num2) {
     else {
         if (displayBigText.innerText.includes(".")) {
             displaySmallText.innerText = parseFloat(displayBigText.innerText) + " " + operator;
-        smallDisplayValue = parseFloat(displayBigText.innerText);
+            smallDisplayValue = parseFloat(displayBigText.innerText);
         }
         else {
             displaySmallText.innerText = parseInt(displayBigText.innerText) + " " + operator;
@@ -249,7 +261,7 @@ function solveUsingEqualsButton(operator, num1, num2) {
 
 //
 function setMainDisplay() {
-    setCurrentNumberFontSize();
+    setCurrentNumberFontSize(displayBigText.innerText);
     if (displayBigText.innerText === "0") {
         displayBigText.innerText = this.value;
     }
@@ -270,7 +282,22 @@ function setMainDisplay() {
 function setSmallDisplay(operator, num1) {
         displaySmallText.innerText = smallDisplayValue + " " + operator;
         mainDisplayValue = num1;
-        displayBigText.innerText = mainDisplayValue + "";
+        if (num1.length < 12) {
+            displayBigText.innerText = mainDisplayValue + "";
+        }
+        else {
+            if (displaySmallText.innerText.includes(".")) {
+                displayBigText.innerText = Number.parseFloat(num1).toExponential(2) + "";
+                displayBigText.style.fontSize = "100%";
+                fontScale = 1;
+            }
+            else {
+                displayBigText.innerText = Number.parseInt(num1).toExponential(2) + "";
+                displayBigText.style.fontSize = "100%";
+                fontScale = 1;
+            }
+        }
+        // displayBigText.innerText = mainDisplayValue + "";
 }
 
 function addDecimal() {
@@ -290,7 +317,7 @@ function allClear() {
     isActiveDivision = false;
     isActiveMultiplication = false;
     isActiveSubtraction = false;
-    setOperatorColor();
+    // setOperatorColor();
     operationsCount = 0;
     operatorIsActive = false;
 }
@@ -502,7 +529,7 @@ buttonEquals.addEventListener("mouseup", () => {
         smallDisplayValue = mainDisplayValue;
         displaySmallText.innerText = smallDisplayValue;
     }
-    else if (!displaySmallText.innerText.includes(buttonEquals.value)) {
+    else if (!displaySmallText.innerText.includes(buttonEquals.value) && displaySmallText.innerText.includes(" ")) {
         displaySmallText.innerText = displaySmallText.innerText + " " + displayBigText.innerText + " " + buttonEquals.value + " " + smallDisplayValue;
         mainDisplayValue = smallDisplayValue;
         displayBigText.innerText = mainDisplayValue + "";
@@ -514,7 +541,7 @@ touchDelete.forEach(button => button.addEventListener("touchstart", changeColorT
 touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 touchOperator.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-touchOperator.forEach(button => button.addEventListener("touchend", setOperatorColor));
+// touchOperator.forEach(button => button.addEventListener("touchend", setOperatorColor));
 buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
 buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
 buttonAllClear.addEventListener("mouseup", allClear);
@@ -522,7 +549,7 @@ buttonClearEntry.addEventListener("mouseup", clearEntry);
 buttonDeleteLastDigit.addEventListener("mouseup", deleteLastDigit);
 buttonEquals.addEventListener("touchstart", changeColorTouchStart);
 buttonEquals.addEventListener("touchend", changeColorTouchEnd);
-buttonEquals.addEventListener("touchend", setOperatorColor);
+// buttonEquals.addEventListener("touchend", setOperatorColor);
 buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
 buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
 buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
