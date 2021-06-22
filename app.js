@@ -537,20 +537,56 @@ buttonEquals.addEventListener("mouseup", () => {
             if (smallDisplayValue.toString().includes(".")) {
                 let checkedDigit = 0;
                 let decimalIndex = smallDisplayValue.toString().indexOf(".");
+                let hasRepeat = false;
+                let expForRounding = 1;
                 
-                checkedDigit = smallDisplayValue.toString().charAt(decimalIndex + 2)
-                if (checkedDigit === smallDisplayValue.toString().charAt(decimalIndex + 3)) {
-                    smallDisplayValue *= 10;
-                    smallDisplayValue = Math.round(smallDisplayValue);
-                    smallDisplayValue /= 10;
-                    smallDisplayValue = parseFloat(smallDisplayValue.toString().slice(0, decimalIndex + 2));
-                    displaySmallText.innerText = displaySmallText.innerText
-                                            + " " + displayBigText.innerText 
-                                            + " " + buttonEquals.value 
-                                            + " " + smallDisplayValue;
-                    displayBigText.innerText = smallDisplayValue + "";
-                    console.log(smallDisplayValue);
+                for (let i = decimalIndex + 2; i < decimalIndex + 6; i++) {
+                    checkedDigit = smallDisplayValue.toString().charAt(i - 1);
+                    if (checkedDigit === smallDisplayValue.toString().charAt(i) && checkedDigit === smallDisplayValue.toString().charAt(i + 1)) {
+                        hasRepeat = true;
+                        smallDisplayValue *= 10 ** (expForRounding);
+                        smallDisplayValue = Math.round(smallDisplayValue);
+                        smallDisplayValue /= 10 ** (expForRounding);
+                        smallDisplayValue = parseFloat(smallDisplayValue.toString().slice(0, i));
+                        break;
+                    }
+                    expForRounding++;
                 }
+                if (hasRepeat) {
+                    displaySmallText.innerText = displaySmallText.innerText
+                                                + " " + displayBigText.innerText 
+                                                + " " + buttonEquals.value 
+                                                + " " + smallDisplayValue;
+                    displayBigText.innerText = smallDisplayValue + "";
+                }
+                else if (smallDisplayValue.toString().slice(decimalIndex).length > 6) {
+                    smallDisplayValue *= 1000000;
+                    smallDisplayValue = Math.round(smallDisplayValue);
+                    smallDisplayValue /= 1000000;
+                    let secondHalfSmallDisplayValue = 0;
+                    let firstHalfSmallDisplayValue = 0;
+                    firstHalfSmallDisplayValue = parseFloat(smallDisplayValue.toString().slice(0, decimalIndex + 1));
+                    secondHalfSmallDisplayValue = parseFloat(smallDisplayValue.toString().slice(decimalIndex, decimalIndex + 6));
+                    smallDisplayValue = parseFloat(firstHalfSmallDisplayValue + "" + secondHalfSmallDisplayValue);
+                    displaySmallText.innerText = displaySmallText.innerText
+                                                + " " + displayBigText.innerText 
+                                                + " " + buttonEquals.value 
+                                                + " " + smallDisplayValue;
+                    displayBigText.innerText = smallDisplayValue + "";
+                }
+                // checkedDigit = smallDisplayValue.toString().charAt(decimalIndex + 2)
+                // if (checkedDigit === smallDisplayValue.toString().charAt(decimalIndex + 3)) {
+                //     smallDisplayValue *= 10;
+                //     smallDisplayValue = Math.round(smallDisplayValue);
+                //     smallDisplayValue /= 10;
+                //     smallDisplayValue = parseFloat(smallDisplayValue.toString().slice(0, decimalIndex + 2));
+                //     displaySmallText.innerText = displaySmallText.innerText
+                //                             + " " + displayBigText.innerText 
+                //                             + " " + buttonEquals.value 
+                //                             + " " + smallDisplayValue;
+                //     displayBigText.innerText = smallDisplayValue + "";
+                //     console.log(smallDisplayValue);
+                // }
                 else {
                     if (smallDisplayValue.length > 12) {
                         displaySmallText.innerText = displaySmallText.innerText
