@@ -918,7 +918,7 @@ span {
     }
 
     .desktop-github-account-link:hover {
-        text-shadow: 0 0 3px #ffb26f;
+        text-shadow: 0 0 1px #000;   /* #ffb26f */
         /* text-decoration-thickness: 2px; */
     }
 
@@ -928,7 +928,7 @@ span {
     }
 
     .desktop-github-account-link-DARK:hover {
-        text-shadow: 0 0 3px rgb(136, 255, 219);
+        text-shadow: 0 0 3px rgb(85, 255, 204);
         /* text-decoration-thickness: 2px; */
     }
 
