@@ -122,6 +122,13 @@ function setCurrentNumberFontSize(number) {
 
 
 function divide(num1, num2) {
+    // if (num2 === 0) {
+    //     allClear();
+    //     displaySmallText.innerText = "Can't Divide By Zero";
+    // }
+    // else {
+    //     smallDisplayValue = num1 / num2;
+    // }
     smallDisplayValue = num1 / num2;
     isActiveDivision = true;
     isActiveMultiplication = false;
@@ -130,12 +137,7 @@ function divide(num1, num2) {
 }
 
 function multiply(num1, num2) {
-    if ((num1 === 0.3 && num2 === 3) || (num1 === 3 && num2 === 0.3)) {
-        smallDisplayValue = 0.9;
-    }
-    else {
-        smallDisplayValue = num1 * num2;
-    }
+    smallDisplayValue = num1 * num2;
     isActiveDivision = false;
     isActiveMultiplication = true;
     isActiveSubtraction = false;
@@ -267,7 +269,12 @@ function setMainDisplay() {
         // operatorIsActive ? displayBigText.innerText = this.value
         // : displayBigText.innerText += this.value;
         else {
-            displayBigText.innerText += this.value;
+            if (mainDisplayValue === smallDisplayValue && displayBigText.innerText !== "0.") {   /*  && !displayBigText.innerText.includes(".") */
+                displayBigText.innerText = this.value;
+            }
+            else {
+                displayBigText.innerText += this.value;
+            }
         }
     }
     if (displayBigText.innerText.includes(".")) {
@@ -632,6 +639,7 @@ buttonEquals.addEventListener("mouseup", () => {
                         displayBigText.innerText = smallDisplayValue + "";
                     }
                 }
+                mainDisplayValue = parseFloat(displayBigText.innerText);
             }
             else {
                 displaySmallText.innerText = displaySmallText.innerText + " " + displayBigText.innerText + " " + buttonEquals.value + " " + smallDisplayValue;
