@@ -253,43 +253,45 @@ function solveUsingEqualsButton(operator, num1, num2) {
 
 //
 function setMainDisplay() {
-    setCurrentNumberFontSize(displayBigText.innerText);
-    if (displayBigText.innerText === "0") {
-        displayBigText.innerText = this.value;
-    }
-    else if (displayBigText.innerText.length < 12) {
-        if (operatorIsActive) {
-            if (mainDisplayValue === smallDisplayValue) {
-                displayBigText.innerText = this.value;
+    if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
+        setCurrentNumberFontSize(displayBigText.innerText);
+        if (displayBigText.innerText === "0") {
+            displayBigText.innerText = this.value;
+        }
+        else if (displayBigText.innerText.length < 12) {
+            if (operatorIsActive) {
+                if (mainDisplayValue === smallDisplayValue) {
+                    displayBigText.innerText = this.value;
+                }
+                else {
+                    displayBigText.innerText += this.value;
+                }
             }
+            // operatorIsActive ? displayBigText.innerText = this.value
+            // : displayBigText.innerText += this.value;
             else {
-                displayBigText.innerText += this.value;
+                if (mainDisplayValue === smallDisplayValue && displayBigText.innerText !== "0.") {   /*  && !displayBigText.innerText.includes(".") */
+                    displayBigText.innerText = this.value;
+                }
+                else {
+                    displayBigText.innerText += this.value;
+                }
             }
         }
-        // operatorIsActive ? displayBigText.innerText = this.value
-        // : displayBigText.innerText += this.value;
+        //----------------------------------------------
+        else if (displaySmallText.innerText.includes(" ")) {
+            displayBigText.innerText = this.value;
+        }
+        //----------------------------------------------
+        if (displayBigText.innerText.includes(".")) {
+            mainDisplayValue = parseFloat(displayBigText.innerText);
+        }
         else {
-            if (mainDisplayValue === smallDisplayValue && displayBigText.innerText !== "0.") {   /*  && !displayBigText.innerText.includes(".") */
-                displayBigText.innerText = this.value;
-            }
-            else {
-                displayBigText.innerText += this.value;
-            }
+            mainDisplayValue = parseInt(displayBigText.innerText);
         }
+        // operatorIsActive = false;
+        console.log(mainDisplayValue);
     }
-    //----------------------------------------------
-    else if (displaySmallText.innerText.includes(" ")) {
-        displayBigText.innerText = this.value;
-    }
-    //----------------------------------------------
-    if (displayBigText.innerText.includes(".")) {
-        mainDisplayValue = parseFloat(displayBigText.innerText);
-    }
-    else {
-        mainDisplayValue = parseInt(displayBigText.innerText);
-    }
-    // operatorIsActive = false;
-    console.log(mainDisplayValue);
 }
 
 function setSmallDisplay(operator, num1) {
@@ -322,15 +324,19 @@ function setSmallDisplay(operator, num1) {
 }
 
 function addDecimal() {
-    if (!displayBigText.innerText.includes(".")) {
-        displayBigText.innerText += ".";
-    }
+    if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
+        if (!displayBigText.innerText.includes(".")) {
+            displayBigText.innerText += ".";
+        }
+    }    
 }
 
 //
 function changePositiveOrNegative() {
-    mainDisplayValue *= -1;
-    displayBigText.innerText = mainDisplayValue + "";
+    if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
+        mainDisplayValue *= -1;
+        displayBigText.innerText = mainDisplayValue + "";
+    }
 }
 
 
@@ -357,26 +363,28 @@ function clearEntry() {
 }
 
 function deleteLastDigit() {
-    if (displayBigText.innerText !== "0") {
-        if (displayBigText.innerText.length === 1) {
-            displayBigText.innerText = "0";
-            mainDisplayValue = parseInt(displayBigText.innerText);
-        }
-        else {
-            if (displayBigText.innerText.length === 12) {
-                displayBigText.style.fontSize = "82%";
-                fontScale = 3;
+    if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
+        if (displayBigText.innerText !== "0") {
+            if (displayBigText.innerText.length === 1) {
+                displayBigText.innerText = "0";
+                mainDisplayValue = parseInt(displayBigText.innerText);
             }
-            else if (displayBigText.innerText.length === 11) {
-                displayBigText.style.fontSize = "90%";
-                fontScale = 2;
+            else {
+                if (displayBigText.innerText.length === 12) {
+                    displayBigText.style.fontSize = "82%";
+                    fontScale = 3;
+                }
+                else if (displayBigText.innerText.length === 11) {
+                    displayBigText.style.fontSize = "90%";
+                    fontScale = 2;
+                }
+                else if (displayBigText.innerText.length === 10) {
+                    displayBigText.style.fontSize = "100%";
+                    fontScale = 1;
+                }
+                displayBigText.innerText = displayBigText.innerText.slice(0, -1);
+                mainDisplayValue = parseInt(displayBigText.innerText);
             }
-            else if (displayBigText.innerText.length === 10) {
-                displayBigText.style.fontSize = "100%";
-                fontScale = 1;
-            }
-            displayBigText.innerText = displayBigText.innerText.slice(0, -1);
-            mainDisplayValue = parseInt(displayBigText.innerText);
         }
     }
 }
@@ -546,7 +554,7 @@ function changeHistoryTextarea() {
 
 //
 function fitAnswerToDisplay() {
-    if (smallDisplayValue.toString().length > 12) {
+    if (smallDisplayValue.toString().length > 10) {
         let decimalIndex = smallDisplayValue.toString().indexOf(".");
         let digitsBeforeDecimal = smallDisplayValue.toString().slice(0, decimalIndex);
         if (digitsBeforeDecimal.length > 6 || (!smallDisplayValue.toString().includes(".") && smallDisplayValue.toString().length > 12)) {
@@ -568,6 +576,13 @@ touchOperator.forEach(operator => operator.addEventListener("mouseup", () => {
     // setSmallDisplay(operator.value, smallDisplayValue);
 }));
 buttonEquals.addEventListener("mouseup", () => {
+    if (isActiveDivision && mainDisplayValue === 0) {
+        smallDisplayValue = 0;
+        mainDisplayValue = 0;
+        displaySmallText.innerText = "";
+        displayBigText.innerText = `Can't ${buttonDivision.value} By 0`;
+        return;
+    }
     if (isActiveDivision) {
         solveUsingEqualsButton(buttonDivision.value, smallDisplayValue, mainDisplayValue);
     }
