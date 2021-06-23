@@ -412,8 +412,8 @@ span {
 }
 
 .history-textarea-with-content {
-    padding-top: 30%;
-    padding-left: 5%;
+    padding-top: 20%;
+    padding-left: 8%;
 }
 
 .container-delete-history {
@@ -671,6 +671,7 @@ span {
         position: relative;
         width: 400px;
         height: 550px;
+        max-height: 550px;
         transform: translateY(0);
         flex-direction: column;
         /* z-index: 10001; */
@@ -679,9 +680,9 @@ span {
     .desktop-container-history-header {
         /* background-color: blueviolet; */
         width: 400px;
-        height: 50px;
-        max-height: 50px;
-        min-height: 50px;
+        height: 60px;
+        max-height: 60px;
+        min-height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -690,7 +691,7 @@ span {
     .desktop-history-title {
         font-size: 25px;
         border-bottom: 3px solid #ff9b9b;
-        padding-top: 5px;
+        padding-top: 20px;
     }
 
     .desktop-history-title-DARK {
@@ -706,7 +707,8 @@ span {
         padding-left: 39%;
         font-size: 20px;
         font-style: italic;
-        color: #595959;
+        color: #383838;     /*  595959  */
+        max-height: 430px;
     }
 
     .history-textarea:hover {
@@ -729,7 +731,7 @@ span {
         padding-left: 39%;
         font-size: 20px;
         font-style: italic;
-        color: #A1A1A1;
+        color: #d6d6d6;     /*  A1A1A1  */
     }
 
     .history-textarea-DARK::-webkit-scrollbar-track,
@@ -742,27 +744,41 @@ span {
     }
 
     .history-textarea-with-content {
-        padding-top: 10%;
-        padding-left: 5%;
+        padding-top: 8%;
+        padding-left: 4%;
     }
 
     .container-delete-history {
         position: relative;
-        height: 50px;
-        max-height: 50px;
-        min-height: 50px;
+        height: 60px;
+        max-height: 60px;
+        min-height: 60px;
     }
 
     .delete-history {
-        background-size: 35px;
-        margin-top: 0px;
-        margin-left: -3px;
+        background-size: 36px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        margin-top: 8px;
+        margin-left: 7px;
         position: absolute;
         display: none;
     }
 
     .delete-history:hover {
         cursor: pointer;
+        background-color: #fff0e2;
+    }
+
+    .delete-history-DARK:hover {
+        background-color: transparent;
+        box-shadow: 0 0 .2rem #fff,
+                    0 0 .2rem #fff,
+                    0 0 1rem rgba(0, 255, 170, 0.473),
+                    0 0 0.8rem rgba(0, 255, 170, 0.473),
+                    0 0 1.8rem rgba(0, 255, 170, 0.473),
+                    inset 0 0 1.3rem rgba(0, 255, 170, 0.473);
     }
 
     .desktop-header {
@@ -1116,7 +1132,7 @@ and (max-height: 700px) {
         /* background-color: chartreuse; */
         font-size: 22px;
         border-bottom: 2px solid #ff9b9b;
-        padding-top: 10px;
+        padding-top: 5px;
     }
 
     .history-textarea {
@@ -1126,7 +1142,42 @@ and (max-height: 700px) {
         padding-left: 36.5%;
         font-size: 16px;
         font-style: italic;
-        color: rgb(65, 65, 65);
+        color: #383838;
+        height: 280px;
+        max-height: 280px;
+    }
+
+    .history-textarea::-webkit-scrollbar-track,
+    .history-textarea::-webkit-scrollbar {
+        background-color: white;
+    }
+
+    .history-textarea::-webkit-scrollbar-thumb {
+        background-color: rgb(247, 247, 247);
+    }
+
+    .history-textarea-DARK {
+        flex-grow: 1;
+        position: relative;
+        padding-top: 45%;
+        padding-left: 39%;
+        font-size: 16px;
+        font-style: italic;
+        color: #d6d6d6;     /*  A1A1A1  */
+    }
+
+    .history-textarea-DARK::-webkit-scrollbar-track,
+    .history-textarea-DARK::-webkit-scrollbar {
+        background-color: transparent;
+    }
+
+    .history-textarea-DARK::-webkit-scrollbar-thumb {
+        background-color: rgb(29, 29, 29);
+    }
+
+    .history-textarea-with-content {
+        padding-top: 5%;
+        padding-left: 8%;
     }
 
     .container-delete-history {

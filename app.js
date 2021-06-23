@@ -277,6 +277,11 @@ function setMainDisplay() {
             }
         }
     }
+    //----------------------------------------------
+    else if (displaySmallText.innerText.includes(" ")) {
+        displayBigText.innerText = this.value;
+    }
+    //----------------------------------------------
     if (displayBigText.innerText.includes(".")) {
         mainDisplayValue = parseFloat(displayBigText.innerText);
     }
@@ -297,15 +302,19 @@ function setSmallDisplay(operator, num1) {
         }
         else {
             if (displaySmallText.innerText.includes(".")) {
-                displayBigText.innerText = Number.parseFloat(num1).toExponential(2) + "";
+                // displayBigText.innerText = Number.parseFloat(num1).toExponential(2) + "";
+                displayBigText.innerText = parseFloat(num1) + "";
                 displayBigText.style.fontSize = "100%";
-                displaySmallText.innerText = Number.parseFloat(num1).toExponential(2) + " " + operator;
+                // displaySmallText.innerText = Number.parseFloat(num1).toExponential(2) + " " + operator;
+                displaySmallText.innerText = parseFloat(num1) + " " + operator;
                 fontScale = 1;
             }
             else {
-                displayBigText.innerText = Number.parseInt(num1).toExponential(2) + "";
+                // displayBigText.innerText = Number.parseInt(num1).toExponential(2) + "";
+                displayBigText.innerText = parseInt(num1) + "";
                 displayBigText.style.fontSize = "100%";
-                displaySmallText.innerText = Number.parseInt(num1).toExponential(2) + " " + operator;
+                // displaySmallText.innerText = Number.parseInt(num1).toExponential(2) + " " + operator;
+                displaySmallText.innerText = parseInt(num1) + " " + operator;
                 fontScale = 1;
             }
         }
@@ -535,6 +544,24 @@ function changeHistoryTextarea() {
 }
 
 
+//
+function fitAnswerToDisplay() {
+    if (smallDisplayValue.toString().length > 12) {
+        let decimalIndex = smallDisplayValue.toString().indexOf(".");
+        let digitsBeforeDecimal = smallDisplayValue.toString().slice(0, decimalIndex);
+        if (digitsBeforeDecimal.length > 6 || (!smallDisplayValue.toString().includes(".") && smallDisplayValue.toString().length > 12)) {
+            smallDisplayValue = smallDisplayValue.toExponential(2);
+            mainDisplayValue = smallDisplayValue;
+            displaySmallText.innerText = displaySmallText.innerText.slice(0, displaySmallText.innerText.indexOf("="));
+            displaySmallText.innerText = displaySmallText.innerText 
+                                            + " " + buttonEquals.value 
+                                            + " " + mainDisplayValue;
+            displayBigText.innerText = mainDisplayValue + "";
+        }
+    }
+}
+
+
 touchNumbers.forEach(number => number.addEventListener("mouseup", setMainDisplay));
 touchOperator.forEach(operator => operator.addEventListener("mouseup", () => {
     solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
@@ -619,19 +646,6 @@ buttonEquals.addEventListener("mouseup", () => {
                                                 + " " + smallDisplayValue;
                     displayBigText.innerText = smallDisplayValue + "";
                 }
-                // checkedDigit = smallDisplayValue.toString().charAt(decimalIndex + 2)
-                // if (checkedDigit === smallDisplayValue.toString().charAt(decimalIndex + 3)) {
-                //     smallDisplayValue *= 10;
-                //     smallDisplayValue = Math.round(smallDisplayValue);
-                //     smallDisplayValue /= 10;
-                //     smallDisplayValue = parseFloat(smallDisplayValue.toString().slice(0, decimalIndex + 2));
-                //     displaySmallText.innerText = displaySmallText.innerText
-                //                             + " " + displayBigText.innerText 
-                //                             + " " + buttonEquals.value 
-                //                             + " " + smallDisplayValue;
-                //     displayBigText.innerText = smallDisplayValue + "";
-                //     console.log(smallDisplayValue);
-                // }
                 else {
                     if (smallDisplayValue.length > 12) {
                         displaySmallText.innerText = displaySmallText.innerText
@@ -657,6 +671,7 @@ buttonEquals.addEventListener("mouseup", () => {
             }
         }
     }
+    fitAnswerToDisplay();
     operationsCount = 0;
     deleteHistory.style.display = "block";
     if (historyTextArea.value === "No History") {
