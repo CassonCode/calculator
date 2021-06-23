@@ -435,6 +435,9 @@ function changeLightDarkModeDesktop() {
         desktopCreatedBy.classList.add("desktop-created-by-DARK");
         desktopGithubProjectLink.classList.add("desktop-github-project-link-DARK");
         desktopHistoryPopupButton.classList.add("desktop-history-popup-button-DARK");
+        if (desktopHistoryPopupButton.classList.contains("desktop-history-popup-button-selected")) {
+            desktopHistoryPopupButton.classList.add("desktop-history-popup-button-selected-DARK");
+        }
     }
 }
 
@@ -507,9 +510,9 @@ function displayHistoryDesktop() {
         if (!lightMode) {
             desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected-DARK");
         }
-        else {
-            desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected-DARK");
-        }
+        // else {
+        //     desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected-DARK");
+        // }
     }
 }
 
