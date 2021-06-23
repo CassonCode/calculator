@@ -527,6 +527,12 @@ function displayHistoryDesktop() {
     }
 }
 
+historyTextArea.value = "No History";
+function changeHistoryTextarea() {
+    let currentHistory = historyTextArea.value;
+    let newHistory = displaySmallText.innerText;
+    historyTextArea.value = newHistory + "\r\n\r\n" + currentHistory;
+}
 
 
 touchNumbers.forEach(number => number.addEventListener("mouseup", setMainDisplay));
@@ -652,6 +658,12 @@ buttonEquals.addEventListener("mouseup", () => {
         }
     }
     operationsCount = 0;
+    deleteHistory.style.display = "block";
+    if (historyTextArea.value === "No History") {
+        historyTextArea.value = "";
+    }
+    historyTextArea.classList.add("history-textarea-with-content");
+    changeHistoryTextarea();
 });
 
 
@@ -680,6 +692,11 @@ buttonDecimal.addEventListener("mouseup", addDecimal);
 mobileLightDarkMode.addEventListener("touchend", changeLightDarkMode);
 desktopLightDarkMode.addEventListener("mouseup", changeLightDarkModeDesktop);
 desktopHistoryPopupButton.addEventListener("mouseup", displayHistoryDesktop);
+deleteHistory.addEventListener("mouseup", () => {
+    historyTextArea.classList.remove("history-textarea-with-content");
+    historyTextArea.value = "No History";
+    deleteHistory.style.display = "none";
+});
 // touchOperator.forEach(button => button.addEventListener("touchend", setOperatorColor));
 // buttonEquals.addEventListener("touchend", setOperatorColor);
 
