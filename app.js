@@ -420,6 +420,8 @@ function changeLightDarkModeDesktop() {
         desktopGithubAccountLink.classList.remove("desktop-github-account-link-DARK");
         desktopCreatedBy.classList.remove("desktop-created-by-DARK");
         desktopGithubProjectLink.classList.remove("desktop-github-project-link-DARK");
+        desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-DARK");
+        desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected-DARK");
     }
     else {
         mainHtmlElement.style.backgroundColor = "#161616";
@@ -432,6 +434,7 @@ function changeLightDarkModeDesktop() {
         desktopGithubAccountLink.classList.add("desktop-github-account-link-DARK");
         desktopCreatedBy.classList.add("desktop-created-by-DARK");
         desktopGithubProjectLink.classList.add("desktop-github-project-link-DARK");
+        desktopHistoryPopupButton.classList.add("desktop-history-popup-button-DARK");
     }
 }
 
@@ -486,6 +489,12 @@ function displayHistoryDesktop() {
         desktopHistoryPopupButton.textContent = "Hide  History";
         desktopHistoryPopupButton.classList.add("desktop-history-popup-button-selected");
         containerCenterContent.classList.add("container-center-content-expand");
+        if (!lightMode) {
+            desktopHistoryPopupButton.classList.add("desktop-history-popup-button-selected-DARK");
+        }
+        else {
+            desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected-DARK");
+        }
     }
     else {
         containerCalculator.classList.add("desktop-calculator-slide-left");
@@ -495,6 +504,12 @@ function displayHistoryDesktop() {
         desktopHistoryPopupButton.textContent = "Show History";
         desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected");
         containerCenterContent.classList.remove("container-center-content-expand");
+        if (!lightMode) {
+            desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected-DARK");
+        }
+        else {
+            desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected-DARK");
+        }
     }
 }
 
