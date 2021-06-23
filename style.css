@@ -874,7 +874,14 @@ span {
     }
 
     .desktop-light-dark-mode-DARK:hover {
-        background-color: #3f3f3f;
+        /* background-color: #3f3f3f; */
+        background-color: transparent;
+        box-shadow: 0 0 .2rem #fff,
+                    0 0 .2rem #fff,
+                    0 0 1rem rgba(0, 255, 170, 0.473),
+                    0 0 0.8rem rgba(0, 255, 170, 0.473),
+                    0 0 1.8rem rgba(0, 255, 170, 0.473),
+                    inset 0 0 1.3rem rgba(0, 255, 170, 0.473);
     }
 
     .desktop-footer {
@@ -947,6 +954,12 @@ span {
 
     .desktop-github-project-link-DARK:hover {
         border: 2px solid white;
+        box-shadow: 0 0 .2rem #fff,
+                    0 0 .2rem #fff,
+                    0 0 1rem rgba(0, 255, 170, 0.473),
+                    0 0 0.8rem rgba(0, 255, 170, 0.473),
+                    0 0 1.8rem rgba(0, 255, 170, 0.473),
+                    inset 0 0 1.3rem rgba(0, 255, 170, 0.473);
     }
 }
 
@@ -991,7 +1004,7 @@ and (max-height: 700px) {
     }
 
     .display-small-text {
-        color: #000;
+        /* color: #000; */
         font-size: 18px;
         font-family: 'Roboto', sans-serif;
         position: absolute;
