@@ -400,6 +400,11 @@ span {
     position: absolute;
     resize: none;
     outline: none;
+    padding-top: 70%;
+    padding-left: 39%;
+    font-size: 20px;
+    font-style: italic;
+    color: #595959;
 }
 .history-textarea-DARK {
     background-color: #161616;
@@ -667,7 +672,9 @@ span {
     .desktop-container-history-header {
         /* background-color: blueviolet; */
         width: 400px;
-        height: 60px;
+        height: 50px;
+        max-height: 50px;
+        min-height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -676,6 +683,7 @@ span {
     .desktop-history-title {
         font-size: 25px;
         border-bottom: 3px solid #ff9b9b;
+        padding-top: 5px;
     }
 
     .desktop-history-title-DARK {
@@ -709,6 +717,9 @@ span {
 
     .container-delete-history {
         position: relative;
+        height: 50px;
+        max-height: 50px;
+        min-height: 50px;
     }
 
     .delete-history {
@@ -734,7 +745,7 @@ span {
     }
 
     .desktop-history-popup-button {
-        background-color: white;
+        background-color: white;    /*  fff0e2  */
         display: block;
         border-radius: 30px;
         border: none;
@@ -755,11 +766,12 @@ span {
     }
 
     .desktop-history-popup-button:hover {
-        /* background-color: #fdf3ea; */
+        /* background-color: #fff0e2; */
         cursor: pointer;
     }
     .desktop-history-popup-button:active {
         background-color: rgb(250, 250, 250);
+        /* background-color: #fff0e2; */
         cursor: pointer;
         box-shadow: inset 1px 2px 4px 2px rgba(0, 0, 0, 0.295);
         font-size: 18px;
@@ -864,7 +876,7 @@ span {
     }
 
     .desktop-light-dark-mode:hover {
-        background-color: #fdf3ea; /*  rgba(0, 0, 0, 0.034)  fff0e2  fdf3ea */
+        background-color: #fff0e2; /*  rgba(0, 0, 0, 0.034)  fff0e0  ffe1c7  fff0e2  fdf3ea */
         cursor: pointer;
     }
     
@@ -885,7 +897,7 @@ span {
     }
 
     .desktop-footer {
-        background-color: #fdf3ea;
+        background-color: #fff0e2;  /*  fdf3ea  */
         display: block;
         height: 50px;
         position: fixed;

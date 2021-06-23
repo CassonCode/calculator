@@ -318,7 +318,14 @@ function addDecimal() {
     }
 }
 
-// //
+//
+function changePositiveOrNegative() {
+    mainDisplayValue *= -1;
+    displayBigText.innerText = mainDisplayValue + "";
+}
+
+
+//
 function allClear() {
     displayBigText.style.fontSize = "100%";
     displayBigText.innerText = "0";
@@ -451,42 +458,42 @@ function changeLightDarkModeDesktop() {
 
 
 //
-function changeColorTouchStart() {
-    if (lightMode) {
-        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#EAEAEA"
-    : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FF4444"
-    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#FFB1B1"
-    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#FFD4AC"
-    : this.classList.contains("button-equals") ? this.style.backgroundColor = "#6599FF"
-    : this.style.backgroundColor = "#EAEAEA";
-    }
-    else {
-        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#3A3A3A"
-    : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#641111"
-    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#632929"
-    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#252C43"
-    : this.classList.contains("button-equals") ? this.style.backgroundColor = "#091B4A"
-    : this.style.backgroundColor = "#3A3A3A";
-    }
-}
-function changeColorTouchEnd() {
-    if (lightMode) {
-        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#fff"
-    : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FFDDDD"
-    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#fff0e2"
-    // : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fff0e2"
-    : this.classList.contains("button-equals") ? this.style.backgroundColor = "#DCE8FF"
-    : this.style.backgroundColor = "#fff0e2";
-    }
-    else {
-        return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#060606"
-    : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#310E0E"
-    : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#262626"
-    : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#262626"
-    : this.classList.contains("button-equals") ? this.style.backgroundColor = "#0E1628"
-    : this.style.backgroundColor = "#262626";
-    }
-}
+// function changeColorTouchStart() {
+//     if (lightMode) {
+//         return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#EAEAEA"
+//     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FF4444"
+//     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#FFB1B1"
+//     : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#FFD4AC"
+//     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#6599FF"
+//     : this.style.backgroundColor = "#EAEAEA";
+//     }
+//     else {
+//         return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#3A3A3A"
+//     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#641111"
+//     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#632929"
+//     : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#252C43"
+//     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#091B4A"
+//     : this.style.backgroundColor = "#3A3A3A";
+//     }
+// }
+// function changeColorTouchEnd() {
+//     if (lightMode) {
+//         return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#fff"
+//     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#FFDDDD"
+//     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#fff0e2"
+//     // : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#fff0e2"
+//     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#DCE8FF"
+//     : this.style.backgroundColor = "#fff0e2";
+//     }
+//     else {
+//         return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#161616"
+//     : this.classList.contains("button-all-clear") ? this.style.backgroundColor = "#310E0E"
+//     : this.classList.contains("touch-delete") ? this.style.backgroundColor = "#262626"
+//     : this.classList.contains("touch-operator") ? this.style.backgroundColor = "#262626"
+//     : this.classList.contains("button-equals") ? this.style.backgroundColor = "#0E1628"
+//     : this.style.backgroundColor = "#262626";
+//     }
+// }
 
 
 //
@@ -517,15 +524,11 @@ function displayHistoryDesktop() {
         if (!lightMode) {
             desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected-DARK");
         }
-        // else {
-        //     desktopHistoryPopupButton.classList.remove("desktop-history-popup-button-selected-DARK");
-        // }
     }
 }
 
 
-touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
-touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
+
 touchNumbers.forEach(number => number.addEventListener("mouseup", setMainDisplay));
 touchOperator.forEach(operator => operator.addEventListener("mouseup", () => {
     solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
@@ -651,26 +654,32 @@ buttonEquals.addEventListener("mouseup", () => {
     operationsCount = 0;
 });
 
-touchDelete.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
-touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
-touchOperator.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-// touchOperator.forEach(button => button.addEventListener("touchend", setOperatorColor));
-buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
-buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
+
+// numberPadButtons.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
+// numberPadButtons.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
+
+// buttonEquals.addEventListener("touchstart", changeColorTouchStart);
+// buttonEquals.addEventListener("touchend", changeColorTouchEnd);
+// buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
+// buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
+// buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
+// buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
+// buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
+// buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
+// touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
+// touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
+// touchDelete.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
+// touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
+// touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
+// touchOperator.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 buttonAllClear.addEventListener("mouseup", allClear);
 buttonClearEntry.addEventListener("mouseup", clearEntry);
 buttonDeleteLastDigit.addEventListener("mouseup", deleteLastDigit);
-buttonEquals.addEventListener("touchstart", changeColorTouchStart);
-buttonEquals.addEventListener("touchend", changeColorTouchEnd);
-// buttonEquals.addEventListener("touchend", setOperatorColor);
-buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
-buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
-buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
-buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
+buttonPositiveNegative.addEventListener("mouseup", changePositiveOrNegative);
 buttonDecimal.addEventListener("mouseup", addDecimal);
 mobileLightDarkMode.addEventListener("touchend", changeLightDarkMode);
 desktopLightDarkMode.addEventListener("mouseup", changeLightDarkModeDesktop);
 desktopHistoryPopupButton.addEventListener("mouseup", displayHistoryDesktop);
-
+// touchOperator.forEach(button => button.addEventListener("touchend", setOperatorColor));
+// buttonEquals.addEventListener("touchend", setOperatorColor);
 
