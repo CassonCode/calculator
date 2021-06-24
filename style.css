@@ -447,9 +447,9 @@ span {
 
 
 
-/*
-    Media Query-------------------------------------------------------------------------------
-*/
+/*  ------------------------------------------------------------------------------------------------------------------
+    Media Queries-----------------------------------------------------------------------------------------------------
+*/  
 
 @media (min-width: 961px) {
     .mobile-container-header {
@@ -544,7 +544,6 @@ span {
     }
     
     .display-big-text {
-        /* background-color: blue; */
         font-size: 70px;
         font-family: 'Roboto', sans-serif;
         line-height: .75em;
@@ -678,7 +677,6 @@ span {
     }
 
     .desktop-container-history-header {
-        /* background-color: blueviolet; */
         width: 400px;
         height: 60px;
         max-height: 60px;
@@ -839,12 +837,6 @@ span {
                     0 0 0.8rem rgba(0, 255, 170, 0.473),
                     0 0 1.8rem rgba(0, 255, 170, 0.473),
                     inset 0 0 1.3rem rgba(0, 255, 170, 0.473);
-        /* box-shadow: 0 0 .2rem #fff,
-                    0 0 .2rem #fff,
-                    0 0 1rem #0fa,
-                    0 0 0.8rem #0fa,
-                    0 0 1.8rem #0fa,
-                    inset 0 0 1.3rem #0fa; */
 
         text-shadow: 0 0 7px #fff,
             0 0 10px #fff,
@@ -983,7 +975,6 @@ span {
 
     .desktop-github-account-link:hover {
         text-shadow: 0 0 1px #000;   /* #ffb26f */
-        /* text-decoration-thickness: 2px; */
     }
 
     .desktop-github-account-link-DARK {
@@ -1047,8 +1038,6 @@ and (max-height: 700px) {
     .container-center-content {
         width: 290px;
         height: 400px;
-        /* margin-left: calc(50vw - 400px);
-        margin-top: calc(50vh - 200px); */
     }
 
     .container-center-content-expand {
@@ -1118,14 +1107,6 @@ and (max-height: 700px) {
         flex-direction: column;
         /* z-index: 10001; */
     }
-/* 
-    .desktop-history-slide-right {
-        transform: translateX(0);
-    }
-
-    .desktop-history-slide-left {
-        transform: translateX(-50%);
-    } */
 
     .desktop-container-history-header {
         /* background-color: blueviolet; */
@@ -1134,7 +1115,6 @@ and (max-height: 700px) {
     }
 
     .desktop-history-title {
-        /* background-color: chartreuse; */
         font-size: 22px;
         border-bottom: 2px solid #ff9b9b;
         padding-top: 5px;
