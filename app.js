@@ -1,4 +1,4 @@
-// Get html elements
+// Retrieve html elements
 const containerPage = document.querySelector(".container-page");
 const containerHistory = document.querySelector(".container-history");
 const historyTextArea = document.querySelector(".history-textarea");
@@ -89,27 +89,6 @@ mobileHistoryButton.addEventListener("click", () => {
 });
 
 
-//----  Under construction ----//
-// function setOperatorColor() {
-//     if (lightMode) {
-//         touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
-//         isActiveAddition ? buttonAddition.style.backgroundColor = "#FFD4AC"
-//         : isActiveDivision ? buttonDivision.style.backgroundColor = "#FFD4AC"
-//         : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#FFD4AC"
-//         : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#FFD4AC"
-//         : touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
-//     }
-//     else {
-//         touchOperator.forEach(button => button.style.backgroundColor = "#262626");
-//         isActiveAddition ? buttonAddition.style.backgroundColor = "#252C43"
-//         : isActiveDivision ? buttonDivision.style.backgroundColor = "#252C43"
-//         : isActiveMultiplication ? buttonMultiplication.style.backgroundColor = "#252C43"
-//         : isActiveSubtraction ? buttonSubtraction.style.backgroundColor = "#252C43"
-//         : touchOperator.forEach(button => button.style.backgroundColor = "#262626");
-//     }
-// }
-
-
 // Reusable function that helps prevent number from overflowing on display
 function setCurrentNumberFontSize(number) {
     if (number.length < 9) {
@@ -131,7 +110,7 @@ function setCurrentNumberFontSize(number) {
 }
 
 
-//
+// Makes all operations seen as inactive
 function setOperatorsInactive() {
     isActiveDivision = false;
     isActiveMultiplication = false;
@@ -140,7 +119,7 @@ function setOperatorsInactive() {
 }
 
 
-//
+// Makes specific operation seen as active
 function setDivisionActive() {
     isActiveDivision = true;
     isActiveMultiplication = false;
@@ -198,7 +177,7 @@ function operate(operator, num1, num2) {
 }
 
 
-//  (For "operator" buttons only) Performs operation based on selected operator, sets new text for the small display
+// (For "operator" buttons only) Performs operation based on selected operator, sets new text for the small display
 let previousOperator = "";
 function solveUsingOperatorButton(operator, num1, num2) {
     if (operator === buttonDivision.value) {
@@ -267,6 +246,7 @@ function solveUsingEqualsButton(operator, num1, num2) {
     previousOperator = operator;
 }
 
+
 // Sets new text for main display when entering a digit
 function setMainDisplay() {
     if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
@@ -284,7 +264,7 @@ function setMainDisplay() {
                 }
             }
             else {
-                if (mainDisplayValue === smallDisplayValue && displayBigText.innerText !== "0.") {   /*  && !displayBigText.innerText.includes(".") */
+                if (mainDisplayValue === smallDisplayValue && displayBigText.innerText !== "0.") {   
                     displayBigText.innerText = this.value;
                 }
                 else {
@@ -305,6 +285,8 @@ function setMainDisplay() {
     }
 }
 
+
+// Reusable function that changes the text for the small display
 function setSmallDisplay(operator, num1) {
         mainDisplayValue = num1;
 
@@ -314,25 +296,22 @@ function setSmallDisplay(operator, num1) {
         }
         else {
             if (displaySmallText.innerText.includes(".")) {
-                // displayBigText.innerText = Number.parseFloat(num1).toExponential(2) + "";
                 displayBigText.innerText = parseFloat(num1) + "";
                 displayBigText.style.fontSize = "100%";
-                // displaySmallText.innerText = Number.parseFloat(num1).toExponential(2) + " " + operator;
                 displaySmallText.innerText = parseFloat(num1) + " " + operator;
                 fontScale = 1;
             }
             else {
-                // displayBigText.innerText = Number.parseInt(num1).toExponential(2) + "";
                 displayBigText.innerText = parseInt(num1) + "";
                 displayBigText.style.fontSize = "100%";
-                // displaySmallText.innerText = Number.parseInt(num1).toExponential(2) + " " + operator;
                 displaySmallText.innerText = parseInt(num1) + " " + operator;
                 fontScale = 1;
             }
         }
-        // displayBigText.innerText = mainDisplayValue + "";
 }
 
+
+// Appends a decimal to the current number if the current number is an integer
 function addDecimal() {
     if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
         if (!displayBigText.innerText.includes(".")) {
@@ -341,7 +320,8 @@ function addDecimal() {
     }    
 }
 
-//
+
+// Changes sign of current number
 function changePositiveOrNegative() {
     if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
         mainDisplayValue *= -1;
@@ -350,7 +330,7 @@ function changePositiveOrNegative() {
 }
 
 
-//
+// Clears and resets everything except for the history
 function allClear() {
     displayBigText.style.fontSize = "100%";
     displayBigText.innerText = "0";
@@ -358,17 +338,20 @@ function allClear() {
     mainDisplayValue = 0;
     smallDisplayValue = 0;
     setOperatorsInactive();
-    // setOperatorColor();
     operationsCount = 0;
     operatorIsActive = false;
 }
 
+
+// Clears and resets the main display 
 function clearEntry() {
     displayBigText.style.fontSize = "100%";
     mainDisplayValue = 0;
     displayBigText.innerText = "0";
 }
 
+
+// Deletes the one's place digit
 function deleteLastDigit() {
     if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
         if (displayBigText.innerText !== "0") {
@@ -397,7 +380,7 @@ function deleteLastDigit() {
 }
 
 
-//
+// Toggles "dark mode" css classes
 function changeLightDarkMode() {
     if (lightMode) {
         touchNumbers.forEach(button => button.classList.add("touch-numbers-DARK"));
@@ -444,7 +427,7 @@ function changeLightDarkMode() {
 }
 
 
-//
+// (Mobile devices only) Toggles "dark mode" 
 function changeLightDarkModeMobile() {
     changeLightDarkMode();
 
@@ -469,7 +452,7 @@ function changeLightDarkModeMobile() {
 }
 
 
-//
+// (Desktop only) Toggles "dark mode"
 function changeLightDarkModeDesktop() {
     changeLightDarkMode();
 
@@ -506,8 +489,7 @@ function changeLightDarkModeDesktop() {
 }
 
 
-
-//
+// (Mobile devices only) Changes background color of buttons while they're being touched
 function changeColorTouchStart() {
     if (lightMode) {
         return this.classList.contains("touch-numbers") ? this.style.backgroundColor = "#EAEAEA"
@@ -546,7 +528,7 @@ function changeColorTouchEnd() {
 }
 
 
-//
+// (Desktop only) Toggles css classes that allow the history container to slide in and out of view
 function displayHistoryDesktop() {
     if (containerCalculator.classList.contains("desktop-calculator-slide-left")) {
         containerCalculator.classList.remove("desktop-calculator-slide-left");
@@ -577,6 +559,8 @@ function displayHistoryDesktop() {
     }
 }
 
+
+// Stores and displays the previous calculations in the history textarea
 historyTextArea.value = "No History";
 function changeHistoryTextarea() {
     let currentHistory = historyTextArea.value;
@@ -585,7 +569,7 @@ function changeHistoryTextarea() {
 }
 
 
-//
+// Prevents display numbers from overflowing
 function fitAnswerToDisplay() {
     if (smallDisplayValue.toString().length > 10) {
         let decimalIndex = smallDisplayValue.toString().indexOf(".");
@@ -602,6 +586,10 @@ function fitAnswerToDisplay() {
     }
 }
 
+
+
+//----------------------------------------------------------------------------------------------------------------------------
+//  Event Listeners
 
 touchNumbers.forEach(number => number.addEventListener("mouseup", setMainDisplay));
 touchOperator.forEach(operator => operator.addEventListener("mouseup", () => {
@@ -723,24 +711,8 @@ buttonEquals.addEventListener("mouseup", () => {
     changeHistoryTextarea();
 });
 
-
 numberPadButtons.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
 numberPadButtons.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-
-// buttonEquals.addEventListener("touchstart", changeColorTouchStart);
-// buttonEquals.addEventListener("touchend", changeColorTouchEnd);
-// buttonPositiveNegative.addEventListener("touchstart", changeColorTouchStart);
-// buttonPositiveNegative.addEventListener("touchend", changeColorTouchEnd);
-// buttonDecimal.addEventListener("touchstart", changeColorTouchStart);
-// buttonDecimal.addEventListener("touchend", changeColorTouchEnd);
-// buttonAllClear.addEventListener("touchstart", changeColorTouchStart);
-// buttonAllClear.addEventListener("touchend", changeColorTouchEnd);
-// touchNumbers.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
-// touchNumbers.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-// touchDelete.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
-// touchDelete.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
-// touchOperator.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
-// touchOperator.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
 buttonAllClear.addEventListener("mouseup", allClear);
 buttonClearEntry.addEventListener("mouseup", clearEntry);
 buttonDeleteLastDigit.addEventListener("mouseup", deleteLastDigit);
@@ -754,6 +726,3 @@ deleteHistory.addEventListener("mouseup", () => {
     historyTextArea.value = "No History";
     deleteHistory.style.display = "none";
 });
-// touchOperator.forEach(button => button.addEventListener("touchend", setOperatorColor));
-// buttonEquals.addEventListener("touchend", setOperatorColor);
-
