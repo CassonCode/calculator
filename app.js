@@ -1,4 +1,4 @@
-//
+// Get html elements
 const containerPage = document.querySelector(".container-page");
 const containerHistory = document.querySelector(".container-history");
 const historyTextArea = document.querySelector(".history-textarea");
@@ -39,21 +39,30 @@ const desktopGithubAccountLink = document.querySelector(".desktop-github-account
 const desktopGithubProjectLink = document.querySelector(".desktop-github-project-link");
 const desktopCreatedBy = document.querySelector(".desktop-created-by");
 
+// Hold values of the numbers currently being used
 let mainDisplayValue = 0;
 let smallDisplayValue = 0;
+
+// Knows whether or not an operator is being used
 let operatorIsActive = false;
+
+// Number of operations have been used since page load or last "all clear"
 let operationsCount = 0;
 
+// Keeps track of which operator is being used
 let isActiveDivision = false;
 let isActiveMultiplication = false;
 let isActiveSubtraction = false;
 let isActiveAddition = false;
 
+// Default relative size for display font
 let fontScale = 1;
 
+// Keeps track of whether or not light mode is active
 let lightMode = true;
 
-//
+
+// Set app size for mobile and tablet devices
 if (window.innerWidth < 961) {
     containerPage.style.height = window.innerHeight + "px";
     containerPage.style.width = window.innerWidth + "px";
@@ -66,7 +75,8 @@ if (window.innerWidth < 961) {
 }
 console.log(window.innerWidth);
 
-//
+
+// (Mobile only) Slide history container over calculator upon tapping the "history" button
 mobileHistoryButton.addEventListener("click", () => {
     if (containerHistory.classList.contains("mobile-hide-history")) {
         containerHistory.classList.remove("mobile-hide-history");
@@ -79,7 +89,7 @@ mobileHistoryButton.addEventListener("click", () => {
 });
 
 
-//
+//----  Under construction ----//
 // function setOperatorColor() {
 //     if (lightMode) {
 //         touchOperator.forEach(button => button.style.backgroundColor = "#fff0e2");
@@ -100,7 +110,7 @@ mobileHistoryButton.addEventListener("click", () => {
 // }
 
 
-//
+// Reusable function that helps prevent number from overflowing on display
 function setCurrentNumberFontSize(number) {
     if (number.length < 9) {
         displayBigText.style.fontSize = "100%";
@@ -121,39 +131,35 @@ function setCurrentNumberFontSize(number) {
 }
 
 
-function divide(num1, num2) {
-    // if (num2 === 0) {
-    //     allClear();
-    //     displaySmallText.innerText = "Can't Divide By Zero";
-    // }
-    // else {
-    //     smallDisplayValue = num1 / num2;
-    // }
-    smallDisplayValue = num1 / num2;
+//
+function setOperatorsInactive() {
+    isActiveDivision = false;
+    isActiveMultiplication = false;
+    isActiveSubtraction = false;
+    isActiveAddition = false;
+}
+
+
+//
+function setDivisionActive() {
     isActiveDivision = true;
     isActiveMultiplication = false;
     isActiveSubtraction = false;
     isActiveAddition = false;
 }
-
-function multiply(num1, num2) {
-    smallDisplayValue = num1 * num2;
+function setMultiplicationActive() {
     isActiveDivision = false;
     isActiveMultiplication = true;
     isActiveSubtraction = false;
     isActiveAddition = false;
 }
-
-function subtract(num1, num2) {
-    smallDisplayValue = num1 - num2;
+function setSubtractionActive() {
     isActiveDivision = false;
     isActiveMultiplication = false;
     isActiveSubtraction = true;
     isActiveAddition = false;
 }
-
-function add(num1, num2) {
-    smallDisplayValue = num1 + num2;
+function setAdditionActive() {
     isActiveDivision = false;
     isActiveMultiplication = false;
     isActiveSubtraction = false;
@@ -161,54 +167,51 @@ function add(num1, num2) {
 }
 
 
-//
+// Reusable function that performs operations on two numbers
+function divide(num1, num2) {
+    smallDisplayValue = num1 / num2;
+    setDivisionActive();
+}
+function multiply(num1, num2) {
+    smallDisplayValue = num1 * num2;
+    setMultiplicationActive();
+}
+function subtract(num1, num2) {
+    smallDisplayValue = num1 - num2;
+    setSubtractionActive();
+}
+function add(num1, num2) {
+    smallDisplayValue = num1 + num2;
+    setAdditionActive();
+}
+
+
+// Performs operation on two numbers, then resizes the main display to prevent overflow
 function operate(operator, num1, num2) {
-    console.log(operator);
-    // if (operator === buttonDivision.value) {
-    //     divide(num1, num2);
-    // }
-    // else if (operator === buttonMultiplication.value) {
-    //     multiply(num1, num2);
-    // }
-    // else if (operator === buttonSubtraction.value) {
-    //     subtract(num1, num2);
-    // }
-    // else if (operator === buttonAddition.value) {
-    //     add(num1, num2);
-    // }
     operator === buttonDivision.value ? divide(num1, num2)
     : operator === buttonMultiplication.value ? multiply(num1, num2)
     : operator === buttonSubtraction.value ? subtract(num1, num2)
     : add(num1, num2);
     setCurrentNumberFontSize(smallDisplayValue);
+    console.log(smallDisplayValue);
     operatorIsActive = true;
 }
 
+
+//  (For "operator" buttons only) Performs operation based on selected operator, sets new text for the small display
 let previousOperator = "";
 function solveUsingOperatorButton(operator, num1, num2) {
     if (operator === buttonDivision.value) {
-        isActiveDivision = true;
-        isActiveMultiplication = false;
-        isActiveSubtraction = false;
-        isActiveAddition = false;
+        setDivisionActive();
     }
     else if (operator === buttonMultiplication.value) {
-        isActiveDivision = false;
-        isActiveMultiplication = true;
-        isActiveSubtraction = false;
-        isActiveAddition = false;
+        setMultiplicationActive();
     }
     else if (operator === buttonSubtraction.value) {
-        isActiveDivision = false;
-        isActiveMultiplication = false;
-        isActiveSubtraction = true;
-        isActiveAddition = false;
+        setSubtractionActive();
     }
     else if (operator === buttonAddition.value) {
-        isActiveDivision = false;
-        isActiveMultiplication = false;
-        isActiveSubtraction = false;
-        isActiveAddition = true;
+        setAdditionActive();
     }
 
     if (operationsCount > 0) {
@@ -219,6 +222,7 @@ function solveUsingOperatorButton(operator, num1, num2) {
             operate(operator, num1, num2);
         }
         setSmallDisplay(operator, smallDisplayValue);
+        console.log(smallDisplayValue);
     }
     else {
         if (displayBigText.innerText.includes(".")) {
@@ -235,9 +239,16 @@ function solveUsingOperatorButton(operator, num1, num2) {
     operationsCount++;
 }
 
+
+// (For "equals" button only) Performs operation based on selected operator, sets new text for the small display
 function solveUsingEqualsButton(operator, num1, num2) {
     if (operatorIsActive) {
-        operate(operator, num1, num2);
+        if (operator !== previousOperator && previousOperator !== "") {
+            operate(previousOperator, num1, num2);
+        }
+        else {
+            operate(operator, num1, num2);
+        }
         operatorIsActive = false;
     }
     else {
@@ -252,13 +263,11 @@ function solveUsingEqualsButton(operator, num1, num2) {
             displaySmallText.innerText = smallDisplayValue;
         }
     }
-    isActiveDivision = false;
-    isActiveMultiplication = false;
-    isActiveSubtraction = false;
-    isActiveAddition = false;
+    setOperatorsInactive();
+    previousOperator = operator;
 }
 
-//
+// Sets new text for main display when entering a digit
 function setMainDisplay() {
     if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
         setCurrentNumberFontSize(displayBigText.innerText);
@@ -274,8 +283,6 @@ function setMainDisplay() {
                     displayBigText.innerText += this.value;
                 }
             }
-            // operatorIsActive ? displayBigText.innerText = this.value
-            // : displayBigText.innerText += this.value;
             else {
                 if (mainDisplayValue === smallDisplayValue && displayBigText.innerText !== "0.") {   /*  && !displayBigText.innerText.includes(".") */
                     displayBigText.innerText = this.value;
@@ -285,24 +292,20 @@ function setMainDisplay() {
                 }
             }
         }
-        //----------------------------------------------
         else if (displaySmallText.innerText.includes(" ")) {
             displayBigText.innerText = this.value;
         }
-        //----------------------------------------------
+
         if (displayBigText.innerText.includes(".")) {
             mainDisplayValue = parseFloat(displayBigText.innerText);
         }
         else {
             mainDisplayValue = parseInt(displayBigText.innerText);
         }
-        // operatorIsActive = false;
-        console.log(mainDisplayValue);
     }
 }
 
 function setSmallDisplay(operator, num1) {
-        // displaySmallText.innerText = smallDisplayValue + " " + operator;
         mainDisplayValue = num1;
 
         if (num1.length < 12) {
@@ -354,10 +357,7 @@ function allClear() {
     displaySmallText.innerText = "";
     mainDisplayValue = 0;
     smallDisplayValue = 0;
-    isActiveAddition = false;
-    isActiveDivision = false;
-    isActiveMultiplication = false;
-    isActiveSubtraction = false;
+    setOperatorsInactive();
     // setOperatorColor();
     operationsCount = 0;
     operatorIsActive = false;
@@ -606,7 +606,6 @@ function fitAnswerToDisplay() {
 touchNumbers.forEach(number => number.addEventListener("mouseup", setMainDisplay));
 touchOperator.forEach(operator => operator.addEventListener("mouseup", () => {
     solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
-    // setSmallDisplay(operator.value, smallDisplayValue);
 }));
 buttonEquals.addEventListener("mouseup", () => {
     if (isActiveDivision && mainDisplayValue === 0) {
@@ -628,11 +627,6 @@ buttonEquals.addEventListener("mouseup", () => {
     else if (isActiveAddition) {
         solveUsingEqualsButton(buttonAddition.value, smallDisplayValue, mainDisplayValue);
     }
-    // isActiveDivision ? solveUsingEqualsButton(buttonDivision.value, smallDisplayValue, mainDisplayValue)
-    // : isActiveMultiplication ? solveUsingEqualsButton(buttonMultiplication.value, smallDisplayValue, mainDisplayValue)
-    // : isActiveSubtraction ? solveUsingEqualsButton(buttonSubtraction.value, smallDisplayValue, mainDisplayValue)
-    // : isActiveAddition ? solveUsingEqualsButton(buttonAddition.value, smallDisplayValue, mainDisplayValue)
-    // : console.log("Hello");
     if (displaySmallText.innerText === "") {
         if (displayBigText.innerText.includes(".")) {
             mainDisplayValue = parseFloat(displayBigText.innerText);
