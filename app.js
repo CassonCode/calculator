@@ -184,6 +184,7 @@ function operate(operator, num1, num2) {
     operatorIsActive = true;
 }
 
+let previousOperator = "";
 function solveUsingOperatorButton(operator, num1, num2) {
     if (operator === buttonDivision.value) {
         isActiveDivision = true;
@@ -211,7 +212,12 @@ function solveUsingOperatorButton(operator, num1, num2) {
     }
 
     if (operationsCount > 0) {
-        operate(operator, num1, num2);
+        if (operator !== previousOperator && previousOperator !== "") {
+            operate(previousOperator, num1, num2);
+        }
+        else {
+            operate(operator, num1, num2);
+        }
         setSmallDisplay(operator, smallDisplayValue);
     }
     else {
@@ -224,6 +230,7 @@ function solveUsingOperatorButton(operator, num1, num2) {
             smallDisplayValue = parseInt(displayBigText.innerText);
         }
     }
+    previousOperator = operator;
     operatorIsActive = true;
     operationsCount++;
 }
