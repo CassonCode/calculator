@@ -572,6 +572,10 @@ span {
         background-color: #f0f0f0e7;
     }
 
+    .touch-operator {
+        padding-bottom: 3px;
+    }
+
     .button-all-clear:hover {
         background-color: #ff9b9b;
     }
