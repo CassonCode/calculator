@@ -486,7 +486,7 @@ span {
         margin: auto;
         width: 400px;
         height: 550px;
-        transition: width 0.65s ease;
+        transition: width 0.55s ease;
     }
 
     .container-center-content-DARK {
@@ -504,7 +504,7 @@ span {
         max-height: 550px;
         z-index: 1000;
         transform: translateX(0);
-        transition: transform 0.65s;
+        transition: transform 0.55s;
         transition-timing-function: ease;
     }
 
