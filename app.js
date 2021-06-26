@@ -711,8 +711,8 @@ buttonEquals.addEventListener("mouseup", () => {
     changeHistoryTextarea();
 });
 
-numberPadButtons.forEach(button => button.addEventListener("touchstart", changeColorTouchStart));
-numberPadButtons.forEach(button => button.addEventListener("touchend", changeColorTouchEnd));
+numberPadButtons.forEach(button => button.addEventListener("touchstart", changeColorTouchStart, {passive: true}));
+numberPadButtons.forEach(button => button.addEventListener("touchend", changeColorTouchEnd, {passive: true}));
 buttonAllClear.addEventListener("mouseup", allClear);
 buttonClearEntry.addEventListener("mouseup", clearEntry);
 buttonDeleteLastDigit.addEventListener("mouseup", deleteLastDigit);
