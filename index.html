@@ -18,7 +18,7 @@
         <![endif]-->
         <div class="container-page">
             <header class="desktop-header">
-                <button class="desktop-history-popup-button">Show History</button>
+                <button class="desktop-history-popup-button" name="desktop-history-popup-button">Show History</button>
                 <h1 class="desktop-title">Calculator</h1>
                 <div class="desktop-light-dark-mode"></div>
             </header>
@@ -34,26 +34,26 @@
                             </div>
                         </div>
                         <div class="container-number-pad">
-                            <button class="number-pad-buttons button-all-clear">AC</button>
-                            <button class="number-pad-buttons touch-delete button-clear-entry">CE</button>
-                            <button class="number-pad-buttons touch-delete button-delete-last-digit"></button>
-                            <button class="number-pad-buttons touch-operator button-division" value="&#247"><span>&#247;</span></button>
-                            <button class="number-pad-buttons touch-numbers button-number-seven" value="7">7</button>
-                            <button class="number-pad-buttons touch-numbers button-number-eight" value="8">8</button>
-                            <button class="number-pad-buttons touch-numbers button-number-nine" value="9">9</button>
-                            <button class="number-pad-buttons touch-operator button-multiplication" value="&#215"><span>&#215;</span></button>
-                            <button class="number-pad-buttons touch-numbers button-number-four" value="4">4</button>
-                            <button class="number-pad-buttons touch-numbers button-number-five" value="5">5</button>
-                            <button class="number-pad-buttons touch-numbers button-number-six" value="6">6</button>
-                            <button class="number-pad-buttons touch-operator button-subtraction" value="&#8722"><span>&#8722;</span></button>
-                            <button class="number-pad-buttons touch-numbers button-number-one" value="1">1</button>
-                            <button class="number-pad-buttons touch-numbers button-number-two" value="2">2</button>
-                            <button class="number-pad-buttons touch-numbers button-number-three" value="3">3</button>
-                            <button class="number-pad-buttons touch-operator button-addition" value="&#43"><span>&#43;</span></button>
-                            <button class="number-pad-buttons button-positive-negative"></button>
-                            <button class="number-pad-buttons touch-numbers button-number-zero" value="0">0</button>
-                            <button class="number-pad-buttons button-decimal" value=".">.</button>
-                            <button class="number-pad-buttons button-equals" value="&#61"><span>&#61;</span></button>
+                            <button name="number-pad-buttons" class="number-pad-buttons button-all-clear">AC</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-delete button-clear-entry">CE</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-delete button-delete-last-digit"></button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-operator button-division" value="&#247"><span>&#247;</span></button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-seven" value="7">7</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-eight" value="8">8</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-nine" value="9">9</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-operator button-multiplication" value="&#215"><span>&#215;</span></button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-four" value="4">4</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-five" value="5">5</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-six" value="6">6</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-operator button-subtraction" value="&#8722"><span>&#8722;</span></button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-one" value="1">1</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-two" value="2">2</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-three" value="3">3</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-operator button-addition" value="&#43"><span>&#43;</span></button>
+                            <button name="number-pad-buttons" class="number-pad-buttons button-positive-negative"></button>
+                            <button name="number-pad-buttons" class="number-pad-buttons touch-numbers button-number-zero" value="0">0</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons button-decimal" value=".">.</button>
+                            <button name="number-pad-buttons" class="number-pad-buttons button-equals" value="&#61"><span>&#61;</span></button>
                         </div>
                     </div>
                     <div class="container-history mobile-hide-history desktop-history-slide-right">
@@ -61,7 +61,8 @@
                             <!-- <div class="desktop-exit-history"></div> -->
                             <div class="desktop-history-title">History</div>
                         </div>
-                        <textarea name="history-textarea" class="history-textarea" cols="30" rows="10" readonly>No History</textarea>
+                        <textarea name="history-textarea" class="history-textarea" id="history-textarea" cols="30" rows="10" readonly>No History</textarea>
+                        <label for="history-textarea"></label>
                         <div class="container-delete-history">
                             <div class="delete-history"></div>
                         </div>
