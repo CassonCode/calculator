@@ -979,6 +979,7 @@ span {
 
     .desktop-github-account-link:hover {
         text-shadow: 0 0 1px #000;   /* #ffb26f */
+        text-decoration: none;
     }
 
     .desktop-github-account-link-DARK {
