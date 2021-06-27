@@ -610,7 +610,7 @@ function changeHistoryTextarea() {
 
 // Prevents display numbers from overflowing
 function fitAnswerToDisplay() {
-    if (smallDisplayValue.toString().length > 10) {
+    if (smallDisplayValue.toString().length > 9) {
         let decimalIndex = smallDisplayValue.toString().indexOf(".");
         let digitsBeforeDecimal = smallDisplayValue.toString().slice(0, decimalIndex);
         if (digitsBeforeDecimal.length > 6 || (!smallDisplayValue.toString().includes(".") && smallDisplayValue.toString().length > 12)) {
