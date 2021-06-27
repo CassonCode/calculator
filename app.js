@@ -286,6 +286,45 @@ function setMainDisplay() {
 }
 
 
+//
+function setMainDisplayKeyboard(digit) {
+    if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
+        setCurrentNumberFontSize(displayBigText.innerText);
+        if (displayBigText.innerText === "0") {
+            displayBigText.innerText = digit;
+        }
+        else if (displayBigText.innerText.length < 12) {
+            if (operatorIsActive) {
+                if (mainDisplayValue === smallDisplayValue) {
+                    displayBigText.innerText = digit;
+                }
+                else {
+                    displayBigText.innerText += digit;
+                }
+            }
+            else {
+                if (mainDisplayValue === smallDisplayValue && displayBigText.innerText !== "0.") {   
+                    displayBigText.innerText = digit;
+                }
+                else {
+                    displayBigText.innerText += digit;
+                }
+            }
+        }
+        else if (displaySmallText.innerText.includes(" ")) {
+            displayBigText.innerText = digit;
+        }
+
+        if (displayBigText.innerText.includes(".")) {
+            mainDisplayValue = parseFloat(displayBigText.innerText);
+        }
+        else {
+            mainDisplayValue = parseInt(displayBigText.innerText);
+        }
+    }
+}
+
+
 // Reusable function that changes the text for the small display
 function setSmallDisplay(operator, num1) {
         mainDisplayValue = num1;
@@ -587,15 +626,8 @@ function fitAnswerToDisplay() {
 }
 
 
-
-//----------------------------------------------------------------------------------------------------------------------------
-//  Event Listeners
-
-touchNumbers.forEach(number => number.addEventListener("mouseup", setMainDisplay));
-touchOperator.forEach(operator => operator.addEventListener("mouseup", () => {
-    solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
-}));
-buttonEquals.addEventListener("mouseup", () => {
+//
+function getAnswer() {
     if (isActiveDivision && mainDisplayValue === 0) {
         smallDisplayValue = 0;
         mainDisplayValue = 0;
@@ -709,11 +741,88 @@ buttonEquals.addEventListener("mouseup", () => {
     }
     historyTextArea.classList.add("history-textarea-with-content");
     changeHistoryTextarea();
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------
+//  Event Listeners
+
+touchNumbers.forEach(number => number.addEventListener("mouseup", setMainDisplay));
+touchOperator.forEach(operator => operator.addEventListener("mouseup", () => {
+    solveUsingOperatorButton(operator.value, smallDisplayValue, mainDisplayValue);
+}));
+buttonEquals.addEventListener("mouseup", () => {
+    getAnswer();
 });
 
 numberPadButtons.forEach(button => button.addEventListener("touchstart", changeColorTouchStart, {passive: true}));
 numberPadButtons.forEach(button => button.addEventListener("touchend", changeColorTouchEnd, {passive: true}));
 buttonAllClear.addEventListener("mouseup", allClear);
+document.addEventListener("keydown", (event) => {
+    switch (event.key) {
+        case "a":
+            allClear();
+            break;
+        case "c":
+            clearEntry();
+            break;
+        case "Backspace":
+            deleteLastDigit();
+            break;
+        case "/":
+            solveUsingOperatorButton(buttonDivision.value, smallDisplayValue, mainDisplayValue);
+            break;
+        case "*":
+            solveUsingOperatorButton(buttonMultiplication.value, smallDisplayValue, mainDisplayValue);
+            break;
+        case "-":
+            solveUsingOperatorButton(buttonSubtraction.value, smallDisplayValue, mainDisplayValue);
+            break;
+        case "+":
+            solveUsingOperatorButton(buttonAddition.value, smallDisplayValue, mainDisplayValue);
+            break;
+        case "Enter":
+            getAnswer();
+            break;
+        case "0":
+            setMainDisplayKeyboard(0);
+            break;
+        case "1":
+            setMainDisplayKeyboard(1);
+            break;
+        case "2":
+            setMainDisplayKeyboard(2);
+            break;
+        case "3":
+            setMainDisplayKeyboard(3);
+            break;
+        case "4":
+            setMainDisplayKeyboard(4);
+            break;
+        case "5":
+            setMainDisplayKeyboard(5);
+            break;
+        case "6":
+            setMainDisplayKeyboard(6);
+            break;
+        case "7":
+            setMainDisplayKeyboard(7);
+            break;
+        case "8":
+            setMainDisplayKeyboard(8);
+            break;
+        case "9":
+            setMainDisplayKeyboard(9);
+            break;
+        case ".":
+            addDecimal();
+            break;
+        default:
+            break;
+    }
+});
 buttonClearEntry.addEventListener("mouseup", clearEntry);
 buttonDeleteLastDigit.addEventListener("mouseup", deleteLastDigit);
 buttonPositiveNegative.addEventListener("mouseup", changePositiveOrNegative);
