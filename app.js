@@ -180,42 +180,44 @@ function operate(operator, num1, num2) {
 // (For "operator" buttons only) Performs operation based on selected operator, sets new text for the small display
 let previousOperator = "";
 function solveUsingOperatorButton(operator, num1, num2) {
-    if (operator === buttonDivision.value) {
-        setDivisionActive();
-    }
-    else if (operator === buttonMultiplication.value) {
-        setMultiplicationActive();
-    }
-    else if (operator === buttonSubtraction.value) {
-        setSubtractionActive();
-    }
-    else if (operator === buttonAddition.value) {
-        setAdditionActive();
-    }
+    if (!(displayBigText.innerText === `Can't ${buttonDivision.value} By 0`)) {
+        if (operator === buttonDivision.value) {
+            setDivisionActive();
+        }
+        else if (operator === buttonMultiplication.value) {
+            setMultiplicationActive();
+        }
+        else if (operator === buttonSubtraction.value) {
+            setSubtractionActive();
+        }
+        else if (operator === buttonAddition.value) {
+            setAdditionActive();
+        }
 
-    if (operationsCount > 0) {
-        if (operator !== previousOperator && previousOperator !== "") {
-            operate(previousOperator, num1, num2);
+        if (operationsCount > 0) {
+            if (operator !== previousOperator && previousOperator !== "") {
+                operate(previousOperator, num1, num2);
+            }
+            else {
+                operate(operator, num1, num2);
+            }
+            setSmallDisplay(operator, smallDisplayValue);
+            console.log(smallDisplayValue);
         }
         else {
-            operate(operator, num1, num2);
+            if (displayBigText.innerText.includes(".")) {
+                displaySmallText.innerText = parseFloat(displayBigText.innerText) + " " + operator;
+                smallDisplayValue = parseFloat(displayBigText.innerText);
+            }
+            else {
+                displaySmallText.innerText = parseInt(displayBigText.innerText) + " " + operator;
+                smallDisplayValue = parseInt(displayBigText.innerText);
+            }
         }
-        setSmallDisplay(operator, smallDisplayValue);
-        console.log(smallDisplayValue);
+        previousOperator = operator;
+        operatorIsActive = true;
+        operationsCount++;
     }
-    else {
-        if (displayBigText.innerText.includes(".")) {
-            displaySmallText.innerText = parseFloat(displayBigText.innerText) + " " + operator;
-            smallDisplayValue = parseFloat(displayBigText.innerText);
-        }
-        else {
-            displaySmallText.innerText = parseInt(displayBigText.innerText) + " " + operator;
-            smallDisplayValue = parseInt(displayBigText.innerText);
-        }
-    }
-    previousOperator = operator;
-    operatorIsActive = true;
-    operationsCount++;
 }
 
 
