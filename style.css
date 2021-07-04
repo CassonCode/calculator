@@ -811,7 +811,7 @@ span {
         border: none;
         box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.253);
         font-family: "Lato";
-        margin-left: -400px;
+        margin-left: -380px;
         margin-top: 50px;
         font-size: 20px;
         letter-spacing: 1px;
@@ -911,7 +911,7 @@ span {
     .desktop-title {
         color: #241100;
         font-size: 50px;
-        margin-left: 240px;
+        margin-left: 220px;
         margin-top: 40px;
         letter-spacing: 2px;
     }
